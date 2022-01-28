@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>More thoughts on webster</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">09 Sep 2009</p>
+
+<div id="post">
+<h1>More thoughts on webster</h1>
+<div class='post'>
+I've been browsing on the general concept of structured editors hoping to find precedents, and finally hit paydirt recently - they were apparently a rage in the 80s and 90s and quite a bit of research was done on them. Of course, they were called syntax directed editors then.<br /><br />Google returned a lot of hits on this new term, and one paper in particular caught my attention: http://arxiv.org/PS_cache/arxiv/pdf/0710/0710.2358v1.pdf<br /><br />It talks about a syntax directed editor called Absynthe which allowed editing of code via the grammar of its language - the editor would provide templates for entry of valid language constructs, complete with placeholders for the free text pieces. Of course, they use the right terminology - syntax elements and terminal symbols, respectively.<br /><br />The paper also went into some detail as to why such editors have not found much favor:<blockquote></blockquote><blockquote>A first problem within a pure template model is that only terminal symbols can be entered as free text. This characteristic is absolutely intolerable in practice. Suppose you want to enter an arithmetic expression containing three or four operators. Then you should select the appropriate template by means of commands or menus for each operator and argument - which results in many additional commands being triggered.<br /><br />This is why a pure template model has never been implemented in practice. Both the Cornell Program Synthesizer ([Reps 84], [Teitelbaum]) and Mentor ([Donzeau]) have used an hybrid model of top-down replacement of place holders with template and bottom-up construction of phrases from free text. We have also adopted such a model in Absynte. In a hybrid model, a focus is used to delimit an area of free text editing. In this area the text may be temporary incorrect. In the systems where the internal representations are ASTs, a first drawback is the administration required for parsing and unparsing the new representation.<br /><br />If a free area is really useful to enter arithmetic expressions it does not solve the most important defect of the template model: how to handle modifications within a tree structure ? The replacement of a while statement by an until or if statement is more difficult than the corresponding change in a traditional text editor (the later is quite simple). In general, the replacement of one construct by another causes all information belonging to the old construct to be deleted. If the user wants to save some pieces, he can sometimes do it in special buffers or windows, but he must perform these operations separately (for each syntactic category and, of course, before the complete removal) because every piece of program to be saved must be inserted in its future template separately.</blockquote>I don't have any better answers than the one suggested in the paper itself - that of storing deleted node content in a special buffer for use later - but here're some of my thoughts:<br /><ul><li>Navigation = change of mode. That is, if you navigate out of one of the free text/terminal symbol areas, you're automatically in "edit node mode" - transparently.</li><li>Allow pre-order creation of child nodes. That is, instead of requiring that the parent be created before the children can be, allow the tree to be created from all possible left (or right, if the language is RTL) terminal symbols, and keep pruning the tree as you go.</li><li>More to come as I think of it<br /></li></ul></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags:  </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

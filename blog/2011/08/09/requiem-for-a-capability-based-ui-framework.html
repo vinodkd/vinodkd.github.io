@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Requiem for a capability-based UI framework</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">09 Aug 2011</p>
+
+<div id="post">
+<h1>Requiem for a capability-based UI framework</h1>
+<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">I recently bought a macbook and was somewhat surprised to be back in a world where you had to pay for software :). Needing an outliner and not wanting to buy one, I thought I'd build one myself; using that as an experience to try out Fantom - a language that I've been meaning to try out for some time now.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Fantom comes with its own UI toolkit - FWT - which is a wrap on the SWT framework; only since extended to handle Javascript output as well. Promising enough; so I set out to build my simple outliner. A few hours of copying from samples and looking up the API later, I had a basic tree displayed on my screen. That's when I hit the snag.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">You see, FWT's Tree Control didnt allow editing the nodes, neither did its model. I didnt ask the Fantom community, but it looked like you had to build it. An outliner without an editable tree seemed pointless, so I stopped there.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">More importantly, I stopped because building an editable tree control in FWT was at least one order of magnitude more difficult. Merely on my requirement for a directly editable tree control, the effort to build my app went from "Using FWT to quickly building an outliner" to "Figuring out how SWT does editable Tree Controls, then figuring out how the authors of FWT have chosen to interact with SWT ie, Fantom's FFI, making changes that fit with the rest of the FWT model/control concepts and optionally making sure it works on Javascript (if I wanted it to be a true FWT control)". From all the passive lurking I've done on the Fantom community, it's probable I'm a bit off in the level of effort and there's a better way than the doomsday scenario I've painted here, but my point is this:</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><br /></div><ul style="text-align: left;"><li style="text-align: justify;">Most UI frameworks are dichotomies: there are the standard controls and the custom ones.&nbsp;</li>
+ <li style="text-align: justify;">Standard ones are easy to use, custom ones are not.&nbsp;</li>
+ <li style="text-align: justify;">In fact the custom ones are not easy to build either because the UI framework typically provide a blank slate for display (aka the canvas) and a generic message pump (aka the event loop+event object hierarchy). Everything else is up to you-who-isnt-happy-with-the-standard-controls.</li>
+ <li style="text-align: justify;">The upside: if the framework is popular/active, more custom ones become standard ones over time. So if you're willing to play the waiting game, you'll get what you want.</li>
+ <li style="text-align: justify;">The downside: If you dont want to wait, or have the really cool interaction design that needs all-custom controls, you're down to building them from scratch yourself.</li>
+ </ul><div><div style="text-align: justify;"><span class="Apple-style-span" style="font-family: 'Trebuchet MS', sans-serif;">Aside: I measure UI framework maturity in terms of how close/far off it is from a standard editable tree+table control. All UI frameworks inevitably gravitate towards this control (because you WILL finally need one) and when you do, you're doing it because your customers/users need it - ergo you have reached maturity.&nbsp;I think I'll call this Vinod's UI Law - <b><i>A UI framework is mature when it has a standard editable tree+table control</i></b> :)</span></div></div><div><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><span class="Apple-style-span" style="font-size: large;">Capabilities</span></div></div><div><div style="text-align: justify;">Anyhoo, the point of this post: Why can't UI frameworks be oriented more towards what the controls DO instead of what they ARE? Imagine a framework that describes its controls in terms of their attributes or capabilities; things like :&nbsp;</div></div><blockquote class=""><ul style="text-align: left;"><li style="text-align: justify;">Editable/Display Only,&nbsp;</li>
+ </ul></blockquote><blockquote class=""><ul style="text-align: left;"><li style="text-align: justify;">Aggregated (ie, represents a list of data elements at once),&nbsp;</li>
+ </ul></blockquote><blockquote class=""><ul style="text-align: left;"><li style="text-align: justify;">Drag/droppable,&nbsp;</li>
+ </ul></blockquote><blockquote class=""><ul style="text-align: left;"><li style="text-align: justify;">Executes a command,&nbsp;</li>
+ </ul></blockquote><blockquote class=""><ul style="text-align: left;"><li style="text-align: justify;">Selects a value (single/multi),&nbsp;</li>
+ </ul></blockquote><blockquote class=""><ul style="text-align: left;"><li style="text-align: justify;">Reads in text</li>
+ </ul></blockquote><div style="text-align: justify;">Each of these capabilities brings to mind the set of operations that a control that has that capability should support. For example, an editable control should have a model.edit() and a view.onEdit().</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">The implementations of each of these operations are obviously dependent on the specific control, but the benefit of having controls defined this way makes them both easy to implement and replace/switch from. It also allows a "degrade path" for presenting controls. In a device with reduced resources, it might make sense to instantiate the simpler parent control that the much more capable child because they support the same interface.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><span class="Apple-style-span" style="font-size: large;">Painting</span></div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Now onto the actual painting of the control itself. The common strategy by all frameworks is to provide a Canvas and a set of tools to draw on it. You can repaint() when you're done with the changes from recent events, and your control displays in the updated state. Can this be improved at all?</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">What if the painting of the control changes from a list of procedural steps to a description of the the final display? Eg, a button that was painted by drawing a rectangle, and then drawing some text over that rectangle would now be described as a "rectangle containing text blah". That way, low level APIs (think GL, SWT) would have to only be provided with the parsed form of the description as a set of draw instructions to execute.</div><div style="text-align: justify;">Con: All this parsing will come at a price on performance</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">We don't need to stop there, however. What if version 0 of the control's entire display was an image, and each of its possible states were also images that are replaced (suitably scaled, etc) like sprites? We could even imagine the version 0 being retained to allow graceful degradation of the UI (in older versions of the device, for eg) similar to the Alt text in HTML. Another approach that the low-level API could take is to treat the description as the spec for an image map with regions that can be interacted with.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">This still doesn't completely alleviate the "order of magnitude" problem I mentioned above. Somebody still has to write the low level API to translate the description of the control into actual display logic. However, it does make custom UI controls first class citizens, and it does so in an implementation-neutral way. As long as somebody writes a low level API that can parse the control's description, it can be displayed in a device.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><span class="Apple-style-span" style="font-size: large;">Eventing</span></div><div style="text-align: justify;">Onto Eventing. Eventing frameworks continue the dichotomy of standard and custom. Most (all?) UI eventing frameworks assume a standard set of events that are typically tied to the physical input and output peripherals that the system uses and provide direct support for their events. This is obviously useful in getting up-and-running quickly, but adding any new events is quickly relegated to the vendor providing the new input/output device/peripheral. Can this be improved? Consider the following contrasting ways of looking at the same event:</div><div style="text-align: justify;"><br /></div><ul style="text-align: left;"><li style="text-align: justify;">"Key pressed" vs "character input"</li>
+ <li style="text-align: justify;">"Many keys pressed, followed by loss of focus" vs "string entered"</li>
+ <li style="text-align: justify;">"value entered in day textbox within set containing month and year textboxes" vs "Calendar control's date region clicked" vs "Day part of day chosen"</li>
+ <li style="text-align: justify;">"Save Button clicked" vs "Save Command chosen"</li>
+ <li style="text-align: justify;">"Three finger salute" vs "Lock screen command chosen"</li>
+ </ul><div><div style="text-align: justify;">I've deliberately picked some known examples to highlight that we're already halfway there. We DO have "high level" events already in most frameworks. My suggestion is to elevate them to the only ones available via the API and provide a language for the compounding of low level (physical) events into such high level ones.</div></div><div><div style="text-align: justify;">This way, the API is no longer tied to the specific capabilities and/or peripherals attached to the device in use.</div></div><div><div style="text-align: justify;"><br /></div></div><div><div style="text-align: justify;">So there you have it, my requiem for a capability-based UI framework:</div></div><div style="text-align: left;"><ol style="text-align: left;"><li style="text-align: justify;">Describe controls in terms of what they do. The allowed set of operations on a control should be governed by a set of interfaces/mixins that its defined to follow</li>
+ <ol><li style="text-align: justify;">Extending a control by adding a new interface/mixin should bring in default behavior of that capability</li>
+ </ol><li style="text-align: justify;">Describe - not define - how the control should be painted. Let the implementation ABI know merely how to translate the description into the specific display</li>
+ <li style="text-align: justify;">Define the eventing API in terms or High level events and define a language to compound low level events into the high level ones.&nbsp;</li>
+ </ol></div></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags: ideas </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

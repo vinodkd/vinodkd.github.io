@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Thoughts on Joey</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">17 Apr 2009</p>
+
+<div id="post">
+<h1>Thoughts on Joey</h1>
+<div class='post'>
+<ul><li>It will mimic Chandler to a great extent - many things they just got right. Eg, all items show up in one flat space.</li><li>It will not have folders at all - only tags a la Gmail.</li><li>Everything will first show up in the main dashboard which is effectively the inbox. There will be no explicitly named folder called inbox</li><li>similarly there will be no Sent items folder. They will automatically tagged as "reference" or "info" or show up in the dashboard with a sent tag. The idea behind this is that there is really no other use for sent items than as reference material unless we're expecting a response and want to watch it. So the user has the option to tag it as watching before its sent, in which case it will automatically trigger a tickler when the user needs to be reminded if a response came, or a follow up needs to be sent.<br /></li><li>Projects and subprojects will be handled via hierarchical tagging, instead of the much more complicated route of have tasks and sub tasks. This comes from the insight I had that a) you cannot execute a project, only its tasks, and b) at the execution level, it need but just a flat todo-list. So taking the hierarchical aspect out of the task list helps, and we still retain that structure in the hierarchical tagging. So my strawman design for hiearchical tags is:</li></ul>                     simple tag: home, fun, work<br />                  hierarchical tag: Projects. Project A. task1, Projects. Project B. Sub Project B1. task 3<br /><ul><li>Bring ubiquity/awesome bar concept to PIMs. This is already there in Chandler, but enhance it to make that a primary use vector.</li><li>Make it generic enough that the PIM can be made behave either like a GTD PIM, or like Outlook, if so required.</li><li>Nice to have: Tasks show up in Calendar view if no date is provided, so that allocation can happen right there.<br /></li></ul><br />Design thoughts<br /><ul><li>The core of Joey will know only about items and display them. The user can then setup a profile that has rule on what to do with the items.</li><li>Items can be automatically got from an Exchange/IMAP/POP server or created by hand; and Joey will not do anything special with them like putting them in a special folder called "Inbox". Instead the rules of what should go where will be created by the user.</li><li>Similarly the actions that can be done on an item would be configurable in the profile, and they're effectively two kinds:<br /></li><ul><li>tag it</li><li>change its type</li><li>"act" on it. which depends on the item's type. For a mail its to respond. For an event its to attend and dismiss it, etc.<br /></li></ul><li>The profile, therefore, will say the following:</li><ul><li>what to do with an item when its rendered on the dashboard - tag it to a particular type or not<br /></li><li>what action to take on it when the user "acts" on it.<br /></li></ul><br /></ul></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags:  </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

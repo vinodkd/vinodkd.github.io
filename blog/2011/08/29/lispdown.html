@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Lispdown</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">29 Aug 2011</p>
+
+<div id="post">
+<h1>Lispdown</h1>
+<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">As I read SICP, an idea arose in my mind to create a ()-less lisp. Its been done before, of course, but I was not really trying to redesign the language as I was attempting to remove visual clutter. To that end, I present:<br /><br />&nbsp;Lispdown. Its lisp, and its like markdown, get it?<br /><br />This is still WIP, so if by some bizzare chance this gets into HN or reddit, bear with me. Its not done yet. In fact, its vaporware at this point. Just a concept. And a strawman at that :)<br /><br />Alright, here we go:<br /><br /><br /><ul style="text-align: left;"><li>Lispdown is to lisp as markdown is to html.&nbsp;Therefore, valid lisp is always valid lispdown. If you cannot use lispdown syntax, just use lisp's.</li><li>&nbsp;Known forms are like begin-parens; add an end to finish them (Thanks ruby!)</li><li>A list is formed by&nbsp;any set of lines that has some sort of list begin marker(each line is an element), or&nbsp;a line separated by commas,&nbsp;or a part of a line in () or [] or {} separated by spaces or commas</li><li>A pair is formed using a colon to separate the two bits. this is only for readability as a space will do just fine.</li><li>I've yet to figure out how complex trees of function bodies can be reliably converted to lispdown without introducing python-style whitespace interpretation.</li></ul><div><b>Update: There is now <a href="https://github.com/vinodkd/lispdown">a Lispdown implementation</a></b></div></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags: lispdownsicpideas-wip </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

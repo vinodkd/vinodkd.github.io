@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Explicit Language constructs for architectural concepts</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">10 Feb 2013</p>
+
+<div id="post">
+<h1>Explicit Language constructs for architectural concepts</h1>
+<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">You know how we have modules, layers and environments for code but none of these concepts are actually IN the language?</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Modules are typically self contained chunks of code that expose an interface to some useful logic. It is not important how it does what it does; but it IS important that we be able to find the module and call it. In most OO languages, we use functions or object/class methods to hold such logic, but then have to actually build the concept of module using user-visible mechanisms.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Layers are another conceptual tool for organizing code. This typically reduces to packages or namespaces, but neither of these concepts actually enforce a hierarchy or "can/cant call" rules. Similarly, it would make great sense for dependencies themselves to be layered this way, but no language that supports imports also supports defining the layer for those dependencies.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Environments - which I mean the container or context in which code runs - are similarly underspecified. &nbsp; Most languages define a main entry point and are call it done. Why not have a generic way of stating an entry point that includes a declaration of the environment (or even environments - plural)? The declaration of environment allows for the actual standup of said environment and trigger of the main code to be separated from the code itself; while the ability to declare that "this code runs in both gui and cli environments", for example, allows explicit declaration of such purity in the code and allows determining if this is true statically.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Well, this idea is to explicitly add those concepts to the language syntax itself.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">The idea is that the implementation explicitly states the architecture assumed. Two advantages:</div><div style="text-align: justify;"><br /></div><ul style="text-align: left;"><li style="text-align: justify;">The intended architecture is explicitly available to future developers</li><li style="text-align: justify;">Tools can be brought to bear on code directly, maybe even in the language</li></ul><div><div style="text-align: justify;">Of course, this does mean that the language knows only about specific types of organizing code. Within that limitation, however, things are much more clear, IMO.</div></div></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags: ideasjack </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Idea: Automatic unit tests</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">11 Nov 2008</p>
+
+<div id="post">
+<h1>Idea: Automatic unit tests</h1>
+<div class='post'>
+Although the TDD folks have been pushing the concept of "test code first, actual code next", I've seen that doing that actually requires some maturity and a larger amount of discipline. But what struck me was that all developers actually do test their code before putting it out; they just dont code the unit tests always. How do they do this? Well, by running the code and looking at the output - be it in a debugger or with SOP prints or logger output, or GUI display. Everything that a junit requires is there, except the assertion which is done visually by the developer.<br /><br />So how about creating a Record mode for the program run - probably as an Eclipse plugin. Once you click record, it would record the state of the program run - every method call and its inputs and outputs. This by itself is a solved problem - debuggers do it all the time. Then when the program's finished running, you present the developer with the execution trace, and ask him to pick the ones he'd like to convert into tests. When he picks particular method calls, the plugin then allows him to choose what preconditions of that method call need to go into the setup() (and corresponding postconditions into the tearDown()) and also allows him to inspect the output and create assertions. Once these are chosen, a test is created with these values automatically, and added to that class' test suite.</div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags: ideas </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

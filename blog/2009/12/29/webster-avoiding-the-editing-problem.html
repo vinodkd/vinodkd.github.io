@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>webster: avoiding the editing problem</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">29 Dec 2009</p>
+
+<div id="post">
+<h1>webster: avoiding the editing problem</h1>
+<div class='post'>
+<div style="text-align: justify;">- "everything is  a graph": the problem (as is obvious from various discussions on the web on the topic) with structured editors is to allow seamless editing of code. the standard example being converting a for loop to a while loop. My idea is to treat everything as being part of a graph, with infinite breakdown. The default level will be at the "syntax" level, but if you want to break that further, press a hotkey, and the syntax-based placeholders and user inputs get reduced to text nodes.<br /><br />Superficially, this is similar to the "hybrid editors" that have  a mode to switch to text input which is then parsed back. But the key difference is that the conceptual graph is retained.<br /><br />Combine this with the leaf based parsing should help keep the experience smooth.<br /><br />Some more thought:<br />operations allowed by a text editor<br /></div><ul style="text-align: justify;"><li>navigate text</li><li>create, modify and delete text</li><li>copy and paste arbitrary text, either in line mode or block mode</li></ul><div style="text-align: justify;"> <br />to emulate this, how about a structured editor has a "text grid" view<br /></div><ul style="text-align: justify;"><li>at every text grid event, the structure model is notified, and it changes the model accordingly</li><li>if a placeholder value is changed, no model changes are required, just the slot value has to change</li><li>if a keyword is changed, a triage construct consisting of the following is constructed:</li><blockquote><li>the rest of the structure is retained in the anticiaption of rollback,</li><li>a new structure is anticipated and candidates are stored, which through multiple events may get realized into an actual new structure</li></blockquote><li>if a new structure is realized, the old one is discarded</li><li>the engine will aim for the quickest new structure that can be realized, given the language syntax</li></ul><div style="text-align: justify;"><br /></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags:  </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

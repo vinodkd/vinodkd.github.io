@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>What if there IS no source code?</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">10 Jun 2012</p>
+
+<div id="post">
+<h1>What if there IS no source code?</h1>
+<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">...yeah, kinda linkbait-y heading, I know.<br /><br />What I mean is: What if there is no single source of the code?<br /><br />Let me explain.<br /><br />Typically we have source code. Its written by someone, stuck in a source control system somewhere, changed by others and so on.<br /><br />The projectional editing school of thought modifies that picture somewhat by suggesting that we could have different views of the same code - a functional/domain-specific one, a folded one, a UML(ish) one, a running trace one and so forth. The relationship between the source and the multiple views, however, remains decidedly one-to-many.<br /><br />What if instead of this master-slave relation, the different views themselves were the source? That is, the "whole picture" is distributed across the views - like a peer network?<br /><br />Assuming the views are consistent with each other, modifying the source in one view should retain the true intent. But is that possible even? Views are, by definition, projections of the code; meaning some parts are included in the view and some aren't. So how would we maintain consistence across multiple views?<br /><br />Two paths lead from here:<br />One: We cannot. This is why we need the "one true source" that's the parent of all views.<br />Two: Maybe we don't need consistency all the time. Maybe we can do with the "eventual consistency" that big data/nosql guys are raving about?<br /><br />#2 seems like an interesting rabbit hole to explore :)</div></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags: fluentideasjack </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

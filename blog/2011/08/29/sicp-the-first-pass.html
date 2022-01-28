@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>SICP: The first pass</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">29 Aug 2011</p>
+
+<div id="post">
+<h1>SICP: The first pass</h1>
+<div class='post'>
+<div dir="ltr" style="text-align: left;" trbidi="on">I just finished my first pass through SICP. Well, "finished" might be a bit presumptuous because I skimmed through the latter chapters, but that was intentional: I couldn't wait to figure out what the book was "all about" - &nbsp;especially the metacircular evaluator bits - that I HAD to skip ahead to find out if "the butler did it".<br /><br />And boy did he do it! I havent read the book in detail at all, but already I see some core concepts that I had about programming being presented inside-out. For somebody who didn't grok polymorphism (for example) unless it was mentally transformed into vtable lookups, this feels like looking at a sculpture from the inside - while its being made. If that makes sense at all.<br /><br />Let me try to explain. And before I go further, let me add: its not that its all functional programming (although the functional bits that blew my mind I've already blogged about) nor the lispy geekiness of it. Its more fundamental than that.<br /><br />The method of imparting knowledge on programming that I've encountered to date has been additive: you're introduced to some basic concepts like assignment, looping etc; then taught how to string them together in expressions and statements; then string these into functions and procedures; and so forth. SICP seems subtractive in comparison: it states the problem and set out to decompose its solution into smaller bits till the basic statements are arrived upon, at which point some primitive "forms" (such as cond() are introduced for use).&nbsp;This would merely be bottom-up vs top-down if not for SICP showing along the way that programs and data are equivalent by creating a data store mechanism in pure functions, demonstrating data-driven programming (command pattern implemented using config file+ interface + n implementations for you java guys) using table lookups, shown how symbolic programming could be done with examples in calculus and circuitry, and finally demonstrating simulating a real programming system with stack frames, VM et al.<br /><br />No doubt the internal reason is that functional programming works that way, but this is a powerful way of presenting programming for two reasons:<br /><ol style="text-align: left;"><li>It IS the right way to solve problems - especially large ones</li>
+ <li>If you present it as the only way to do things - as the book does - new programmers wont know any worse :)</li>
+ </ol><div>There is also a marked "peeling the onion" feel to the book - each chapter builds on the previous one. Here's the "storyline" that I've figured out to date:</div><div><ul style="text-align: left;"><li>Write programs by breaking them down into their constituent functions</li>
+ <li>Data can similarly be broken down using abstraction</li>
+ <li>Programs = data and vice versa</li>
+ <li>Programs may require state. Introducing state has its advantages and disadvantages</li>
+ <li>State =&gt; environment, and here's how you go about building one.</li>
+ <li>Now that you know how to build an environment, here's how you use it - to build a language evaluator.</li>
+ <li>Finally, here's how you'd do it a real world machine (I could be wrong on this one - I just read the heading "register based machine").</li>
+ </ul></div><div>A emacs+clojure guy that I met over the weekend felt that the drawback with SICP was that there was no clear direction in the book as to how this knowledge can be applied. Maybe so, I'm not sure at this point.</div><div><br /></div><div>When I bought the book I had a couple of goals in mind:</div><div><ul style="text-align: left;"><li>See what the book is all about given that it has all this fame</li>
+ <li>Learn Lisp in the process</li>
+ </ul><div>The first one of these has been achieved, I think; and now that I've "got" it, I plan to go back and read the book in earnest, trying out the exercises along the way. The second goal, however, seems a bit misplaced. The book certainly uses lisp, but is not about lisp. I think I will still learn the kernel of lisp that's pure and universal to all its dialects - but that's about it. Now that I think about it, that's all the lisp I probably need :)</div></div><div><br /></div><div>Having understood what the book is about, though, I think a reframing of goals is in order:</div><div><ul style="text-align: left;"><li>Understand program decomposition and data abstraction as espoused in the book. Try to use it in a non-trivial application</li>
+ <li>Try out exercises using Racket and post work to github (A la vru3dd)</li>
+ <li>Understand the language evaluator chapter. Try to use it on a toy language if that's possible</li>
+ <li>List how the concepts in this book are applicable in daily programming.</li>
+ </ul></div></div></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags: Bookssicp </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

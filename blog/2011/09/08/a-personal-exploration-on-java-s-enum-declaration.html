@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>A personal exploration on Java's Enum declaration</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">08 Sep 2011</p>
+
+<div id="post">
+<h1>A personal exploration on Java's Enum declaration</h1>
+<div class='post'>
+ <h2>What:</h2> <p>A personal exploration on why <code>Enum</code> is declared as <code>Enum&lt;E extends Enum&lt;E&gt;&gt;</code></p> <h2>Why</h2> <p>I stumbled upon this interesting question a while ago when a co-worker showed it to me. Googling it provied enough links to satisfy my initial curiosity, but recently the question surfaced again; so I tried to implement my own version of the explanation provided online to "see for myself".</p> <p>What follows is largely based on <a href="http://www.angelikalanger.com/GenericsFAQ/FAQSections/TypeParameters.html#FAQ106">Angelika Langer's FAQ</a> and can be thought of as my worked-out version of that page. My enum class is called <code>Enum1</code> to avoid clash with the SDK's version; and has been tested with JDK 1.7.0_07.</p> <h2>The exploration</h2> <p>Say you're the Java team and you want to support syntax like:</p> <pre><code>    enum Color(RED, GREEN,BLUE);<br /></code></pre> <p>... so that it could be used like so:</p> <ul><li>As constants  : <code>Color.RED</code> ... which means that public static constants must be available</li><li>In variables  : <code>Color color=Color.BLUE</code> ... which means that it must of type Color</li><li>In comparison : <code>color==Color.BLUE</code> ... which means it must implement <code>compareTo()</code></li></ul> <p>Further, say you intend to add this feature with as little syntactic sugar as possible; so you want to convert the basic <code>enum</code> syntax alone via a special operation in the compiler and generate everything else using standard Java language constructs.</p> <p>The generated code would look something like so:</p> <pre><code>    public class Color implements Comparable&lt;E&gt;{<br />        private static final Color RED;<br />        private static final Color BLUE;<br />        private static final Color GREEN;<br />        private static final Color $VALUES[];<br />        static{<br />          RED = new Color("RED",0);<br />          BLUE = new Color("BLUE",1);<br />          GREEN = new Color("GREEN",2);<br />          $VALUES = (new Color[]{ RED, BLUE, GREEN });<br />        }<br /><br />        private final String name;<br />        public final int ordinal;<br /><br />        //private since nobody outside needs to use this<br />        private Color(String name, int ordinal){<br />            this.name = name;<br />            this.ordinal = ordinal;<br />        }<br /><br />        public final int compareTo(Color c){<br />            return this.ordinal-c.ordinal;<br />        }<br />    }<br /></code></pre> <p>If you wrote more than one of these, you'd have quite a bit of logic that's common and could be extracted out:</p> <ul><li>Each item in the enumeration has a name and an ordinal.</li><li>Each item is built privately and the instances built statically are made available publicly as constants and via an array</li><li>The constants have comparable values (optionally internal)</li></ul> <p>So you could write a base class like so:</p> <pre><code>    public class Enum1&lt;E&gt; implements Comparable&lt;E&gt;{ //line1<br />        protected static Enum1 $VALUES[]={};<br /><br />        private final String name;<br />        public final int ordinal;<br /><br />        protected Enum1(String name, int ordinal){<br />            this.name = name; <br />            this.ordinal = ordinal;<br />        }<br /><br />        public final int compareTo(E e){<br />            return this.ordinal-e.ordinal;  //line 2<br />        }<br />    }<br /></code></pre> <p>... where Enum1 needs to be defined with a generic type E because any implementation of Comparable needs to be generic. Doing that, however will cause the compiler to throw a warning that line 2 above may be using unsafe operations. This is because <code>Enum1&lt;E&gt;</code> is equivalent to <code>Enum1&lt;E extends Object&gt;</code>; so we could potentially send in <em>any</em> subclass of <code>Object</code> into <code>compareTo()</code>. </p> <p>To fix that, we'll need to constrain the type of <code>E</code> to <code>Enum1</code>s or its subclasses. This can be done by changing the type parameter in line 1 to : <code>Enum1&lt;E extends Enum1&gt;</code>. The modified code thus becomes:</p> <pre><code>    public class Enum1&lt;E extends Enum1&gt; implements Comparable&lt;E&gt;{   //line1<br />        protected static Enum1 $VALUES[]={};<br /><br />        private final String name;<br />        public final int ordinal;<br /><br />        protected Enum1(String name, int ordinal){ <br />            this.name = name;<br />            this.ordinal = ordinal;<br />        }<br /><br />        public final int compareTo(E e){<br />            return this.ordinal-e.ordinal;  //line 2<br />        }<br />    }<br /></code></pre> <p>Now <code>Color</code> can be written as:</p> <pre><code>    public class Color extends Enum1&lt;Color&gt;{<br />        public static final Color RED;<br />        public static final Color BLUE;<br />        public static final Color GREEN;<br /><br />        static{<br />          RED = new Color("RED",0);<br />          BLUE = new Color("BLUE",1);<br />          GREEN = new Color("GREEN",2);<br />          $VALUES = (new Color[]{ RED, BLUE, GREEN });<br />        }<br /><br />        protected Color(String name, int ordinal) <br />            { super(name,ordinal); }<br />    }<br /></code></pre> <p>...and test code can be written like so:</p> <pre><code>    public class TestEnum1{<br /><br />        public static void main(String[] args){<br />            Color c1=Color.RED;<br />            Color c2=Color.RED;<br />            Color c3=Color.BLUE;<br />            Color c4=Color.GREEN;<br /><br />            System.out.println((c1==c2));       // 0<br />            System.out.println(c1.compareTo(c3));   //-1<br />            System.out.println(c4.compareTo(c3));   // 1<br />        }<br />    }<br /></code></pre> <p>We can even write another enum like so:</p> <pre><code>    public class Vehicle extends Enum1&lt;Vehicle&gt;{<br />        public static final Vehicle BIKE;<br />        public static final Vehicle CAR;<br />        public static final Vehicle BUS;<br /><br />        static{<br />          BIKE = new Vehicle("BIKE",0);<br />          CAR = new Vehicle("CAR",1);<br />          BUS = new Vehicle("BUS",2);<br />          $VALUES = (new Vehicle[]{ BIKE, CAR, BUS });<br />        }<br /><br />        protected Vehicle(String name, int ordinal) <br />            { super(name,ordinal); }<br />    }<br /></code></pre> <p>... and enhance the test code to check out things like the ordinals of two <code>Enum1</code>-derived enumerations not matching even though the numerical values are same:</p> <pre><code>    public class TestEnum1{<br />        public static void main(String[] args){<br />            Color c1=Color.RED;<br />            // ...<br /><br />            Vehicle v1=Vehicle.BIKE;<br />            // fails with error: incomparable types<br />            System.out.println((c1==v1));<br />        }<br />    }<br /></code></pre> <h2>Pending Question</h2> <p>So I've still not figured out what the final <code>&lt;E&gt;</code> in:</p> <pre><code>    public class Enum1&lt;E extends Enum1&lt;E&gt;&gt;<br /></code></pre> <p>... is for, considering the code above works without it.</p></div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags:  </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

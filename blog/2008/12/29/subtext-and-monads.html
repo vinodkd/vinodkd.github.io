@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Subtext and monads</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">29 Dec 2008</p>
+
+<div id="post">
+<h1>Subtext and monads</h1>
+<div class='post'>
+Over the xmas week holidays, I got to thinking about <a href="http://www.subtextual.org/">Subtext</a> again. Since my conversation with the author had dropped off at the point where he said he's skeptical about getting subtext to work with normal programming languages as they're not functional and he doesnt want to bridge that gap, I set about thinking what would it take to bridge that gap.<br /><br />And this led me to reading up on a couple of functional programming languages, and of course to Haskell. The thing that caught my attention was Monads, and the assertion that Monads was Haskell's answer to imperative programming - how it allows you to keep things pure and functional, and yet provide the "do this first, then this other thing" style, side effects and all.<br /><br />This was, of course, exactly the opposite of converting imperative code to functional, but I thought the insight might be helpful.<br /><br />Two days of confusion and a screaming wife later, I realized there's a reason monads have so many tutorials - they're pretty confusing concepts to start with. I'm still on shaky ground with them, especially having not passed that rite of passage of writing one all by myself, but the a-ha moment came from <a href="http://osteele.com/archives/2007/12/overloading-semicolon">a post by Oliver Steele</a> about how a monad is a rule that defines how to get from one statement in a program to the next, and further from <a href="http://kawagner.blogspot.com/2007/02/why-monads-are-evil.html?showComment=1178458260000#c5045703109609952275">this comment</a> that even in lazy pure functional languages, f(g(h   x) implies a sequence in with h is evaluated before g and g before f.<br /><br />IMO, a tutorial is required that actually maps a monad's working to that of a von-neumann machine. Then, maybe, we imperative programmers will get it :)<br /><br />Where does this leave subtext and my original thread of thought? I'm not sure. Would a conversion like this work?<br />Imperative code --> Monad equivalent --> functional code<br /><br />How would the first conversion even happen? Need to think about this.</div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags:  </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>

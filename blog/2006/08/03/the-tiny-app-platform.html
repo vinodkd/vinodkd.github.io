@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>The tiny app platform</title>
+        <meta name="viewport" content="width=device-width">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">vinodkd.org</a></h1>
+            </div>
+     
+                <p class="meta">03 Aug 2006</p>
+
+<div id="post">
+<h1>The tiny app platform</h1>
+<div class='post'>
+small..tiny..those were the keywords with which I went shopping for a database and an app server. The client of course, was to be the browser, so I didnt bother too much about that one - the idea being that the one external piece of software the "app anywhere" platform would depend on would be the browser. How naive I was in those early days!<br /><br />Back to the db and App Server in the meanwhile.<br /><br />I'd used <a href="http://www.hsqldb.org">hsqldb</a> before, so that was an obvious choice for a free, opensource java db. So that was that as far as the backend was concerned.<br /><br />As for the app server - any EJB server was out of the question because a) anything that verbose didnt come without flab and more importantly b) because i just dont like EJB :). Hey its my app, i make the rules!<br /><br />I'd been a big fan of <a href="http://www.vqsoft.com/vq/server/index.html">vqServer</a> a while ago and went looking for it, but seems to have not been updated lately, so I looked at the other good thing I knew about - <a href="http://jetty.mortbay.org/">jetty</a>. The latest docs seemed to show much promise, and at 20-some-odd MB, a real good fit for my purpose.<br /><br />Time to get a little organized. So I started with the primordial directory structure:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://photos1.blogger.com/blogger/4269/3466/1600/aa1.jpg"><img style="margin: 0pt 10px 10px 0pt; float: left; cursor: pointer;" src="http://photos1.blogger.com/blogger/4269/3466/320/aa1.jpg" alt="" border="0" /></a>(Not shown: hsqldb.jar in the jetty/ext dir)<br /><br /><br /><br /><br /><br /><br />And then I came upon this <a href="http://www.benjysbrain.com/misc/cdsite/index.html">superb writeup on creating exactly what I wanted</a>. The author intended it to be a "run-from-cd" app, but cd to pen drive is a short sneeze away. And the util servlets absolutely were the topping!</div>
+<h2>Comments</h2>
+<div class='comments'>
+</div>
+
+</div>
+<div>tags:  </div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>
