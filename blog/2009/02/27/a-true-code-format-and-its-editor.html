@@ -6,7 +6,7 @@
         <title>A true code format, and its editor</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">27 Feb 2009</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>A true code format, and its editor</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">This is post is influenced by my recent preoccupation with code representation (see post on coding in thought, for instance) and inspirations from Subtext and <a href="http://eidola.org/">ediola. </a><br /><br />Imagine a code editor that allowed you to edit the actual AST of the language instead of text that will be parsed into the AST of the language. It would obviously make it transparent to you that you're editing a tree instead of free form text, except for taking out the inefficiencies. For instance it would allow you to use the normal navigation keys to scroll up and down through the code, but would skip keywords and language constructs automatically because they're are actually tokens and don't need to be treated as English words. When you navigate to a user entered value such as a variable, it would drop into an in-place editor that allowed you to change it, and it would then automatically change all occurrences of that variable because it knows that its a variable.<br /><br />For the same reason, it would be easily able to provide auto suggestions /completions as it knows the language's syntax. An add-on feature would collect data about imported and declared classes, methods and variables as you edit, and make those available in the auto suggest as well.<br /><br />The best part of course would be it would have none of the limitations of text - no need to worry anymore about whitespace as it would become exactly what it should be - white space that is merely a visual thing, not something that's stored in the code.<br /><br /><blockquote>Sidebar: I realized after I wrote this that such an editor could be at a loss with a language like Python, which essentially mandates whitespace. However, I do think the reason Python went the way it did is reconciling to text being the universal code format, and if so, making the best of it, namely to avoid all visual clutter caused by begin/end tokens, and instead rely on whitespace to denote it for both humans and compiler alike. That being the case, there's no reason this editor can mimic the indentation, and provide the output that the python interpreter expects.</blockquote><br /><br />How would such code be stored? Why, as the AST itself. The actual storage format (as long its not back to text) is not important, as any number of those are applicable. What is important, though, is that it is <em>in the exact format that the language allows for human thought to be enshrined as code</em> - nothing more (specifically, text formatting warts), nothing less.<br /><br />Once we have this, we can think of more improvements. How about treating comments as annotations on code, and extracting them out completely? This way, all the issues related to comment obsolescence and non-locality are resolved. We could just tie a comment to a particular piece of code, and wherever the code goes, the comment follows. If the code chunk is removed, broken or altered, it would be trivial to mark the comment as outdated and to be treated with a pinch of salt.<br /><br />There's another gem hiding in the previous paragraph - that of tying a comment to a particular piece of code. Well what exactly is "a particular piece of code" unless we're talking about some named chunk such as a method? Nothing defined, yet. However, consider this: what if we had a way of identifying every piece of code uniquely - an id for each atomic piece of code? Notice that I've specifically avoided considering the line number as the id because is not just another of those text formatting appendages, but also an unreliable anchor to any particular piece of code as it can easily change with an unrelated edit of the file. I'm thinking more of :<br /><ul><li>a unique id for each statement (or its component) (eg, the 5th statement of the main method - which could well be on the first "line" if it were text)<br /></li>
@@ -38,8 +38,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: ideas, jack </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

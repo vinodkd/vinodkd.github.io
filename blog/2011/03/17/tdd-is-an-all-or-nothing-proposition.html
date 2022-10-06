@@ -6,7 +6,7 @@
         <title>TDD is an all-or-nothing proposition</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">17 Mar 2011</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>TDD is an all-or-nothing proposition</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">I've been reading "Growing OO Software with tests" and trying to implement TDD practices in my projects, and I arrived at the sentiment that's the title of this post.<br /><br />Let me explain.<br /><br />Non-TDD is easy and alluring because you can choose to ignore certain errors. This is decidedly unprofessional, but in the early stages of the project its invaluable. When you're trying to get your feet wet, and feel around the solution space, you DO want to know the big things in the design you're missing, but you dont want to know EVERY thing you're missing.<br /><br />Since TDD implies executing code, you do have to fix everything that you've missed before you get to the interesting bits; and that is why I say TDD is an all or nothing proposition - you have to fix each and every bug in your straw man code before you can get it work.<br /><br />Usually, some of this extra burden is taken care of by the TDD framework that you're using - a typical TDD tool assumes a particular environment (eg, Rails), and has the support that makes most of this go away, but for environments that don't have such support - Javascript-in-browser or console apps come to mind - building the framework while building the app gets to be tedious and frustrating.<br /><br />That's not to say that even with TDD tools this burden doesn't go away - its just lesser. It'd be much nicer if you could "ignore" errors that aren't crucial to early stage prototyping. For now, I solve the problem by having a prototyping phase/spike which isnt TDD based where I flesh out the solution concepts in throw away code.</div></div>
@@ -35,8 +35,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: rant </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

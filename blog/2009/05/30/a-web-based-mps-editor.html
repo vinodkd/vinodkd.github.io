@@ -6,7 +6,7 @@
         <title>A Web-based MPS Editor</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">30 May 2009</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>A Web-based MPS Editor</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">I have been playing around with IntelliJ's Meta Programming System for a couple of days now, and I find it a very interesting and promising tool - to teach myself its constructs, I'v started writing an IDE for Robot scripts. I've got a basic editor and generator done and it looks pretty good, especially for completely declarative code.<br /><br />I was wondering, however, at the applicability of the concept to the web - as in how easy it would be to port the concept of a declarative structural editor to the web. The MPS editor language is surprisingly similar to divs and spans - all one would need to move the editor to the web would be to slap on a generator that creates D/HTML/5 widget wizardry!<br /><br />Another project to start....<br /><br />Implementation thoughts:<br />This might not need a full fledged editor like EditArea - since its structural, it might actually be cumbersome if it were. It might be easier to have a simple div/span structure or even a table with variable row and col spans, with a single in-place editor component for the current element being edited. Of course, keypress handlers would have to be written to make it usable for keyboarders (like me), and we'd have to find a way to show a cursor always.<br /><br />Interesting ideas on continuation-style parsers for javascript editors: http://marijn.haverbeke.nl/codemirror/manual.html<br /><br />Further implementation idea: use the MPS Editor language to define it, and create a generator for the editor from it that outputs GWT! This way the editor is web-enabled!</div></div>
@@ -35,8 +35,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: fluent, ideas </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

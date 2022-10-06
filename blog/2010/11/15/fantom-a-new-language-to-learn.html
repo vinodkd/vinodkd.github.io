@@ -6,7 +6,7 @@
         <title>Fantom: a new language to learn</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">15 Nov 2010</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Fantom: a new language to learn</h1>
 <div class='post'>
 Today I discovered <a href="http://fantom.org/">Fantom </a>- a surprisingly interesting language that seems to get so many things right. My first thought was to re-implement Joey in it. We'll see.<br /><br />The language is definitely interesting - especially considering 2 brothers built it in the (mostly) spare time.<br /><br />Things to learn from/use:<br /><br /><ul><li>Fan(tom) is self hosting, ie the compiler is written in fan itself. So building it from source involves using an older release of fan. This is pretty standard in compiler land, I guess, but still novel to me; and probably novel in that the although the final executable is a native binary, it goes through intermediate non-binary output levels</li><li>It compiles to its own intermediate code called fcode, primarily because the original intent was to be able to generate code that worked the same on Java and dotnet.</li><li>Javascript compile - sweet.</li><li>The FWT toolkit - havent started using it yet, but any library that allows declarative UI is good in my book. Especially since the same fan source can be used to generate &nbsp;web ui a la extJS.</li><li>It also seems to have a fluent api to building html - another nice thing</li><li>Units (a la Frink) and a datetime api with durations built in.</li></ul><br /><br />PS: When I saw the link in LtU I half expected it to be inspired by the Phantom, but apparently not. I have decided, however, that if I do develop in fantom, the projects will be Phantom themed :)</div>
@@ -35,8 +35,9 @@ Today I discovered <a href="http://fantom.org/">Fantom </a>- a surprisingly inte
 <div class='comments'>
 </div>
 
-</div>
 <div>tags:  </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

@@ -6,7 +6,7 @@
         <title>Visual Programming: how it should really look</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">13 Apr 2009</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Visual Programming: how it should really look</h1>
 <div class='post'>
 A meandering walk through the net that started at LtU and ended in <a href="http://mindprod.com/project/scid.html">Source code in Database</a> led me to thinking (again) about how the real visual programming environment should be. And here's what I came up with:<br /><ul><li>It should reflect the fact that code is essentially a graph. It should therefore be basically a graph editor.<br /></li><li>At the single program level, however, this graph is essentially left to right, top to bottom, so a standard representation (as shown by current editors) will be natural</li><li>Folds and hyperlinks are still useful to have around, though; and this represents the 2.5D solution to what is essentially an n-dimensional graph</li><li>It should have the ability to move in at least 3 dimensions - zoom in and out being the 3rd axis. This should behave according to usability principles - zooming way out from a single program should show its package within the other packages' context, but highlighted; while zooming just a little should show more of the program, but not fold or summarize it in anyway (font zooming goes away completely- we are looking at code, not text)</li><li>Multiple views should always be available - eg, package view must be vieweable as a tree, or a treemap, or a graph, or a list of packages</li><li>editing must be keyboard based to allow for a completely console based implementation if required. The focus is on exposing the true structure of the program, not to sugar coat its display</li><li>Constructing programs must be a structural editing task, not a text editing task.<br /></li><li>language constructs such as keywords, classes, packages etc must act as single "characters" and be deletable atomically.<br /></li><li>since the AST is being represented visually, the editor must provide auto-complete and hints as to expected parts of the current statement being constructed. Eg, typing an "if" or choosing a command to insert an if statement should allow autocomplete to finish choosing if, and provide VB/eclipse style popup hints as to the other components expected.</li></ul><a href="http://mindprod.com/project/scid.html"></a></div>
@@ -35,8 +35,9 @@ A meandering walk through the net that started at LtU and ended in <a href="http
 <div class='comments'>
 </div>
 
-</div>
 <div>tags:  </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

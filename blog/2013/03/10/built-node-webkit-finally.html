@@ -6,7 +6,7 @@
         <title>Built node-webkit...finally</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">10 Mar 2013</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Built node-webkit...finally</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">So I'm still on Snow Leopard, which means node-webkit's pre-built binaries are of no help - they start at 10.7. The pithy response to the very pertinent question of "How the hell do I run this awesome piece of software on my apple-fanboy-version-of-win2k?" has been "Oh, just build it on 10.6.x yourself. I hear it works fine then".</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">In a rush induced by the success of my "Code as you think" prototype working really nicely on the PC, I decided that I must have it running on the Mac too. I did consider upgrading to Mountain Lion, but decided that building node-webkit like they'd blithely suggested might be smaller a peak to scale than having to deal with a whole new version of OSX.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Downloading the code took about a day and a half. Of course, I was not surprised, considering this was &nbsp;the Chromium codebase, plus node-webkit's own. Actually, the final download took about 3-4 hours, but it failed (ie 'gclient sync' got stuck and had to be ctrl-c'd) about 4-5 times. Here're the things that I learnt/thought up during these failures:</div><br /><ul style="text-align: left;"><li style="text-align: justify;">How to setup the mac so it doesnt sleep - using screensavers and energy settings. Ended up using neither: was going away for the night, didnt want to leave machine unmanned.</li><li style="text-align: justify;">How to piss spouse off with blank stares and disconnected answers while download process failed yet again.</li><li style="text-align: justify;">How it would be nice if code sync processes had pause and resume options. wget has it, why not gclient/git?</li></ul><div style="text-align: justify;">Anyhow, all the code finally came down at around 1:40 am. Of course, I had to build it right then, so after some more consulting of multiple documents, I fired off the build commands. A full 1.5 hours later, I was the proud owner of a self-built version of node-webkit. The process completely maxed out all 4 cpus on my mac for the majority of the time, which I spent browsing the ninja build tool manual. Of course, it was almost finished by the time I'd reached the part on how to control the number of cpu's to allow for ninja's use :). The mac, however, performed admirably under stress, I must say. The rest of the running processes were still very usable and the terminal itself was still responsive. Not the same experience on a Windows or linux box, in my experience.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">In all, time well spent; and <a href="http://tt2n.blogspot.com/2010/11/slashchrome-idea-whose-time-is-long.html">catharsis for disappointments from the past</a>. I might just run the build commands for Chromium next.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">And once I've patched up with the spouse, I might even try getting it to run on Windows with VS Express!</div></div></div>
@@ -35,8 +35,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: node-webkit </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

@@ -6,7 +6,7 @@
         <title>Ideas for a new language</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">07 Feb 2009</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Ideas for a new language</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">A number of nebulous ideas have been swirling in my mind of late on what's lacking with today's languages. I woke up today morning with the remnants of a dream where I was coding in a language that magically had closed all those gaps, and even improved things a bit. Here's what my conscious self remembers from that dream.<br /><br /><span style="font-weight: bold;">It was based on conditionals</span><br />I have been thinking a lot about conditionals lately, partly due to being impressed by Subtext. But more closer to work, I've been thinking of a large legacy application and how to refactor it so that chunks of logic that are in the wrong layers can be relocated easily, and how other chunks of logic that are interwined with each other even though they logically belong to different paths can be extracted, and then combined via configuration using (for lack of a better term) a micro ESB.<br /><br />And it struck me that the conditional (represented by the plain vanilla if, or an inheritance hierarchy) is the cleave point of "paths". All conditionals that are based on a particular check (eg: is the object of type foo, or is the value equal to x) are essentially <span style="font-style: italic; font-weight: bold;">in the same path</span>. Therefore code should be organised (or auto-organised) such that conditionals are matched by their paths, and the largest conditional branch naturally gravitates to the top. This is, of course, exactly what Jonathan Edwards' Subtext does, with the additional advantage that it also ensures that there are no gaps in the conditionals - all possible values(or value ranges)  have to be filled in. This would be a great thing for a language to have.<br /><br />So the language from my dream had this feature. It worked using conditionals, and like subtext it auto arranged them - but all in text. That's the dream part, i guess.<br /><br />Now when I think about it though, I can envision this conditional cleaving happening incrementally - a module can be conditionally complete within itself, but not so wrt other modules in the application.<br /><br /><span style="font-weight: bold;">It had modules/services/components as a first class language construct</span><br />Meaning, the "chunks of code" concept that I mentioned above were directly supported by the language. Think COM/XPCOM, or SOA/Web Services - with more accent on the fact that there's a published API backed by an implementation; and less on how they would be discovered, remoted etc. Code by contract, basically.<br /><br />I don't remember if it had explicit support for constructs such as classes and interfaces that combine to form the components. It wouldn't matter if it did or not, but the key thing was that the component WAS defined, and was the cornerstone of composition.<br /><br /><span style="font-weight: bold;">It was extractably modular</span><br />And by this, I mean that chunks of code could be extracted out into modules by the language itself.Not a preprocessor or optimizer - the language itself had operators to extract code, define the api based on the contents of the code, and place it elsewhere. It therefore had meta programming capabilities, and more importantly, code elements were addressable in a platform- and source file-neutral way. Every unit of execution from the statement to the module was addressable to enable the modularisation operators to work.<br /><br /><span style="font-weight: bold;">It had DRY testing</span><br />Defining a module or class implied testing it. The language statically checked for bounds and ranges based on the conditionals. In addition, every run with values can be recorded as a test, adding to the test set.<br /><br /><span style="font-weight: bold;">It supported legacy apps</span><br />It had the ability to read old app code;  and then show the gaps in logic or discover (if not extract) the true modules. It might have had a compatibility mode or it allowed incomplete (from its perspective) code to run.<br /><br /><span style="font-weight: bold;">It was functional at its core</span><br />and used monads for everything - especially the micro esb.<br />... but it had a lot of dsl-ish sugar to make it seem more general purpose.<br /><br />And finally, it was (j)vm based.<br /><br /><span style="font-weight: bold;">Aftermath</span><br />After I wrote this far, I got to thinking about what goals a feature set such as this would arise from? Here's what I got:</div><ul style="text-align: justify;"><li>backwards compatibility</li>
@@ -38,8 +38,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: ideas, jack </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

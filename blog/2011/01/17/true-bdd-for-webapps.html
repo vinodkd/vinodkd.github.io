@@ -6,7 +6,7 @@
         <title>True BDD for Webapps</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">17 Jan 2011</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>True BDD for Webapps</h1>
 <div class='post'>
 Current BDD implementations have a "core" language they support. How about a bdd framework for ANY webapp?<br /><br />"Outside in", the core BDD concept implies that you start with the outer layer of the app and implement inwards. Well, why not apply that starting with the html, going inwards to js, refactor js to make it mvc etc.<br /><br />So the true BDD implementation for Web Apps should load in a browser, and allow any browser action to be validated naturally.<br /><br />Implementation Ideas:<br /><ul><li>a html based runner of the spec a al jscoverage (which should be rewritten in js, btw) is required, so your spec can be loaded in html, and runs the target app in html as well</li><li>spec will be in a cucumber/robot syntax - very english-y, which will be converted into functions in javascript. Nothing new here, this is what all existing BDD implementations do anyway. We'll just leverage the best Javascript one. </li><li>building html must use zen coding for example so its easy to do so.</li><li>Adding behavior will involve writing a spec for it, and adding the basic js code for it, then refactoring it to use an appropriate framework (mvc, etc) and so forth.</li><li>As that progresses, the main spec becomes more detailed, and contains nested specs for specific layers. Eg, the javascript layer could be tested directly using rhino, etc</li></ul></div>
@@ -35,8 +35,9 @@ Current BDD implementations have a "core" language they support. How about a bdd
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: ideas </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

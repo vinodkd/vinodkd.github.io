@@ -6,7 +6,7 @@
         <title>What if there IS no source code?</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">10 Jun 2012</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>What if there IS no source code?</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on">...yeah, kinda linkbait-y heading, I know.<br /><br />What I mean is: What if there is no single source of the code?<br /><br />Let me explain.<br /><br />Typically we have source code. Its written by someone, stuck in a source control system somewhere, changed by others and so on.<br /><br />The projectional editing school of thought modifies that picture somewhat by suggesting that we could have different views of the same code - a functional/domain-specific one, a folded one, a UML(ish) one, a running trace one and so forth. The relationship between the source and the multiple views, however, remains decidedly one-to-many.<br /><br />What if instead of this master-slave relation, the different views themselves were the source? That is, the "whole picture" is distributed across the views - like a peer network?<br /><br />Assuming the views are consistent with each other, modifying the source in one view should retain the true intent. But is that possible even? Views are, by definition, projections of the code; meaning some parts are included in the view and some aren't. So how would we maintain consistence across multiple views?<br /><br />Two paths lead from here:<br />One: We cannot. This is why we need the "one true source" that's the parent of all views.<br />Two: Maybe we don't need consistency all the time. Maybe we can do with the "eventual consistency" that big data/nosql guys are raving about?<br /><br />#2 seems like an interesting rabbit hole to explore :)</div></div>
@@ -35,8 +35,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: fluent, ideas, jack </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

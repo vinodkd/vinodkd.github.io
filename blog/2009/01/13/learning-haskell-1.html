@@ -6,7 +6,7 @@
         <title>Learning Haskell -1</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">13 Jan 2009</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Learning Haskell -1</h1>
 <div class='post'>
 I started learning Haskell as part of "learning a new programming language every year". Here's the frist post:<br />Am using Real World Haskell, first ed, as that's whats available on Safari books.<br /><br />Notes:<br /><ul><li>Installed Hugs, then ghci cos the book uses that, and there're sufficient differences in the output of the interpreters for me to not bother about it.</li><li>Have started reading about types. </li><li>They are strong, static and inferred.</li><li>Type names are Capitalized<br /></li><li>ints are signed, fixed width integers dependent on the machine word size.</li><li>Integers are signed integers of unbound size</li><li>Add :: TypeName after a declaration to set the type. Mostly not required</li><li>function args are written after the name without ()'s or ,'s. Eg fn arg1 arg2</li><li>lists are written as [item,item,..]</li><li>head and tail work similar to lisp car cdr.<br /></li><li>Strings are character lists. So tail "abcd" returns "bcd"</li><li>Tuple is a collection of items of different types. Witten as (itemofType1, itemofType2, ..)</li><li>() is the type and value of a tuple of zero elements, called unit.</li><li>take, drop work on lists</li><li>fst, snd work on tuples. due to strict typing, we cannot define a fst fn for all kinds of tuples, only pairs.<br /></li><li>Side effect explained: If a function is dependent on a global variable, each run of the function will differ based on the current value of that variable, which alters the way it executes. And therefore, even if it doesnt ever change a value, it has a side effect.</li><li>Pure functions dont have side effects. That is, they're idempotent - every execution of such functions return the same value. Kinda like GET.</li><li>Impure functions have side effects. They are identified by the Monad tag before their type. Eg:Prelude> :type readFile<br />readFile :: FilePath -> IO String</li></ul>Next week:<br /><h3 class="docSection1Title" id="-100000">2.9. Haskell Source Files, and Writing Simple Functions</h3></div>
@@ -35,8 +35,9 @@ I started learning Haskell as part of "learning a new programming language every
 <div class='comments'>
 </div>
 
-</div>
 <div>tags:  </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

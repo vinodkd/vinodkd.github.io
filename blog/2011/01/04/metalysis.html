@@ -6,7 +6,7 @@
         <title>Metalysis</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">04 Jan 2011</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Metalysis</h1>
 <div class='post'>
 Metalysis: The analysis paralysis that results from thinking about meta and meta-meta programming. A prime sample<br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">language = domain model + syntax (template + css)</span><br />the model till now describes:<br />&nbsp;&nbsp;&nbsp; - the elements of the language<br />&nbsp;&nbsp;&nbsp; - how to display/edit it<br />but the editor's interaction model is fixed based on the meta model&nbsp;&nbsp;&nbsp; <br /><br />so true language editor is<br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">language editor = domain model + display model ie syntax (template + css) + interaction model (javascript behavior)</span><br style="font-family: &quot;Courier New&quot;,Courier,monospace;" /><br />now this behavior could be modeled as a domain language itself, but for it to be useful, it would need something that can execute the domain, not just understand and allow its editing<br /><br />so <span style="font-family: &quot;Courier New&quot;,Courier,monospace;">true language = domain model + editing model (display model + interaction model) + executor (interpreter/compiler)</span><br style="font-family: &quot;Courier New&quot;,Courier,monospace;" />:<br />So I should just create the meta model and its interpreter, and running it will spit out my language editor, ready to run!<br /><br />This is when I came back to the ground and started writing an event loop and handler. Nothing like normal GUI programming to make you realize you're nothing special!</div>
@@ -35,8 +35,9 @@ Metalysis: The analysis paralysis that results from thinking about meta and meta
 <div class='comments'>
 </div>
 
-</div>
 <div>tags:  </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

@@ -6,7 +6,7 @@
         <title>Requiem for a capability-based UI framework</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">09 Aug 2011</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Requiem for a capability-based UI framework</h1>
 <div class='post'>
 <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">I recently bought a macbook and was somewhat surprised to be back in a world where you had to pay for software :). Needing an outliner and not wanting to buy one, I thought I'd build one myself; using that as an experience to try out Fantom - a language that I've been meaning to try out for some time now.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Fantom comes with its own UI toolkit - FWT - which is a wrap on the SWT framework; only since extended to handle Javascript output as well. Promising enough; so I set out to build my simple outliner. A few hours of copying from samples and looking up the API later, I had a basic tree displayed on my screen. That's when I hit the snag.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">You see, FWT's Tree Control didnt allow editing the nodes, neither did its model. I didnt ask the Fantom community, but it looked like you had to build it. An outliner without an editable tree seemed pointless, so I stopped there.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">More importantly, I stopped because building an editable tree control in FWT was at least one order of magnitude more difficult. Merely on my requirement for a directly editable tree control, the effort to build my app went from "Using FWT to quickly building an outliner" to "Figuring out how SWT does editable Tree Controls, then figuring out how the authors of FWT have chosen to interact with SWT ie, Fantom's FFI, making changes that fit with the rest of the FWT model/control concepts and optionally making sure it works on Javascript (if I wanted it to be a true FWT control)". From all the passive lurking I've done on the Fantom community, it's probable I'm a bit off in the level of effort and there's a better way than the doomsday scenario I've painted here, but my point is this:</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><br /></div><ul style="text-align: left;"><li style="text-align: justify;">Most UI frameworks are dichotomies: there are the standard controls and the custom ones.&nbsp;</li>
@@ -55,8 +55,9 @@
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: ideas </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

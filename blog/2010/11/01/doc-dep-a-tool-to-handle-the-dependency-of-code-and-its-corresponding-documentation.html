@@ -6,7 +6,7 @@
         <title>Doc Dep: A tool to handle the dependency of code and its corresponding documentation</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">01 Nov 2010</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Doc Dep: A tool to handle the dependency of code and its corresponding documentation</h1>
 <div class='post'>
 As I work on <a href="http://github.com/vinodkd/abu">Abu</a>, I realize that documenting a project is a separate side project in and of itself. I started with a simple Idea.txt, and that has burgeoned into the following:<br /><ul><li>A readme.md (for markdown) for github's main page</li><li>A contents.md showing the contents of the codebase</li><li>A design.md for the design "discussion"</li><li>A user guide - WIP</li><li>A developer guide - to be created</li><li>A roadmap.md</li><li>A log.txt for my personal use - as a tickler for when i stop working and have to pick back up later.</li><li>A news.md (yet to be created) letting people know of recent changes </li></ul>And what's interesting is the interplay between changes I make to the code (or design) and these documents. Each change in code/design obviously impacts one or more of these documents, but there's no easy way for me to keep track. Eg, change in design impacts the user and developer guides, the news file, and sometimes the readme and roadmap files. Any new top level directory added&nbsp; changes the contents file and so forth. <br /><br />Now, what if I had a way to say "this code file impacts these document files", so that when the code file changes, I have to change the corresponding document? That then, is the idea - DocDep - which will have:<br /><ul><li>A means to list all the documents in a codebase - some kind of config file should do, or probably a /doc directory could be assumed if we want to go CoC.</li><li>A means to represent the dependency between a file and these documents - easily done by creating a tag - embedded within a comment - in the files</li><li>A means to alert the developer when a change has occurred on a file, which therefore needs a change in the document file linked to it.</li><ul><li>This could be as simple as generating a todo list by commit, Eg: todo: change guide.md to handle change in commit# xxx; Or... </li><li>We could go anal and prevent checkin of the code changes without the documentation.</li></ul></ul></div>
@@ -35,8 +35,9 @@ As I work on <a href="http://github.com/vinodkd/abu">Abu</a>, I realize that doc
 <div class='comments'>
 </div>
 
-</div>
 <div>tags: ideas </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

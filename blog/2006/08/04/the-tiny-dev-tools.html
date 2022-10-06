@@ -6,7 +6,7 @@
         <title>The tiny dev tools</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">04 Aug 2006</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>The tiny dev tools</h1>
 <div class='post'>
 Awrite, time to write some code. So I next went shopping for tools. Of course I could just go barebones - edit with notepad and compile with javac like the good ole days, but I thought I could do better than that. Why not have a dev toolchain that also sits in the pen drive? Maybe I could have one pen drive to hold the deployed app, and another to hold the dev environment.<br /><br />So here's the shopping list I came up with:<br /><ul>   <li>Editor</li>   <ul>     <li>should have project feature</li>   </ul>   <ul>     <li>should allow build to deploy directory (this eliminated need for ant and suchlikes)</li>   </ul>   <li>Version Control Tool - for obvious reasons</li>   <ul>     <li>should have ability to cull out deltas (this is because I expect to work on the code in a disconnected mode, and would like to snyc up just the deltas)</li>   </ul><li>Of course, both had to be written in java to leverage the base java platform.<br /> </li> </ul>So, Back to google.<br /><br />Searching for java editor and java ide turns up a plethora of choices. The obvious ones - eclipse, netbeans et al were disqualified on footprint and general too-busy-interfaces excuses. So I went looking for the not too mainstream, sufficiently enough feature-laden IDEs and finally settled on <a href="http://www.jedit.org">jedit</a>. It was written in java, seemed pretty stable, and could be extended with plugins to support the project feature. So jedit the editor was.<br /><br />Note to self: At some later date, I should come back and post on the specific editors I looked and and nay-said just as a comparison.<br /><br />Setting jedit up was not as straightforward. While the base install worked like a charm, it took some figurin out to get the settings to save under my app root and <span style="font-weight: bold;">NOT</span> in <span style="font-family: courier new;">user.home</span>, which on windows defaults to <span style="font-family: lucida grande;">My Documents</span>. Also, I couldnt get the plugins to download at all, and had to manually download the plugins, find their dependent plugins and download those, and then manually set up jedit so that it recognized them. After all these, the project plugin just barely worked, and the Compiler didnt at all, so I had to resort to command line compiles from the console. Which was the two step forward routine, as you'll agree :(.<br /><br />Fast-forward to keep on the same thread: I perservered for a while until I broke away from the project for longer than usual, and when I came back, found that the settings didnt work right, and I'd forgotten how I'd manually compiled. So back I went to the search for the next IDE. I finally settled on drjava - a tool used more to help students learn java, but seems to fit my needs just fine. So thats what I'm using right now.<br /><br />Finding a version control system written in java turned out to be a little more diffcult. There are scores of java cvs and svn clients, but few servers. And even less have a GUI - except <a href="http://www.drjava.de/superversion/">superversion</a>. The 2.7 M package has pretty much everthing I need except being able to extract deltas. Oh well :)<br /><br />Next: The early days of code generation, or realizing how less I still knew!</div>
@@ -35,8 +35,9 @@ Awrite, time to write some code. So I next went shopping for tools. Of course I 
 <div class='comments'>
 </div>
 
-</div>
 <div>tags:  </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>

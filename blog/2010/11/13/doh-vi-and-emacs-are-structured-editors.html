@@ -6,7 +6,7 @@
         <title>Doh! Vi and emacs ARE structured editors</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout.css" />
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
         <!--[if lte IE 7]>
         <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
         <![endif]-->
@@ -27,7 +27,7 @@
      
                 <p class="meta">13 Nov 2010</p>
 
-<div id="post">
+<div id="post" class="node">
 <h1>Doh! Vi and emacs ARE structured editors</h1>
 <div class='post'>
 In hindsight this was to be expected. I have been reading up the vi and emacs documentation and finally realize that they are both structural editors - not like Alice and Concrete and Webster (when/if its made) is, but definitely they're smart editors, and in some parts, they're structural editors too.<br /><br />Vim got it right with "command mode is normal, you drop into edit briefly", while emacs got it right with its major modes. <br /><br />Thoughts in no particular order:<br /><br /><ul><li>They seem to have a fixed concept of the "constructs" that comprise structured text, although that could well be my superficial reading of the docs. ESP considering the file explorer mode, for eg. That seems to be a full-fledged structural editor</li><li>emacs already has the <a href="http://www.gnu.org/software/emacs/manual/html_node/elisp/Motion-and-Syntax.html#Motion-and-Syntax">concept of skip words</a> ie structural elements that should be skipped over in navigation which is exactly what Webster/concrete does. Dunno if vi does.</li><li>vi's idea of normal mode seems to be more efficient than emacs's "type normally, use ctrl/escape sequences to insert commands" as a user interaction strategy. Should use this for webster.</li><li><a href="http://www2.lib.uchicago.edu/keith/tcl-course/emacs-tutorial.html">this explanation</a> of why the command sequences need to be as weird as they are&nbsp;is useful in understanding emacs, as was Tim ottinger's explanation of the vi command syntax</li><li>they both separate function from it's keystroke - an important detail.</li><li>The good things, therefore are:</li><ul><li>structured text</li><li>structured navigation</li><li>undo/redo/buffers</li><li>command syntax, ESP of vi</li><li>normal mode is navigation, not text entry</li><li>emacs mnemonic navigation seems better than vi's home row based one, although using modifiers for the levels of objects (char,wore,line,para) doesn't.</li></ul></ul><br />It seems like there's opportunity to take a modern stab at an editor that's in the spirit of these two behemoths, and yet goes beyond their limitations.I would not be the first to think this :)</div>
@@ -35,8 +35,9 @@ In hindsight this was to be expected. I have been reading up the vi and emacs do
 <div class='comments'>
 </div>
 
-</div>
 <div>tags:  </div>
+</div>
+
 
             <div id="footer" class="stackContent">
               <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
