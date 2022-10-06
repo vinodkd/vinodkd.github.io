@@ -25,17 +25,15 @@
               <h1 class="title"><a href="/"></a></h1>
             </div>
      
-                <p class="meta">23 Mar 2009</p>
+                <div id="post" class="post">
+    <div class="post-header">
+        <span class="post-title">Tax season and opensource - ( 23 Mar 2009 )</span>
+        
+    </div>
+    <div class='post-content'>
+        <p>For various reasons, I cannot use e-filing. So I have to fill out the IRS forms manually. And while I’m doing them, I cant help but think that those forms are a workflow implementation waiting to happen.<br /><br />The forms themselves are pretty easy to follow, so it shouldnt be hard to automate them. But in between there are deviations you’ve to take to determine if you’re eligible to take an earned credit, or (in my case) if you’re a resident or non-resident. And a lot of these deviations are presented as worksheets embedded in the instructions!<br /><br />Wouldnt it be better to have it in the form itself? And while the pdfs that allow data to be input (and saved, which the federal forms do but some state forms dont - thank you New York), it would be nice if they were in spreadsheets. Or better still - as a workflow implementation. So here’s my idea for the week:<br /><br />An opensource workflow implementation for creating your tax return.<br /><br />Nothing original, of course, as tons of websites make this idea (sans the opensource requirement) their means of existence. But I thought it would be challenging as an exercise. Here’re my high level requirements:<br /><br /><ul><li>Workflow based: Each step in the process of filing a return is expressed as a workflow step, and execution proceeds as the user works through each step</li><li>Modular: Deviations and side steps are expressed as sub-processes, which allow them to be optional or ignored if required</li><li>Useful: Allows user to verify results, or actually generate manual pdf output that can be sent to IRS</li><li>Extensible: The basic implementation should cover the common case, but it should allow addition of special cases, or conversion of values to calculations that are output from sub-processes and so forth; so that eventually it covers the span of the IRS forms.</li></ul>Implementation Ideas:<br /><ul><li>Use ruby and <a href="http://openwferu.rubyforge.org/">Route</a></li><li>Use Route’s web implementation as the basic UI</li></ul></p>
 
-<div id="post" class="node">
-<h1>Tax season and opensource</h1>
-<div class='post'>
-For various reasons, I cannot use e-filing. So I have to fill out the IRS forms manually. And while I'm doing them, I cant help but think that those forms are a workflow implementation waiting to happen.<br /><br />The forms themselves are pretty easy to follow, so it shouldnt be hard to automate them. But in between there are deviations you've to take to determine if you're eligible to take an earned credit, or (in my case) if you're a resident or non-resident. And a lot of these deviations are presented as worksheets embedded in the instructions!<br /><br />Wouldnt it be better to have it in the form itself? And while the pdfs that allow data to be input (and saved, which the federal forms do but some state forms dont - thank you New York), it would be nice if they were in spreadsheets. Or better still - as a workflow implementation. So here's my idea for the week:<br /><br />An opensource workflow implementation for creating your tax return.<br /><br />Nothing original, of course, as tons of websites make this idea (sans the opensource requirement) their means of existence. But I thought it would be challenging as an exercise. Here're my high level requirements:<br /><br /><ul><li>Workflow based: Each step in the process of filing a return is expressed as a workflow step, and execution proceeds as the user works through each step</li><li>Modular: Deviations and side steps are expressed as sub-processes, which allow them to be optional or ignored if required</li><li>Useful: Allows user to verify results, or actually generate manual pdf output that can be sent to IRS</li><li>Extensible: The basic implementation should cover the common case, but it should allow addition of special cases, or conversion of values to calculations that are output from sub-processes and so forth; so that eventually it covers the span of the IRS forms.</li></ul>Implementation Ideas:<br /><ul><li>Use ruby and <a href="http://openwferu.rubyforge.org/">Route</a></li><li>Use Route's web implementation as the basic UI</li></ul></div>
-<h2>Comments</h2>
-<div class='comments'>
-</div>
-
-<div>tags:  </div>
+    </div>
 </div>
 
 

@@ -25,17 +25,15 @@
               <h1 class="title"><a href="/"></a></h1>
             </div>
      
-                <p class="meta">18 Aug 2006</p>
+                <div id="post" class="post">
+    <div class="post-header">
+        <span class="post-title">Sidebar: JShell - ( 18 Aug 2006 )</span>
+        
+    </div>
+    <div class='post-content'>
+        <p>So i’m coding away and getting increasingly frustrated with having to open multiple cmd windows (yeah, yeah i use windows) . My main crib is that I have to remember which one of the cmd’s to open up for the task at hand - db server, db client, app svr or compile/jar/run :(. Papa not like!<br /><br />So I think: would’nt it be nice if i had the same sort of tabbed console that those lucky linux guys have and play around with? Even better, wouldnt it be nice if ran off of the app anywhere platform - ie written in Java?<br /><br />So I go looking for a java command shell - and find one in good ole sourceforge - <a href="http://jcmd.sourceforge.net/">jcmd</a>. It has pretty much everything I want:<br /><ul><li>tabbed consoles</li><li>command history</li><li>restarts each console with command history on restart ( had to fix it so it did it even when you alt-f4’d the app)</li></ul>But..<br /><ul><li>The backspace didnt work - something that I eventually found was a JDK bug in TextArea.replaceRange(). jcmd has not been updated since 2002</li><li>it really didnt have variable substitution. It supported env var sets, but not exactly along the lines of ${java.home}\bin\javac</li></ul>So….<br />        I’m making my own java shell - called JShell.<br /><br />It uses a lot of concepts from JCmd, but is a build-from-ground-up-while-looking-at-a-good-example effort.<br /><br />Right now, I have what I call the DOGFOOD release - I can use JShell to compile, jar and run itself. However, its by no means even close to working as:<br /><ul><li>The GUI code is just adequate - needs refactoring.</li><li>It has very basic keyboad handling - only enter is handled now.</li><li>However, it does improve on jcmd by having a grammar for the commands and I use <a href="http://javacc.dev.java.net">JavaCC</a> to generate a grammar.</li><li>It has very poor execution capabilities - right now it just spawns a process to exec normal OS commands, waits for the process to complete and then prints out the result</li></ul>more later..</p>
 
-<div id="post" class="node">
-<h1>Sidebar: JShell</h1>
-<div class='post'>
-So i'm coding away and getting increasingly frustrated with having to open multiple cmd windows (yeah, yeah i use windows) . My main crib is that I have to remember which one of the cmd's to open up for the task at hand - db server, db client, app svr or compile/jar/run :(. Papa not like!<br /><br />So I think: would'nt it be nice if i had the same sort of tabbed console that those lucky linux guys have and play around with? Even better, wouldnt it be nice if ran off of the app anywhere platform - ie written in Java?<br /><br />So I go looking for a java command shell - and find one in good ole sourceforge - <a href="http://jcmd.sourceforge.net/">jcmd</a>. It has pretty much everything I want:<br /><ul><li>tabbed consoles</li><li>command history</li><li>restarts each console with command history on restart ( had to fix it so it did it even when you alt-f4'd the app)</li></ul>But..<br /><ul><li>The backspace didnt work - something that I eventually found was a JDK bug in TextArea.replaceRange(). jcmd has not been updated since 2002</li><li>it really didnt have variable substitution. It supported env var sets, but not exactly along the lines of ${java.home}\bin\javac</li></ul>So....<br />        I'm making my own java shell - called JShell.<br /><br />It uses a lot of concepts from JCmd, but is a build-from-ground-up-while-looking-at-a-good-example effort.<br /><br />Right now, I have what I call the DOGFOOD release - I can use JShell to compile, jar and run itself. However, its by no means even close to working as:<br /><ul><li>The GUI code is just adequate - needs refactoring.</li><li>It has very basic keyboad handling - only enter is handled now.</li><li>However, it does improve on jcmd by having a grammar for the commands and I use <a href="http://javacc.dev.java.net">JavaCC</a> to generate a grammar.</li><li>It has very poor execution capabilities - right now it just spawns a process to exec normal OS commands, waits for the process to complete and then prints out the result</li></ul>more later..</div>
-<h2>Comments</h2>
-<div class='comments'>
-</div>
-
-<div>tags:  </div>
+    </div>
 </div>
 
 

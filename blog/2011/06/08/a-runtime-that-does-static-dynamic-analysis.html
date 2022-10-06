@@ -25,17 +25,15 @@
               <h1 class="title"><a href="/"></a></h1>
             </div>
      
-                <p class="meta">08 Jun 2011</p>
+                <div id="post" class="post">
+    <div class="post-header">
+        <span class="post-title">A runtime that does static/dynamic analysis - ( 08 Jun 2011 )</span>
+        
+    </div>
+    <div class='post-content'>
+        <div dir="ltr" style="text-align: left;" trbidi="on">Traditionally, code analysis has been done offline (statically) or online (debug or test in prod). In either case the effort has been to minimize the impact of analysis overhead on execution of code. Ironically, its this exact execution state that we need to know and understand better to improve and maintain software.<br /><br />In the database world, its common for the runtime (ie db engine) to maintain statistics of query execution and use that to better plan future execution. Why not have a code runtime that does the same?<br /><br />Again, not a new concept - cpus have had this for ages. What about App Servers, though? Imagine having a code analyzer attached to your running code that not just tells you where the hotspots are, but also points out the tangles in your code and so forth?<br /><br />The advantages are obvious: no additional tools required, code analysis in running code, etc; as are the disadvantages: performance penalty being the main one. However, I really have to ask: We've come a long way from expecting "running on bare metal" mode. Why not this additional step? In a long enough time line wouldn't the benefits and advances in hardware outweigh this?<br /><br />We've seen the advent of opinionated languages. I think its time for an opinionated App Stack.<br /><br />Implementation note: Steal Fantom's concept of conceptual package = deployment package.</div>
 
-<div id="post" class="node">
-<h1>A runtime that does static/dynamic analysis</h1>
-<div class='post'>
-<div dir="ltr" style="text-align: left;" trbidi="on">Traditionally, code analysis has been done offline (statically) or online (debug or test in prod). In either case the effort has been to minimize the impact of analysis overhead on execution of code. Ironically, its this exact execution state that we need to know and understand better to improve and maintain software.<br /><br />In the database world, its common for the runtime (ie db engine) to maintain statistics of query execution and use that to better plan future execution. Why not have a code runtime that does the same?<br /><br />Again, not a new concept - cpus have had this for ages. What about App Servers, though? Imagine having a code analyzer attached to your running code that not just tells you where the hotspots are, but also points out the tangles in your code and so forth?<br /><br />The advantages are obvious: no additional tools required, code analysis in running code, etc; as are the disadvantages: performance penalty being the main one. However, I really have to ask: We've come a long way from expecting "running on bare metal" mode. Why not this additional step? In a long enough time line wouldn't the benefits and advances in hardware outweigh this?<br /><br />We've seen the advent of opinionated languages. I think its time for an opinionated App Stack.<br /><br />Implementation note: Steal Fantom's concept of conceptual package = deployment package.</div></div>
-<h2>Comments</h2>
-<div class='comments'>
-</div>
-
-<div>tags:  </div>
+    </div>
 </div>
 
 

@@ -10,8 +10,10 @@ Colors borrowed from aprilzero.com. All other css is mine.
 }
 
 body {
-	background: url('/images/grid.png') repeat;
-	background-color: #064C92;
+	/* background: url('/images/grid.png') repeat; */
+	/* background-color: #064C92; */
+	/* background-color: #363642; */
+	background-color: rgba(9, 43, 168, 0.812);
 	color: white;
 	margin: 2em;
 }
@@ -23,11 +25,33 @@ a:visited {
 	color: gray;
 }
 
-.node{
+.node {
+	border:none;
+} 
+
+.post-content, .node-content{
 	padding: 1em;
 	border: 1px solid #86ACD2;
-	/*border-radius: 35px;*/
+	border-radius: 0px 35px 35px 35px;
+	font-size: larger;
 	/*padding: 5px;*/
+}
+
+.post-header, .node-header {
+	width: max-content; /*from https://stackoverflow.com/a/47008243*/
+	border: 1px solid #86ACD2;
+	border-radius: 15px 15px 0px 0px;
+	margin: 0% 0% 0% 0%;
+	padding: 1%;
+}
+
+.post-tag {
+	background-color: black;
+	color: yellow;
+	padding: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 2px;
 }
 
 #header {

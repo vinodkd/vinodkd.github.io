@@ -25,17 +25,23 @@
               <h1 class="title"><a href="/"></a></h1>
             </div>
      
-                <p class="meta">01 Dec 2011</p>
+                <div id="post" class="post">
+    <div class="post-header">
+        <span class="post-title">I visited JavaFXville and all I got was this post - ( 01 Dec 2011 )</span>
+        
+            <span class="post-tag">downloader </span>
+        
+            <span class="post-tag">flv player </span>
+        
+            <span class="post-tag">rant </span>
+        
+            <span class="post-tag">youtube </span>
+        
+    </div>
+    <div class='post-content'>
+        <div dir="ltr" style="text-align: left;" trbidi="on">I tried to write an FLV player in JavaFX today.<br /><br />I tried very hard.<br /><br />I didnt get very far. Or when I did, it was not obvious how far I actually had.<br /><br />It all started with me looking for a trustworthy way of downloading Youtube videos - you known, the Randy Pausch kind. To share with my team easily.<br /><br />Googling for Java and FLV showed that JavaFX spoke FLV natively. Awesome. I'd heard enough of JavaFX in its previous incarnation as F3 to think it was worth a shot for a weekend project. Not to mention this is the closest that one can get these days to simple declarative GUI.<br /><br />Of course, I'm sadly backed up on the news front. Oracle, in its infinite sagacity, decided that the declarative DSL was to go; replaced by a Java API. So what looked like a simple sample in the 1.3 documentation morphed into this beast of boilerplate in 2.0.<br /><br />But wait, there's FXML - the Oracle blessed replacement for FXScript, right? It <b>IS</b> XML, but its still declarative, right?<br /><br />Wrong. Conjuring up the right incantations to get MediaView instantiate a Media object is obviously beyond me. I've never liked XML as a UI description language and this abomination only stokes that feeling.<br /><br />So I give that up and get back to the POJO version; which works for the sample FLV they provide.<br /><br />So I proceed to download a Youtube video using a Sourceforge-based downloader (also Java) and the bloody thing doesnt load. Maybe the downloader is broken?<br /><br />I dunno. The code looks like its doing multiple passes on the embed element's params; and justifiably so because that value's a snakepit of multiple URL encode sessions. Security by obscurity, perhaps?<br /><br />Ugh.<br /><br />Its 4 in the AM, and all I have to show for my efforts is this blogpost.<br /><br />Final nail in the coffin: I now read that JavaFX has spotty support for Linux. The whole intent of this was to create something in Java so that I can share it with my linux-using team.<br /><br />FML.<br /><br /></div>
 
-<div id="post" class="node">
-<h1>I visited JavaFXville and all I got was this post</h1>
-<div class='post'>
-<div dir="ltr" style="text-align: left;" trbidi="on">I tried to write an FLV player in JavaFX today.<br /><br />I tried very hard.<br /><br />I didnt get very far. Or when I did, it was not obvious how far I actually had.<br /><br />It all started with me looking for a trustworthy way of downloading Youtube videos - you known, the Randy Pausch kind. To share with my team easily.<br /><br />Googling for Java and FLV showed that JavaFX spoke FLV natively. Awesome. I'd heard enough of JavaFX in its previous incarnation as F3 to think it was worth a shot for a weekend project. Not to mention this is the closest that one can get these days to simple declarative GUI.<br /><br />Of course, I'm sadly backed up on the news front. Oracle, in its infinite sagacity, decided that the declarative DSL was to go; replaced by a Java API. So what looked like a simple sample in the 1.3 documentation morphed into this beast of boilerplate in 2.0.<br /><br />But wait, there's FXML - the Oracle blessed replacement for FXScript, right? It <b>IS</b> XML, but its still declarative, right?<br /><br />Wrong. Conjuring up the right incantations to get MediaView instantiate a Media object is obviously beyond me. I've never liked XML as a UI description language and this abomination only stokes that feeling.<br /><br />So I give that up and get back to the POJO version; which works for the sample FLV they provide.<br /><br />So I proceed to download a Youtube video using a Sourceforge-based downloader (also Java) and the bloody thing doesnt load. Maybe the downloader is broken?<br /><br />I dunno. The code looks like its doing multiple passes on the embed element's params; and justifiably so because that value's a snakepit of multiple URL encode sessions. Security by obscurity, perhaps?<br /><br />Ugh.<br /><br />Its 4 in the AM, and all I have to show for my efforts is this blogpost.<br /><br />Final nail in the coffin: I now read that JavaFX has spotty support for Linux. The whole intent of this was to create something in Java so that I can share it with my linux-using team.<br /><br />FML.<br /><br /></div></div>
-<h2>Comments</h2>
-<div class='comments'>
-</div>
-
-<div>tags: rant, downloader, flv player, youtube </div>
+    </div>
 </div>
 
 

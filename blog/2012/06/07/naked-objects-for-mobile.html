@@ -25,32 +25,17 @@
               <h1 class="title"><a href="/"></a></h1>
             </div>
      
-                <p class="meta">07 Jun 2012</p>
+                <div id="post" class="post">
+    <div class="post-header">
+        <span class="post-title">Naked Objects for Mobile - ( 07 Jun 2012 )</span>
+        
+            <span class="post-tag">ideas </span>
+        
+    </div>
+    <div class='post-content'>
+        <div dir="ltr" style="text-align: left;" trbidi="on">Why not, I ask?<br /><br />The <a href="http://en.wikipedia.org/wiki/Naked_objects">Naked Objects Pattern</a> has been an idea that I've always found interesting and useful for quick-n-dirty apps.<br /><br />The Apache Isis way of NO seems a little bit overwrought (as most of Apache projects are), but I've been following JMatter for quite a while now and have been impressed despite it being a Swing-only UI.<br /><br />For the simple one-user app, the NO pattern seems sufficient: the thing gets built quickly, there's lowered expectation of customized UI from the user and probably even platform portability.<br /><br /></div>
 
-<div id="post" class="node">
-<h1>Naked Objects for Mobile</h1>
-<div class='post'>
-<div dir="ltr" style="text-align: left;" trbidi="on">Why not, I ask?<br /><br />The <a href="http://en.wikipedia.org/wiki/Naked_objects">Naked Objects Pattern</a> has been an idea that I've always found interesting and useful for quick-n-dirty apps.<br /><br />The Apache Isis way of NO seems a little bit overwrought (as most of Apache projects are), but I've been following JMatter for quite a while now and have been impressed despite it being a Swing-only UI.<br /><br />For the simple one-user app, the NO pattern seems sufficient: the thing gets built quickly, there's lowered expectation of customized UI from the user and probably even platform portability.<br /><br /></div></div>
-<h2>Comments</h2>
-<div class='comments'>
-<div class='comment'>
-<div class='author'>Dan Haywood</div>
-<div class='content'>
-Yes, I agree with your view that Isis shouldn&#39;t be a &quot;one-stop generator&quot; for ORMs... there are other frameworks out there that do the ORM stuff as their sole concern.  I&#39;m considering pitching JDO/DataNucleus to the Isis community as being the one ORM that Isis depends on.  That should help us continue to simplify its codebase.<br /><br />On the other hand, I think it&#39;s right that Isis supports multiple UIs toolkits: choose your poison!  And the restful viewer makes a good common denominator if we don&#39;t support the UI toolkit you want.<br /><br />As for pojo/Objective-C classes running natively on the viewer, well, that has been done in (within a student project) about 10 years ago on an early version of the NO framework.  But for myself I&#39;m not sure that I particularly like the architecture.<br /><br />Dan</div>
-</div>
-<div class='comment'>
-<div class='author'>vinod</div>
-<div class='content'>
-Wow.. didnt expect somebody from Isis to actually comment on my no-marketing blog!<br /><br />Thanks for stopping by Dan.<br /><br />I&#39;ve actually been looking at the documentation for Isis and its pretty comprehensive. I just feel that the problem its trying to solve - be the one stop generator for all the ORMs and Ui toolkits we have in the Java world is contributing to its size.<br /><br />As for mobile: yes, a json-based middle tier seems an obvious thing to have; but I was tending more towards native clients that seem to recreate all the problems we have in traditional n-tier arch again - in their own ways. It would be nice to be able to take a bunch of pojos or Objective-C classes and have the &quot;Mobile NO Framework&quot; just build out the default UI. That&#39;s more where I was going with this idea.</div>
-</div>
-<div class='comment'>
-<div class='author'>Dan Haywood</div>
-<div class='content'>
-We&#39;re steadily simplifying the Isis codebase... we recognise that there&#39;s too much complexity in it and that&#39;s liable to impede its ability to grow the community.<br /><br />Your post was titled &quot;Naked Objects for Mobile&quot;... so you might be interested in the Restful Objects spec I&#39;ve been working on, basically a JSON hypermedia API for domain objects.  One application of this, obviously, is single-page Javascript apps.<br /><br />Isis supports an earlier version of the RO spec, and NO.MVC (on .Net) is pretty much complete.<br /><br />Hope that&#39;s of interest...<br /><br />Dan</div>
-</div>
-</div>
-
-<div>tags: ideas </div>
+    </div>
 </div>
 
 
