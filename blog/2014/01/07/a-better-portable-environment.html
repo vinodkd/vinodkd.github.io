@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>A better portable environment</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
+        <!--[if lte IE 7]>
+        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
+        <![endif]-->
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/"></a></h1>
+            </div>
+     
+                <div id="post" class="post">
+    <div class="post-header">
+        <span class="post-title">A better portable environment - ( 07 Jan 2014 )</span>
+        
+            <span class="post-tag">idea </span>
+        
+    </div>
+    <div class='post-content'>
+        <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">For a long time I've tried to create a portable environment for myself, without much success.</div><div style="text-align: justify;"><br /></div><blockquote class="tr_bq"><div style="text-align: justify;">A portable environment is a collection of all software that I need and use for development available as a set of files on a USB stick. I should be able to put it into any machine (Win, OSX or Linux) and do everything that I want to do.</div></blockquote><div style="text-align: justify;">PortableApps comes pretty close. Portable msysgit gives a uniform bash shell everywhere and as long as i'm miserly with the languages I want to work with, I should be OK. Maybe cheat a bit with an install of Sublime Text (zip install used via Wine on Linux) and I'm golden.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">At least that's what I've settled for now.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">But sometimes its not enough. You want a full environment. You want to not have to copy files or git rebase. So I tried VirtualBox. The idea was that the only install I'd need was Virtual Box on each machine that I want to use the environment on, and the VDI file would be on the stick. That way everything remains in one place.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Except the VDI files dont work right with OSX. Or at least didnt on Snow Leopard. I've not tried on Mavericks.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">But in the meantime, I had an idea: How about a node-webkit based environment? As long as the stick has executables for all OSs, the app itself can be run. There are enough and more terminal emulators, editors and so forth in JS these days. What is still not in JS (versioning, file system, etc) could probably be filled in using emscripten.js maybe?</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Its a thought for 2015 :)</div></div>
+
+    </div>
+</div>
+
+
+            <div id="footer" class="stackContent">
+              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
+              <div class="stackAuto item">
+                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
+              </div>
+              <div class="stackAuto item">
+                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
+              </div>
+            </div>
+            </div>
+        </div> <!-- /container -->
+
+    </body>
+</html>
