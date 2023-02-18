@@ -6,27 +6,19 @@
         <title>Early thoughts on Jack</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Early thoughts on Jack</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Early thoughts on Jack - ( 14 Mar 2012 )</span>
         
             <span class="post-tag">ideas </span>
@@ -35,25 +27,14 @@
         
             <span class="post-tag">jack </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;"><i>I found this writeup from 2009 in one of my umpteen storage media and thought it was evocative enough to publish. My later ramblings on the topic of Jack have been attempts to concretize the ideas rather than gaze starry-eyed at the wonder that is that ephemeral topic of <b>a versionable language</b>. This one is more of the latter kind than the others. There are 2 parts to the writeup: a exposition on top and notes at the bottom. The notes are actually the outline of the exposition, which is essentially unfinished. Except for some cosmetic formatting changes, I've reproduced the piece as is:</i></div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Think of an aspect. An aspect usually takes a chunk of code, and in the most general case (called the around advice), wraps around that chunk an envelope. This envelope acts as a guardian to any entry into the chunk and is not only capable of altering expected behavior of the chunk by altering its inputs, but is also capable of deciding if the chunk should execute at all.<br /><br />Think of a monad. It effectively does the same, except it does it to separate non-functional bits from functional ones.<br /><br />Think of an ESB. It too, does the same; except that it does it at a much higher level of granuality - at that of a service. Taking the generally understood definition that services are suitably large components that house some specific business functionality, an ESB orchestrates the sequence of operations between these components to achieve the affect of an application.<br /><br />Now think of how we modify code. We do the same thing - alter the expected behavior, decide if the code should execute at all, (re)orchestrate the sequence of operations to achieve the effect we're expecting.<br /><br /><b>We are the aspect, the monad, the ESB.&nbsp;</b><br /><br />However there are major differences between us and these constructs that act to the disadvantage of humans while maintaining code:</div><ul style="text-align: left;"><li style="text-align: left;">each of these constructs have the feature that it describes the change it effects on the component being changed. The humans changes are available only as diffs on an external tool - the version control system</li></ul><ul style="text-align: left;"><li style="text-align: left;">the human's change is at a textual, character level; not a statement/method/package/module/unit of execution level.So the change is not percieved as a change of language elements to effect it, but numerous characters being shuffled around</li></ul><div style="text-align: justify;">While this might seem like a tirade against text-based programming and possibly making a case for structural editors, there's more than that. The key problem is that the unit of execution is not identifiable. Statements in modern languages are anonymous, except by the line number of the source file. If they were identifiable, we could express something like "i had to remove the 5th if statement to after the assignment of var foo" instead of "cut line 150-234, paste at line 450". The former is what we usually do when we talk about it, but there's no direct way of enshrining that in a machine readable way.</div><span style="text-align: justify;"><br /></span><br /><span style="text-align: justify;">Whats the use of such a feature you ask? Well, imagine a language that allowed us to identify the statements, and then express addition, deletion and modification of statements within itself. Something like:</span><br /><blockquote class="tr_bq"><div style="text-align: left;"><span style="font-family: 'Courier New', Courier, monospace;"><b>insertStmt module3.class4.method1.if#5, AFTER, module3.class4.method1.letvarfoo</b></span></div></blockquote><div style="text-align: justify;">&nbsp;The fact that the statements of code are&nbsp;addressable&nbsp;allows us to refer to them in a logical manner and the fact that the operations carried out to cause the code to change are operators allows us to maintain the change itself as code.Similar to <span style="font-family: 'Courier New', Courier, monospace;"><i><b>insertStmt</b></i></span> there'd be <span style="font-family: 'Courier New', Courier, monospace;"><b><i>addStmt</i></b></span>, <span style="font-family: 'Courier New', Courier, monospace;"><b><i>deleteStmt</i></b></span> and <span style="font-family: 'Courier New', Courier, monospace;"><b><i>modifyStmt</i></b></span> operators; and obviously we can extend the concept of a function to these operators too, so that the complete conversion from one version to another is expressed as a single operation - a changeset in code, if you will.Producing the next version of your app is no longer a snapshot activity - it can become incremental. Further, multiple changesets can be "compiled" into a fix pack of changes to produce any version at will. And all changes are expressed as logical changes, not textual deltas.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">More importanly, think of what the language (or its units of execution - the statements) would have to support for this to work. They would have to become self-contained modules. Self-contained micro services, if you will, which can then be "orchestrated" my moving them to the location in the code which will cause whichever version we desire to be effected via these transformation functions. Code therefore becomes easier to change.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Now lets take it to the next level, and define these operators at all levels of abstraction/modularization that the language supports. So we'd have <span style="font-family: 'Courier New', Courier, monospace;"><b><i>addMethod</i></b></span>,<span style="font-family: 'Courier New', Courier, monospace;"><b><i>addMethodArg</i></b></span>, <span style="font-family: 'Courier New', Courier, monospace;"><b><i>addModule</i></b></span>, etc.</div><span style="text-align: justify;"><br /></span><br /><span style="text-align: justify;">Notes:</span><br /><ul style="text-align: left;"><li style="text-align: justify;">Identity</li><li style="text-align: justify;">modularity</li><li style="text-align: justify;">esb-style orchestration</li><li style="text-align: justify;">not just run time, but also statically, we can express the change occuring. which makes is amenable to machine learning.</li><li style="text-align: justify;">automatic modularization/aggregation is the key to useful versioning.</li><li style="text-align: justify;">forget versioning. what i'm really trying to do is to discover the steps in the computation being carried out that can be abstracted out such that an esb can act on it.</li><li style="text-align: justify;">deriving the higher order sequence from base description</li><li style="text-align: justify;">there are only 3 basic constructs in programming - the assignment, the goto (including the implied goto by the instruction pointer), and the conditional ie if. if is usually followed by the goto, and all instructions of the JZ, JNZ variety are combinations of the if/goto. so the real inflection point for the sequence of operations is the if. we can consider any block of code before an if as a single block with appropriate inputs, outputs and context, and similarly any block of code after an if. each if clause represents a micro service. if therefore is the micro esb.&nbsp;</li><li style="text-align: justify;">so partitioning of code cana be done based on ifs. now if we take all the ifs at the same peer level - within a method, class or package/module, (or even app) and find the same conditions being checked, those paths can be collapsed, or refactored - this is similar to the ideas in subtext. find the right partitioning of code so that it can be expressed easily.&nbsp;</li></ul></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

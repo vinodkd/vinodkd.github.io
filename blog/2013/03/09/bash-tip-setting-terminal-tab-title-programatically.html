@@ -6,52 +6,33 @@
         <title>bash tip: setting terminal tab title programatically</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  bash tip: setting terminal tab title programatically</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">bash tip: setting terminal tab title programatically - ( 09 Mar 2013 )</span>
         
             <span class="post-tag">tips </span>
         
             <span class="post-tag">bash </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">This one has been annoying me for quite a while - looking at the string of tabs in the mac's Terminal App, all of them titled "bash" except for the one trying to download webkit which is usefully titled "git".<br /><br />So I finally decided to do something about it, namely google the solution. Here're the results:<br /><br /><script src="https://gist.github.com/vinodkd/5123770.js"></script>As a bonus, the cd() function adds the ability to change the title to whatever directory you currently are on - which works just fine when you're in your projects directory :)<br /><br />I think this should work on Linux as well; confirmation TBD.<br /><br /><br /></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

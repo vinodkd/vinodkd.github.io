@@ -6,48 +6,29 @@
         <title>An easy launcher for redcar on Windows</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  An easy launcher for redcar on Windows</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">An easy launcher for redcar on Windows - ( 31 Jan 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I just (re)discovered Redcar, and have been playing with it. I love it so far (especially the seamless git integration, and the tree-document-view concepts) but I find unnecessary windows irritating, so I obviously didn't like that Redcar needed a command window open in addition to its own SWT one. Here's how I made launching Redcar a 1-click affair. <br /><ol style="text-align: left;"><li>Install redcar and make sure it works on its own. ie, typing redcar on any command window should start it up.</li><li>Convert the redcar icon from png to ico <a href="http://stackoverflow.com/questions/3185677/converting-gifs-pngs-and-jpgs-to-ico-files-using-imagemagick">using imagemagick</a>. You obviously need a unix box for this, or have imagemagick installed on windows. Online tools are also available, but this seems the most programmable and quick - especially if you have a unix box around :)<br /><blockquote class="">&nbsp;[user@box]$ convert -resize x16 -gravity center -crop 16x16+0+0 redcar-icon-beta.png -transparent white -colors 256 redcar-icon-beta.ico</blockquote></li><li>Create a windows shell script (redcar.vbs) that loads up redcar <a href="http://fixunix.com/ms-dos/23183-running-batch-file-without-command-prompt-window.html">without a command window</a><br /><blockquote class="">&nbsp;&nbsp;&nbsp; Set WshShell = CreateObject("WScript.Shell")<br />&nbsp;&nbsp;&nbsp; WshShell.Run chr(34) &amp; "redcar" &amp; Chr(34), 0<br />&nbsp;&nbsp;&nbsp; Set WshShell = Nothing</blockquote></li><li>Open up a launch folder of your choice. Mine is the Quick Launch bar.</li><li>Rt click on the folder, New -> shortcut, and in the wizard that shows up, enter the following:</li><ol><li>Location: <location of="" script="" vbs=""><location of="" script="">drive:\path\to\redcar.vbs</location></location></li><li><location of="" script="" vbs=""><location of="" script="">Name: redcar</location></location></li></ol><li><location of="" script="" vbs=""><location of="" script="">Rt click on the shortcut -> Properties. Then change the following:</location></location></li><ol><li>Change Icon -> Look for icons in file: <location file="" icon="" of="">drive:\path\to\<location file="" ico="" of="">redcar.ico</location></location></li></ol><li>In the folder (or in my case, on the Quick Launch bar), Click on the Redcar icon. Redcar should now load up straight to the splash screen.</li></ol><ol style="text-align: left;"></ol><div style="text-align: left;">Notes:<br /><ul style="text-align: left;"><li>The one drawback with this is that you no longer see the debug information that the command window provides. I could not have know that Redcar looks for git during its launch without that output. So there's still reason to launch redcar from the command line. This method doesn't prevent such launches.</li><li>I noticed that there's <a href="https://github.com/mscharley/redcar-windows">a github project creating a windows launcher for redcar</a>, but it seems to me like the steps above could be easily automated and the artifacts added to the redcar core distribution for a simpler launcher.Maybe I'll fork redcar and add them :)</li><li>If you're using Portable Git on Windows like me, the key to having redcar find git outside MinGW is to add the following to your path:</li></ul><blockquote>drive:\path\to\PortableGit-xxx\<b>cmd</b></blockquote><br /></div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

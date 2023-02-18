@@ -6,48 +6,29 @@
         <title>A runtime that does static/dynamic analysis</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  A runtime that does static/dynamic analysis</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">A runtime that does static/dynamic analysis - ( 08 Jun 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">Traditionally, code analysis has been done offline (statically) or online (debug or test in prod). In either case the effort has been to minimize the impact of analysis overhead on execution of code. Ironically, its this exact execution state that we need to know and understand better to improve and maintain software.<br /><br />In the database world, its common for the runtime (ie db engine) to maintain statistics of query execution and use that to better plan future execution. Why not have a code runtime that does the same?<br /><br />Again, not a new concept - cpus have had this for ages. What about App Servers, though? Imagine having a code analyzer attached to your running code that not just tells you where the hotspots are, but also points out the tangles in your code and so forth?<br /><br />The advantages are obvious: no additional tools required, code analysis in running code, etc; as are the disadvantages: performance penalty being the main one. However, I really have to ask: We've come a long way from expecting "running on bare metal" mode. Why not this additional step? In a long enough time line wouldn't the benefits and advances in hardware outweigh this?<br /><br />We've seen the advent of opinionated languages. I think its time for an opinionated App Stack.<br /><br />Implementation note: Steal Fantom's concept of conceptual package = deployment package.</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

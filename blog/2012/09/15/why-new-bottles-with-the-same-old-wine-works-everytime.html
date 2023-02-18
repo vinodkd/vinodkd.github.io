@@ -6,52 +6,33 @@
         <title>Why new bottles with the same old wine works... everytime!</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Why new bottles with the same old wine works... everytime!</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Why new bottles with the same old wine works... everytime! - ( 15 Sep 2012 )</span>
         
             <span class="post-tag">rant </span>
         
             <span class="post-tag">soapbox </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I attended the second BangaloreJS meet today. The sessions were good and so was the food; and I met some really interesting people so in all a fun time was had.<br /><br />Before the sessions started, however, Jon - the meetup organizer - showed a quick demo of Yeoman: a new tool released by Paul Irish and some of his friends from Twitter that eases building client-side JS projects.<br /><br />I had a senior moment when I finally realized what it was.<br /><br />This was Rake in client-side JS clothing, which was ant in Ruby clothing, which was make in Java clothing, which was ... I dont know what came before make because that was waaay before I was born, but I know there was something else that all the cool kids left for make.<br /><br />Yes, I realize this does way more than a simple build tool; much like rake does way more than just build code. And it did it in a way that seemed magical when it came out first, too. You could do all that with ant tasks/plugins but it was not the same thing. But that's besides the point. It was a build tool in its core.<br /><br />Why do we as developers <b>keep.reinventing.these.common.tools</b>?<br /><br />Answer: For the same reason tool vendors have different versions of the same tool by language.<br /><br />See, I happened to be browsing JetBrains' website the other day and saw that they claim that their non-Java IDEs share the "same features as other Jetbrains IDEs" or something to that effect. It struck me that they surely have a generic base version of the IDE that is skinned and customized for each "vertical" i.e., language-specific IDE.<br /><br />Why then do they have one tool per language?<br /><br />Because there are very few polyglot programmers in the world. Majority of us stick to one language, maybe a platform with a few related ones. That's IT. So we want something that "speaks to us, knows our problems", not something that can boil the PL ocean. And why would we need all those generic, all-language features anyway, right?<br /><br />So the vendors sell us the shiny new bottles. And we drink it up.<br /><br />And that's the way it should be. Why should client-side JS devs (who are in an unprecedented hype cycle after a long winter) be grudged a "robust and opinionated client-side stack, comprised of tools and frameworks that can help developers quickly build beautiful web applications"?<br />        <br />Note to self: When you finally finish creating Fluent, remember to brand it by language. FluentC, FluentRuby, FluentJava all sound very usable :)</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

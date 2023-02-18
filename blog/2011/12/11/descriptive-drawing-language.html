@@ -6,50 +6,31 @@
         <title>Descriptive Drawing Language</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Descriptive Drawing Language</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Descriptive Drawing Language - ( 11 Dec 2011 )</span>
         
             <span class="post-tag">ideas </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I have been thinking of the way by which UI mockups are created. In most Visio-style applications - which are the mainstay for this kind of thing - there's usually a pallette of known "widgets" that can be dragged onto a canvas and put into place using the Painter's Algorithm. The good part about such an arrangement is that they allow easy creation of UI mockups, and thereby expression of the look of the app-to-be.<br /><br />This works when the UI framework is an established one and the set of widgets is known. But what if you're trying to create a new UI framework and you want it to be completely (or sufficiently) different from the current pack?<br /><br />The other problem I see with the current way of doing things is that UI mockups/wireframes are still woefully disconnected from the rest of the development process: the designers build their mockups, pass it onto the graphic artists who finish up the design with dimensions, colors etc and finally deliver a finished design (typically in html for webapps, most probably psd for others) to the developer - who now has to tear down the carefully crafted design to get at its constituent pieces.<br /><br />I was thinking of an alternative that's inspired in part by Graphviz.<br /><br />Imagine being able to draw a picture by describing what it contained. So a description of a wheel would be something like:<br /><br />wheel:<br />&nbsp; &nbsp; circleA: circle<br />&nbsp; &nbsp;&nbsp;circleB: circle<br />&nbsp; &nbsp;&nbsp;line1, line2, line3, line4: line<br /><br />&nbsp; &nbsp;&nbsp;circleA contains circleB<br />&nbsp; &nbsp;&nbsp;line1: pointAt(circleA, top) - pointAt(circleB,top)<br />&nbsp; &nbsp;&nbsp;line2: pointAt(circleA, right) - pointAt(circleB,right)<br />&nbsp; &nbsp;&nbsp;line3: pointAt(circleA,&nbsp;bottom) - pointAt(circleB,bottom)<br />&nbsp; &nbsp;&nbsp;line4: pointAt(circleA, left) - pointAt(circleB,left)<br /><br />The syntax is obviously very handwavy at this point, but hopefully the intent is clear:<br /><br /><ul style="text-align: left;"><li>You describe the scene, not paint it</li><li>You define relationships between the objects not place them in specific positions.&nbsp;</li><li>You provide dimensions only if absolutely required, else the system figures it out for you.This is obviously not intended for a "to scale" diagram; although I can already imagine a Graphviz style mode that outputs the same format as the input - only annotated with dimension information that can further be processed to make it to scale.</li></ul><div>The advantages I see with such an approach are:<br /><br /><ul style="text-align: left;"><li>Diagramming becomes descriptive. It could easily have a Canvas backend as a GL one, but the scene would be the same</li><li>UI wireframes can be built "from scratch" easier than before and thus support early exploration of new ways of expressing design intent</li><li>&nbsp;UI wireframes become instantly accessible to version control</li><li>Developers can literally write diagrams!</li></ul></div>Design notes:<br /><br /><ul style="text-align: left;"><li>There will obviously be primitives - line, circle, arc etc come to mind.</li><li>The system will allow creation of compound objects from simpler ones and primitives</li><li>Spatial organization in a 2D plane will be represented by a logical grid, or using predicates such as "contains", "to the left of", "to the right of" etc</li><li>Overlapping objects will be represented by a Z-ordering (as in most such tools) using predicates such as "in front of" "behind". Alternatively, the system could allow depiction of each "layer" in the Z-axis as a slice within which no front/behind predicates are allowed</li><li>Objects can have "anchor points" defined which allow other objects to use those specific points in other areas of the script.</li></ul></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

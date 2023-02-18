@@ -6,50 +6,31 @@
         <title>Testing RIAs using pure javascript: the return of Selenium Core</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Testing RIAs using pure javascript: the return of Selenium Core</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Testing RIAs using pure javascript: the return of Selenium Core - ( 12 Mar 2011 )</span>
         
             <span class="post-tag">ideas </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">As I try to use TDD to build Fluent, I was drawn to the concept of keeping the environment pure: Fluent is intended to be a Javascript only project, so I didnt see the point of having tools that were not javascript. To this end, I wrote cuke4jas - so that I can write my feature specs in javascript. That still leaves the gaping hole of DOM testing - which most people seem to fill using something like Selenium.<br /><br />Except Selenium isn't &nbsp;javascript alone - it minimally need Java (for Selenium RC) to run.<br /><br />Or does it? Selenium core - the central piece of Selenium is STILL pure javascript; but over the years its been wrapped with the other Selenium bits to make it a complete solution that its no longer available as a separate download even. This is not without reason - the same origin policy ensures that Selenium Core will work only when you've installed it alongside the app that you want to test, which is usually not the case.<br /><br />Except in cases like mine - where the app is completely in javascript, or at least completely in the browser.<br /><br />It is possible to use the raw dom functions, or even libraries like Prototype, JQuery or RightJS directly with jasmine to test the DOM, but Selenium core brings to the table the full-fledged support of automating all the user's actions in a browser (with wait versions as well), so that feature specs can be written with true user actions, not imitations of those actions by calling the functions that would eventually be executed.<br /><br />Design notes:<br /><br /><ul style="text-align: left;"><li>Extract out only the selenium-core bits from any Selenium-RC package. This would be the in&nbsp;<i>selenium-remote-control-xxx\selenium-server-xxx/selenium-server.jar/core</i></li><li>Subclass the TestLoop class (see HTMLTestRunner for a good implementation), and implement at least the nextCommand(), commandComplete(), commandError() and testComplete() functions. That should allow for a simple executor of selenium commands.</li><li>Of course, TestLoop requires a CommandFactory, but the core has a default implementation that does most (all?) of the work.</li><li>Finally, the subclass will have to take in an array of commands to execute, which nextCommand would provide when requested.</li></ul><div>The good part of all this is that you don't need to depend on the TestRunner.html, and therefore can contain all of this within Jasmine/Species/Cuke4jas's Specrunner.html, or even open up a new window and display the app running there.<br /><br />Caveat:<br /><br /><ul style="text-align: left;"><li>All of this still requires a web-server; the same rules prevent file:/// resources from being used with selenium. I've fixed it with a simple webrick script, although any other web server would work just fine.</li><li>Once more, this will work only on files served up from the same server as the selenium files are served up from.</li></ul></div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

@@ -6,48 +6,29 @@
         <title>The tiny app platform</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  The tiny app platform</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">The tiny app platform - ( 03 Aug 2006 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <p>small..tiny..those were the keywords with which I went shopping for a database and an app server. The client of course, was to be the browser, so I didnt bother too much about that one - the idea being that the one external piece of software the “app anywhere” platform would depend on would be the browser. How naive I was in those early days!<br /><br />Back to the db and App Server in the meanwhile.<br /><br />I’d used <a href="http://www.hsqldb.org">hsqldb</a> before, so that was an obvious choice for a free, opensource java db. So that was that as far as the backend was concerned.<br /><br />As for the app server - any EJB server was out of the question because a) anything that verbose didnt come without flab and more importantly b) because i just dont like EJB :). Hey its my app, i make the rules!<br /><br />I’d been a big fan of <a href="http://www.vqsoft.com/vq/server/index.html">vqServer</a> a while ago and went looking for it, but seems to have not been updated lately, so I looked at the other good thing I knew about - <a href="http://jetty.mortbay.org/">jetty</a>. The latest docs seemed to show much promise, and at 20-some-odd MB, a real good fit for my purpose.<br /><br />Time to get a little organized. So I started with the primordial directory structure:<br /><br /><a onblur="try {parent.deselectBloggerImageGracefully();} catch(e) {}" href="http://photos1.blogger.com/blogger/4269/3466/1600/aa1.jpg"><img style="margin: 0pt 10px 10px 0pt; float: left; cursor: pointer;" src="http://photos1.blogger.com/blogger/4269/3466/320/aa1.jpg" alt="" border="0" /></a>(Not shown: hsqldb.jar in the jetty/ext dir)<br /><br /><br /><br /><br /><br /><br />And then I came upon this <a href="http://www.benjysbrain.com/misc/cdsite/index.html">superb writeup on creating exactly what I wanted</a>. The author intended it to be a “run-from-cd” app, but cd to pen drive is a short sneeze away. And the util servlets absolutely were the topping!</p>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

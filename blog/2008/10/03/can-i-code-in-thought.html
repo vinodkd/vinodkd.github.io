@@ -6,49 +6,30 @@
         <title>Can I code in Thought?</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Can I code in Thought?</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Can I code in Thought? - ( 03 Oct 2008 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <h2>"I think in pictures, not English"</h2>
 <p>Way back when I was in probation in the initial stages of my career, I had a colleague who was completely out of his depth with the training assignment given to us. The assignment itself was’nt too difficult - create a client server library management system - the default assignment. At the risk of instantly dating myself as a dinosaur, I should add that this was in the then-state-of-the-art PowerBuilder IDE. He, however, was completely out of his depth as his background was mainframes. He had no frame of reference to start with on GUIs. Being a smart human being, however, he had an idea that stayed with me:<br /><br />“I wish there was a ‘Give up’ button”, he said, “which would generate all the code that I’m supposed to create once I press it!”<br /><br />My brain latched onto that moment - maybe due to the novelty of the idea, or its absurdity in terms of actually implementing something like that. And then it linked that moment to another one from my college days:<br />I had quite innocently asked a classmate what language she thought in and she responded with what I’ve put as the heading to this para:<br />“I think in pictures”<br /><br />This actually caught me unawares and dumbfounded as I’d had a whole brag in anticipation of her expected answer. But my brain latched onto that moment too probably due to the novelty of the idea, or its presumable absurdity from where I stood then.<br /><br /><h2>Well, what if we did actually think in pictures?</h2>With the recent interest in polyglot programming, I was taken back to these two moments in time as it set me thinking about the real-world machinery that actually allows us to convert thought to running code - programming languages.<br /><br />I was reminded of my evolution along the computer languages scale starting from imperative/procedural languages (x86 assembly, GWBasic, Pascal), scripting (DOS scripting - I know this might sound blasphemous, but when I was growing up access to Unix was not easy :) and linux was still “under development”, much like access to the internet - so DOS it was) to object oriented ones (Object Pascal, C/C++, Java). I call this an evolution for obvious reasons - each language was progressively more abstract, and presumably, a better model of the way humans think when solving problems.<br /><br />These were the languages I could actually run a program in. Then there were others that I could imagine how they worked, but didnt have access to a compiler or runtime, and my only contact with them was through used books that I bought off the street about them - and these really intrigued me. Prolog (via logic programming texts from the 70s) was one, and so was SmallTalk (via old Computer Magazines) and to some extent Lisp and Forth (dont recall the actual sources).<br /><br />The best of them, however, was <a href="http://en.wikipedia.org/wiki/APL_%28programming_language%29#Examples">APL</a> of which I was able to get an old, but surprisingly well weathered textbook - and what an exposition of the language it was. It blew my mind that there existed a language that not only did not use ASCII, but used normal arithemetic and set theory operators naturally, and even extended the semantics of some of the vector calculus operators into an actual working programming language, and did it such a way as to put Perl to shame. If you dont believe me, go ahead and click that link above, and then come back.<br /><br />More recently, I “discovered” Tcl/Tk, which seemed to do a similar houdini act - but with language extension; and in such a way that the translation agent (compiler, interpreter) was not too knowledgeable of the extension. How it implements this is in itself intriguing and specific to Tcl, but the feature is (by now) in other languages such as Scala. (I might be wrong in crowning Tcl as the first language to do this, but its definitely one of the first)<br /><br />So both these languages APL and Tcl had the feature that they allow us to mirror what we want to achieve in a manner that is less natural in other languages - nothing new here, thats what DSLs do. But beyond that, these 2 languages in my experience broke some of the tacit assumptions that I had about how to write code, to which I could (now, in retrospect) add Lisps eval() and macros.<br /><br />All of this led me to think: what if we “supersized” these breaks from tradition? Would that be closer to the way we think, and therefore let us write better code?<br /><br /><h2> …and a few days of day-dreaming on the CTA buses later…</h2><br /><br />Here are some of the tangents that thought train led to, and as the list grew I grouped them as:<br /><ul><li><span style="font-weight: bold;">Evolutionary changes</span>:<br /><ul><li>What if we were able to extend ascii at will?</li><li>Why are we still fighting the whitespace wars?</li><li>Do we really need escaping?</li><li>Syntactic Sugar: why do we still call it that? Its there for a reason, isnt it?</li><li>How about programming languages “support” a language feature instead of just “enabling” it?</li><li>What if we used a codebase instead of text files in directories a la Visual Age?</li></ul><br /><br /><li><span style="font-weight: bold;">Revolutionary Changes</span>:<ul><li>What if we could code in something other than ascii or even text?</li><li>Related:What really requires us to code left-to-right, top-to-bottom other than a legacy of print media?</li><li>How about non-modal or multi-modal languages? AKA Polyglot programming on steroids.<br /></li></ul><br /></li><br /></ul><br /><br /><h2> forNow=UNTIL_NEXT_POST; giveUpButton.click(forNow); </h2>Intrigued? Read on in future posts for a drill down on each question. Fair warning: there are no specific answers. Just some more thoughts..</p>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

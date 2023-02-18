@@ -6,48 +6,29 @@
         <title>Basic tools for analyzing Large Codebases</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Basic tools for analyzing Large Codebases</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Basic tools for analyzing Large Codebases - ( 30 Jun 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><br /><ul style="text-align: left;"><li><b>Graphs</b>: Everything related to code is a graph at its core. Code has attributes, it relates to other bits of code in varying levels of hierarchy and entanglement, and the understanding of this requires graphs of various kinds to be built, visualized and used.</li><li><b>History/Telemetry/Timelines/Versioning</b>: What happened to the code MATTERS. Especially since the translation from written to running code is a lossy process. From another POV to understand how the code reached its current state, you need to know its previous states. From yet another POV, to understand the running state of code requires maintaining history of its execution states</li><li><b>Visualizations</b>: Plural emphasized. Code is a many-dimensioned thing. Not everyone can understand it in its entirety and not all the time. Slices of the beast are a must.</li><li><b>"Glue"</b>: Some language to annotate the code with to "fill in the gaps" from all the lossy translations involved. The simplest is human language in the form of comments.</li></ul></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

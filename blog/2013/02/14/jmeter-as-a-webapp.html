@@ -6,50 +6,31 @@
         <title>JMeter as a webapp</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  JMeter as a webapp</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">JMeter as a webapp - ( 14 Feb 2013 )</span>
         
             <span class="post-tag">ideas </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">I've long felt that it might be a good idea to create a web-based controller for JMeter. JMeter has been and still is a good tool for performance testing. Its Swing-based UI, however, has always been a bit of an eyesore and IIRC a memory hog. The one interesting behavior it has, however, is "save on tab", ie any data you type is automatically saved when you tab out of the control. Of course, the save happens to memory, so you still have to Ctrl-s to actually save. And then there's the "feature" of saving any chosen node as a new file. Why, I'll never know.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Anyhoo, my idea is to create a webapp version of the JMeter UI. The possibilities are interesting:</div><div style="text-align: justify;"><br /></div><ul style="text-align: left;"><li style="text-align: justify;">Even a straight copy of the existing design should right away make a JMeter instance accessible via the intra/internet. Add features to actually kick off performance runs and you have a saucelabs equivalent for performance.</li><li style="text-align: justify;">If instead we tweaked the UX a bit and actually model the Performance testing workflow (which, btw, the JMeter XML supports inherently), the result could be vastly better. Create the test run workbench separate from actual runs, show reports as a separate view instead of as attached nodes, and so forth.</li></ul><div style="text-align: justify;"><br /></div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

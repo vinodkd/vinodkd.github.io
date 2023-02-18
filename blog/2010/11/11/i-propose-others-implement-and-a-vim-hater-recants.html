@@ -6,48 +6,29 @@
         <title>I propose, others implement...And a vim hater recants</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  I propose, others implement...And a vim hater recants</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">I propose, others implement...And a vim hater recants - ( 11 Nov 2010 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <p>Predictably, some of the ideas ive been writing about are being implemented by others, notably webster. <br />I recently found concrete on github, and it’s a pretty close approximation of Webster. It doesn’t have all the niceties I meant to implement ESP cos it’s viewpoint is MDA, but it’s there for the most part, and does the modeling in a neat and lightweight way by reusing html, CSS and standard dom - something I intended to do, but didn’t succeed with. <br /><br />The real reason for this post tho? I just realized that vim could just be half way down the syntax editing route!<br /><br />Coming from someone who doesn’t think much of vim’s weird modes and keystrokes that’s as about face as it could get. <a href="http://tottinge.blogsome.com/use-vim-like-a-pro">Tim ottinger’s vim tutorial</a> was what made me change my mind. This is by far the most approachable vim tutorial iv’e read and finally had me grok the vim way. Now the need for command and edit modes seem almost required, especially considering all syntax driven editing is in such a mode! Vim could be thought of as a syntax driven editor that supports the  “text language”!<br /><br />Maybe I’ll implement Webster as a vim mode someday!</p>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

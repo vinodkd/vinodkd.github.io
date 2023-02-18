@@ -6,48 +6,29 @@
         <title>Concept: Treat requirements as external forces, especially non-functional requirements</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Concept: Treat requirements as external forces, especially non-functional requirements</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Concept: Treat requirements as external forces, especially non-functional requirements - ( 06 Feb 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">Along the lines of my idea to <a href="http://tt2n.blogspot.com/2009/06/fem-like-analysis-on-code.html">use FEM-like analysis on code</a>, I realized that it should be possible to model the things that cause the architecture and design of the software over time as physical forces.<br /><br />Case in point: My team is currently working on adding multi-lingual and multi-currency support to a fairly large app. Adding this predictably requires changes across the board, and led me to visualize all the places we're pushing and pulling at the current design/architecture to make this happen.<br /><br />Could this instead be considered a single external force acting on the elements of the system? Can we study the "material properties" of the code under such forces and "sum up" the forces?<br /><br />If we could do that, it would certainly move us out of the current dark ages where cost of change is still measured as a list of things to change per a specific change plan.</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

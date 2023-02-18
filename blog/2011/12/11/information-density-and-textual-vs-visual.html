@@ -6,27 +6,19 @@
         <title>Information Density and textual vs visual</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Information Density and textual vs visual</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Information Density and textual vs visual - ( 11 Dec 2011 )</span>
         
             <span class="post-tag">ideas </span>
@@ -35,25 +27,14 @@
         
             <span class="post-tag">jack </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I was reading the Wikipedia page on Information Theory as part of my read the wiki project, when it struck me that there's possibly an objective way of measuring the effectiveness of text vs visual programming languages using Information Theory.<br /><br />The central concepts (whose math I'm admittedly unable to fathom) are those of information, information rate, entropy and SNR. One of the age-old cases for text-based programming ( and therefore against non-textual programming languages) has been that it has very low SNR and the "information density" is high for given screen real estate.<br /><br />Is that really true, though? How much "noise" does syntax add? On the other side of the spectrum, I've seen infographics that assuredly deliver more "understanding" in the given screen space than the equivalent textual description. Is it possible to design an "infographic-style" programming language that packs more power per square inch than ascii?<br /><br />It would be interesting to do some analysis on this area.&nbsp;</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

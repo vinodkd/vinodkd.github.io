@@ -6,33 +6,25 @@
         <title>On Software Testing and the case for the Common Test Scenario Database</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  On Software Testing and the case for the Common Test Scenario Database</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">On Software Testing and the case for the Common Test Scenario Database - ( 22 Aug 2011 )</span>
         
             <span class="post-tag">soapbox </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;"><br /></div><h2 style="text-align: justify;"><a href="http://www.blogger.com/post-edit.g?blogID=31811208&amp;postID=4820305792483560724&amp;from=pencil" name="OnSoftwareTestingandthecasefortheCommonT"><span style="font-family: Arial, sans-serif;">TL;DR<o:p></o:p></span></a></h2><div style="text-align: justify;"><br /></div><div style="text-align: justify;">As a participant (and sometimes contributor of ideas) to Test Automation efforts (Strategy, tool selection and implementation), it has been my long-standing opinion that the true gains from automation can be achieved only when Test Scenarios (enshrined as exemplar test data) are a heavily reused resource across the organization. This page is an attempt to "arrive" at that opinion by progressively optimizing the software testing process.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">I take the example of testing the hotel search feature and progressively optimize it through 4 stages to illustrate the value of each such optimization; and the value of shared test scenarios in particular.</div><div style="text-align: justify;"><span style="font-family: 'Times New Roman', serif; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif; font-size: 12pt;"><br /></span></span></div><h2 style="text-align: justify;"><span style="font-family: Arial, sans-serif;">What is Software testing?<o:p></o:p></span></h2><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Software Testing is the art and science of validating that a particular piece of software behaves as expected. Since most words in the previous sentence are loaded with meaning, I'll dissect it:</div><ul type="disc"><li class="MsoNormal" style="text-align: justify;"><b><span style="font-family: Arial, sans-serif;">Art and      science</span></b><span style="font-family: Arial, sans-serif;">:      Art because some of it is based on the skill of the tester and science      because most bits are tractable into well-defined, repeatable procedures      with predictable outcomes<o:p></o:p></span></li>
  <li class="MsoNormal" style="text-align: justify;"><b><span style="font-family: Arial, sans-serif;">Validating</span></b><span style="font-family: Arial, sans-serif;">:      This might involve the atomic step of input-process-output, or a sequence      of many such atomic steps (typically known as "following a      script"). Each such step (or steps) entails comparing an expected      value (or more generally outcome) with a known one<o:p></o:p></span></li>
  <li class="MsoNormal"><div style="text-align: justify;"><b><span style="font-family: Arial, sans-serif;">Expected</span></b><span style="font-family: Arial, sans-serif;">:      This implies that there are some requirements that the software is      supposed to meet which is an accumulation of <u>the most important (or all)</u> of the comparisons mentioned above.</span></div></li>
@@ -161,21 +153,10 @@
  </ul><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><br /></div><h3 style="text-align: justify;"><span style="font-family: Arial, sans-serif;">Todo</span></h3><div><ul style="text-align: left;"><li style="text-align: justify;"><span class="Apple-style-span" style="font-family: Arial, sans-serif;">Create a Test Scenario database tie-in for the Robot Framework</span></li>
  </ul></div><div style="text-align: justify;"><br /></div><div></div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

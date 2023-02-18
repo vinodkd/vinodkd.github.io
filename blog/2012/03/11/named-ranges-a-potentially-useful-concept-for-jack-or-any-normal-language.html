@@ -6,50 +6,31 @@
         <title>Named ranges - a potentially useful concept for Jack (or any normal language)?</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Named ranges - a potentially useful concept for Jack (or any normal language)?</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Named ranges - a potentially useful concept for Jack (or any normal language)? - ( 11 Mar 2012 )</span>
         
             <span class="post-tag">jack </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">Consider the following code that calculates the maximum product of 3 integers possible from a given array (Java used for exposition; could be any language):<br /><br /><script src="https://gist.github.com/2017661.js">  </script> The code in the loop could probably be extracted into 2 subroutines but that would involve major interaction between the variables in this one and those subroutines. What if we were able to define the code between the recalc...end recalc comments as a named range that <b>did not introduce a scope</b>? Something like so:<br /><br /></div><script src="https://gist.github.com/2017685.js">  </script></div>IDEs could fold easily on this and this would only help comprehension.<br /><br />Finally: Why a language construct and not a comment? Because it explicitly aids comprehsnsion.&nbsp;</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

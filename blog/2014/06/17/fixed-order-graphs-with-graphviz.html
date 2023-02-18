@@ -6,52 +6,33 @@
         <title>Fixed order graphs with Graphviz</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Fixed order graphs with Graphviz</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Fixed order graphs with Graphviz - ( 17 Jun 2014 )</span>
         
             <span class="post-tag">tips </span>
         
             <span class="post-tag">graphviz </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">Graphviz continues to amaze me. I did not know until recently that they had an awk-like language for graphs within the graphviz package, but even closer home - there's a tool to control the order of nodes!<br /><br />This is the one thing I've battled with out-of-the-box Graphviz for a long time - any new edge is likely to throw your neat-looking graph off-kilter *just because* that's the most optimal graph layout.<br /><br />Well, not if you use osage, packmode and sortv.<br /><br />I dont exactly know why its called osage, but this layouting engine actually obeys the order of nodes that you can specify with the sortv attribute.<br /><br />You have to set the appropriate packmode setting, of course, and the correct incantation is:<br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">packmode=array_uX</span><br /><br />where X=1 if you want one column of nodes, 2 if two and so forth.<br /><br />Here's a sample graph for a taste of what it looks like in practice (from <a href="http://graphviz.org/pdf/osage.1.pdf">the man page for osage</a>, see example section):<br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">digraph test123 {<br />&nbsp;&nbsp;&nbsp; pack=8<br />&nbsp;&nbsp;&nbsp; subgraph cluster0 {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; packmode=array_u1<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; x[sortv=5]<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; y[sortv=4]<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; x0[sortv=3]<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; y0[sortv=2]<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; x1[sortv=1]<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; subgraph cluster1 {<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; mn<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; }<br />&nbsp;&nbsp;&nbsp; b[shape=box];<br />&nbsp;&nbsp;&nbsp; c[label="hello\nworld",color=blue,fontsize=24,fontname="Palatino−Italic",fontcolor=red,style=filled];<br /><br />&nbsp;&nbsp;&nbsp; a->z<br />&nbsp;&nbsp;&nbsp; x->z<br />&nbsp;&nbsp;&nbsp; a->b->c;<br />&nbsp;&nbsp;&nbsp; a->{x y};<br /><br />&nbsp;&nbsp;&nbsp; edge [style=dashed,color=red];<br />&nbsp;&nbsp;&nbsp; b->x;<br />}</span><br /><br /><br />Once you do that, you issue something like this:<br /><br /><span style="font-family: &quot;Courier New&quot;,Courier,monospace;">osage testosage.dot -Tpng -o testosage.png</span><br /><br />... and you should see a column of components with x at the bottom and x1 at the top.<br /><br />Also, use<br /><span style="font-family: Courier New, Courier, monospace;"><br /></span><span style="font-family: Courier New, Courier, monospace;">pack=16</span><br /><br />to space the nodes out a bit. Default is 8<br /><br /><br /></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

@@ -6,50 +6,31 @@
         <title>Dependency Hell: There has to be a better way</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Dependency Hell: There has to be a better way</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Dependency Hell: There has to be a better way - ( 24 Mar 2011 )</span>
         
             <span class="post-tag">rant </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I have just given up on trying to install Open&nbsp;Head Tracker&nbsp;- an open source eye gaze tracker. I've been researching head tracking software to see if my aunt who's currently paralyzed can use something like this, and naturally started checking out the open source offerings available; and given that she's in India, I wanted to look for a Windows solution as that's easier to purchase, service etc for non-technical people.<br /><br />So open gazer is based on technologies that are cross-platform: Python, Numpy, OpenCV and Qt. The original was tested on Ubuntu, and the author expresses the sentiment that since all the underlying software is cross platform, and the software itself is in python, it should work on other platforms.<br /><br />He's right in principle. In practice he is so wrong its not funny.<br /><br />Unlike the linux world, you usually install binaries&nbsp;on windows; you just do. Its a wimpy, windows-y thing. Sorry. All windows software comes that way - and then you deal with Registry hell :)<br /><br />And although each of the packages above <b>were</b> available as binaries, they were just not a compatible set. 2 days of trial and error later, I got the Mingw compiled release of the right version of each package to be installed and tested individually.<br /><br />That didn't mean they worked together to show up Open Head Tracker's display. I still get a segfault on cvResize (after debugging through the source - thank god for scripting languages!) and I have no clue why. The only option remaining is to disable use of SSE.<br /><br />The only way to do that? Compile from source.<br /><br />If my experience with trying to build Chrome is any indicator, that's another wild goose chase into build-time dependency hell.<br /><br />There has to be a better way!<br /><br />Sidebar: The last two days have been a heady roller coaster ride through Numpy and OpenCV code, however. I dont understand most of it - mainly because I was just trying to get Headtracker to work, but there's some cool stuff in there, including in Headtracker's deceptively small codebase. Qt's demos make it look really cool too - too bad the days of the Desktop are done now.&nbsp;</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

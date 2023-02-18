@@ -6,48 +6,29 @@
         <title>Code as workflow</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Code as workflow</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Code as workflow - ( 15 May 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><br /><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><span class="Apple-style-span" style="font-size: large;">Code as workflow</span></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"><span class="Apple-style-span" style="font-size: large;"><br /></span></div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;">At work, we have a couple of core components that are essentially workflow engines. I call them workflow engines because of the following properties:</div><div style="margin-bottom: 0px; margin-left: 0px; margin-right: 0px; margin-top: 0px;"></div><ul style="text-align: left;"><li>The components house named business processes</li><li>The processes have granular steps and they are named, too</li><li>Data is passed between steps via a shared context - essentially a data bus</li><li>The processes may be long lived, and therefore have asynchronous steps</li></ul><div>This model, while decidedly a leaky abstraction in implementation, got me thinking about plain old code, though:</div><div><br /></div><div>Take the smallest organizing unit of modular programming - the function. It has a name, it has granular steps (although they are not named) and data is passed via a shared context - the stack.</div><div><br /></div><div>I mention the similarity between the function and the concept of a workflow only to highlight that such a parallel is possible. In principle, any organizing unit - the class, the program, package or application could be modeled as a workflow, IMO.</div><div><br /></div><div>I contend, therefore:&nbsp;<b>At a suitably small scale, all code can be treated as workflow</b>.</div><div><br /></div><div>What benefit, if any, do we have with taking such a view of code, though?&nbsp;Business logic is expressed as workflow when we know the following:</div><div><ul style="text-align: left;"><li>The individual steps have meaning to the business</li><li>The overall process is likely to change over time, the implementation of the process is therefore required to change quickly to reflect the new reality.</li><li>The change usually causes reordering of steps, removal of steps, or introduction of steps. The process still remains the same, as does the implementation logic within each step.</li></ul><div>It therefore behooves us to create a framework where the steps are named and their communication is through a standard data bus so that they can be easily removed/updated/added.</div></div><div><br /></div><div>Now think of code in general, and read out the reasons I mention above for needing workflow engines. Except for the scale &nbsp;and the "implementation logic remains same" part, they're the same reasons you have cod around as well.&nbsp;</div><div><ul style="text-align: left;"><li>If you think each line of code doesn't have business meaning, you'v obviously not had a big impact bug that was fixed with a one-line change.Admittedly, not all lines have business meaning, however.</li><li>Code does need to change constantly to reflect business reality</li><li>All edits on code reorder the steps, remove them or add new ones. In addition, we also typically change existing steps in place. Aside from this difference, there's essentially nothing different between editing code and editing a workflow, and even that can be modeled as:</li></ul></div><blockquote>update = delete + insert</blockquote>I'd go so far as to call normal code a form of "complied" workflow - it IS a series of steps that have business meaning, its just that we've deemed that particular series of steps as optimal enough that no change is expected. Until the next time we change our minds, that is.<br /><br /><span class="Apple-style-span" style="font-size: large;">What if we treated code as workflow?</span><br />&nbsp;Imagine edits being made on code exactly as if it were a workflow where the operators available for editing are not at the character or word level, but at the step level. The developer would decide how to reorder steps to achieve the newly expected functionality, or if the better approach would be do away with the entire function (read superstep in a hierarchical workflow). Imagine the following kinds of operators:<br /><br /><ul style="text-align: left;"><li>Add step</li><li>Remove step</li><li>Update Step ( = remove + add)</li><li>Promote step &nbsp;(up one level)</li><li>Demote step (down one level)</li><li>Coalesce steps</li><li>Explode step</li></ul>As might be obvious, what we do today with our editors is the textual equivalent of these. The advantage of this conceptual hair splitting, however, is that we now have a semantic model for changes made on code. With suitable expansion, for example, it could be shown that promote step is the process of creating an abstract class (or interface).<br /><br />Imagine next, an environment where changes to code are recorded as such a series of steps. That series of steps is itself a workflow. This opens up a lot of interesting&nbsp;possibilities:<br /><br /><ul style="text-align: left;"><li>A version control system that records changes to code as these workflow steps</li><li>A build/deploy system that allows code migrations similar to current forays into automated data migration (like Rails' activerecord). Essentially deploying a new version of code involves running code that changes the existing version in place, not replacing the old version with an entire new snapshot containing the new version</li><li>Pattern recognition&nbsp;applied to a set of such code edit workflows; and many similar code analyses that can now be done on the change stream itself, not just the end product.</li><li>This is obviously the tip of the proverbial iceberg.</li></ul><div><span class="Apple-style-span" style="font-size: large;">All's not well in workflow world, though</span></div><div>In almost every workflow-based system/framework I've seen - be it in house like the ones mentioned above, or commercial ones like Webmethods, I've seen some major issues:</div><ul style="text-align: left;"><li><b>Polluted Data bus</b>: Since the shared data bus is the primary means of communication, authors of individual steps have no trust on its contents as a whole. The do trust their immediate inputs, and will almost always take defensive copies of the input (in whole or substantial subsets of it). Its quite common to find multiple copies of the same data in the data bus, which obviously leads to inefficiencies and slowness.</li><li><b>Leaky Abstraction</b>: Implementing a clean workflow is not easy. It requires discipline in using the data bus, and that alone as the communication mechanism. Any out-of-band communication between the steps means the premise of being able to take steps out, or reorder them is lost. Any framework built on a general purpose language will always have to contend with the sneaky programmer who got around the pesky data bus limitation :)</li></ul><div>These are the reasons I shy away from asserting that code IS workflow. Its useful to think of code AS workflow, however. The baby in all of this bathwater is: "Can we use the concept of workflow to model changes to code in a useful way?"</div><div><br /></div><div>I think yes.</div><br /><br /></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

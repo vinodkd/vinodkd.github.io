@@ -6,48 +6,29 @@
         <title>Big Ball of Mud Architecture is like cancer; tools and policy are like chemo</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Big Ball of Mud Architecture is like cancer; tools and policy are like chemo</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Big Ball of Mud Architecture is like cancer; tools and policy are like chemo - ( 09 May 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">..meaning they're the best answer we have, and all they can do is inhibit the spread.<br /><br />Any enterprise has software that has technical debt, and it will keep increasing. <br /><br />Tools that will help:<br /><br /><ul style="text-align: left;"><li>Visualization of the architecture - logical and deployment; show multiple views.</li><li>Tools that inhibit deviations from the blessed architecture instead of tribal control</li><li>Tools that embody promised features in the code</li><li>Code review via tools</li><li>Incremental code quality tools</li></ul>Policy <br /><ul style="text-align: left;"><li>Reduce impedence mismatch between the logical and the physical namespaces. eg: java package namespace is different from the deployed jars and that namespace.</li><li>Map source control artifacts and deployment artifacts - make it 1-1 as much as possible</li><li> Make setup and run for newbies as easy as possible. Not ok to have your bootcamp say "this is a difficult environment. Deal with it". Early success is a big confidence booster.</li></ul></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

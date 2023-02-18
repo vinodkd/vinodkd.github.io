@@ -6,50 +6,31 @@
         <title>Idea: Stable visualization of a codebase</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Idea: Stable visualization of a codebase</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Idea: Stable visualization of a codebase - ( 04 Jan 2014 )</span>
         
             <span class="post-tag">ideas </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I have been thinking lately about visualizations of a codebase - spurred on because of recently rediscovering Software Catography and its successor - Codemap. Coincidentally, I also wanted to create my personal website as a "visual representation of the web of connections that it is", which essentially boiled down to a stable visualization.<br /><br />When I looked at the tools that are currently available to do this, it seems like they are overly complex. The closest was Gource, but it focuses on the people who worked on the code and doesnt generate a stable visualization.<br /><br />So here's my idea:<br /><br /><ul style="text-align: left;"><li>The visualization will be created from the commit history of the codebase.</li><li>Once created, the visualization is not a snapshot, but can be enhanced over time to show changes. So the output format should contain the history of changes.</li><li>The visualization is essentially a Treemap-ish diagram with time along the X-axis and size along the Y.</li><li>Each object(file or directory)&nbsp;is drawn as it comes to life in the commit log and is represented as a rectangle.</li><ul><li>Position: The first object &nbsp;that is created gets the position x=0 within its parent, the second gets x=1 and so forth. Once assigned, these positions are permanent even after the object is moved or removed.</li><li>Dimensions:&nbsp;The width remains the same for all: files have a width of 1 unit and directories have a width equal to the sum of the widths of its contents. The height is equal to the size of the file.</li></ul><li>When an object is changed, its old size shows up as a faded outline within the newly sized rectangle - somewhat akin to the age rings of trees. Size reductions may show age rings outside the current rectangle.</li><li>When an object is moved, its old position shows a faded outline and objects after it do not move to take up the position.</li><li>Similarly when an object is deleted, its old position shows a faded outline.</li><li>Keeping the visualization contained: This is where the Treemap concepts are helpful. The complete visualization's size will be calculated inside-out: the size of the deepest directory will control the % contribution of its parent and therefore transitively its grandparent, and so forth. This way, the visualization can be contained in a finite space. At its smallest size, each "rectangle" will be reduced to a line: the position still remains as described above, the width is reduced to 1 pixel and the length is still the size of the file. No rings are possible at this level of compaction.</li><li>Controls: The visualization will have:</li><ul><li>Play: A way to see the evolution of the codebase a la Gource</li><li>Zoom in and out</li><li>Time Filter: A way to filter out older rectangles. This will essentially show the current state of the codebase, but since all positions are fixed, it will give an idea of how far the current state is from the original.</li><li>Object Highlight: this will highlight a particular file or directory to "show where it is in the map"</li><li>Object Trace: This will high light the path of the object throughout its evolution in the codebase.</li><li>Commit Highlight: Highlight all files in a commit</li></ul></ul><div>The advantages I see with such a visualization is that it combines a stable spatial representation of the code along with its evolution over time. Using a treemap representation essentially keeps it bounded so that the view could be injected into current developer environments without taking up too much screen space.</div><div><br /></div><div>Implementation notes:</div><div><ul style="text-align: left;"><li>A quick way to implement this might be using html divs.</li></ul></div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

@@ -6,50 +6,31 @@
         <title>Jack: the whys and wherefores</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Jack: the whys and wherefores</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Jack: the whys and wherefores - ( 28 Oct 2011 )</span>
         
             <span class="post-tag">jack </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">As I pen down these thoughts that I have about Jack, I realized that there's a little bit of the "losing the forest for the trees" going on - while the initial posts were &nbsp;what-oriented, the latter ones have been decidedly how-oriented. The "why" is kinda sprinkled around. This post attempts to correct that gap.<br /><br />Jack is the culmination of a series of vaguely connected concepts that have been swimming below the surface in my consciousness. Some of the individual strands are:<br /><br /><ul style="text-align: left;"><li>Code today suffers from want of better abstraction for itself. The simplest manifestation of this is the conflation of its persistent, modeling and editing formats into one single form - text. I posit that treating code in its true form - an AST - directly will reap higher benefits.</li><ul><li>There are sub-strands to this where concepts from <a href="http://www.subtextual.org/">Subtext</a> (and the whole <a href="http://martinfowler.com/articles/languageWorkbench.html">language workbench</a> movement, for example) finds resonance with my thinking and therefore has been subsumed into it.</li></ul><li>True code structure is latent and the structure made apparent by its organization into files and folders is misleading. I posit that all code will look like graphs (a la social networks) once we represent (and visualize) the actual relations between code components. At that point, graph CRUD techniques can be used to manage the code and graph analysis techniques can be applied on it to reduce the comprehension overhead.</li><li>Today's applications require connecting together at least 4-5 different languages. There is no conceptual glue to hold these together, splintering comprehension and adding to the accidental complexity. I posit that treating apps as a graph containing code components will allow for easier comprehension and maintainability.</li><li>Today's development practice is woefully <a href="http://tt2n.blogspot.com/2011/04/evolutionary-vs-snapshot-development.html">snapshot based</a>. There is no way to represent the code's past (so that you may learn from it or make corrections easily) nor its future (so that you may plan for it or code in a certain way)</li><li>The average developer follows <a href="http://tt2n.blogspot.com/2011/02/reality-driven-development.html">Reality Driven Development</a>, no matter what methodology they say they follow.&nbsp;</li><li>All of this has direct bearing on EXISTING code. Most approaches to bettering software development talks about tools and techniques that you can use on your NEXT project. I'd like to come up with tools and techniques that you can use on the CURRENT or PREVIOUS project, or even that ANCIENT one from the '80s - the one that's already in production and making money for the business and will never be replace (at least not completely) that you have to either maintain or talk to. This is also the hard and unglamorous side of the development cycle - the maintenance side. However this is also the place where code spends most of its time and yet is mistreated much.&nbsp;</li></ul><br />Jack is the code name I use to represent my solution to these issues. It started out addressing the format and representation issue and has burgeoned into including the rest of the concerns. It therefore has gained the larger qualities that any&nbsp;solution to the problems above should have:<br /><br /><ul style="text-align: left;"><li>It should not favor any particular language or framework - at least not design and definitely not in the ultimate implementation.</li><li>It should not introduce another language either; instead use existing language runtimes as host environments and introduce ways to work with the code by adding metadata and the ability to programmatically refactor it.</li><li>It should introduce a runtime environment that is live in the same way a LISP repl or Smalltalk IDE is. Compiled environments should get as close as possible to this ideal. This is fluent.</li><li>It should allow for models of the code to be built at varying levels of abstraction <u>from the code itself</u>. These models would be used to understand code and build it. It should therefore subsume disparate technologies used to build working apps or make it easy to add new ones into the modeling platform.</li><li>It should allow incremental adoption of itself. No big bang, lose-your-religion type steps because we're dealing with maintenance code and developers following RDD.</li><li>By definition, therefore, all tools and techniques within should have models for incompleteness: incomplete code, design, architecture, relations, etc. This should be used to help comprehension of the code in "comfortable bite sizes" and to allow description of future code whose specifics are not yet known.</li><li>It should have a native access to the history of the code so that comprehension can follow. This is the reason the previous post has the scm FFI.</li></ul><div>So there you have it: the WHY and WHAT of Jack in one post.</div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

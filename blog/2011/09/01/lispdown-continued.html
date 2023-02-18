@@ -6,48 +6,29 @@
         <title>Lispdown: continued</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Lispdown: continued</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Lispdown: continued - ( 01 Sep 2011 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">So in trying to come up with a working set of rules for lispdown, I downloaded some lisp code from an acquaintance's github account, and tried to convert it into lispdown. Here's a sample: This code...<br /><<vru3dd's code="" goes="" here="">></vru3dd's><br />.. becomes this lispdown code...<br /><<my code="" converted="" goes="" here="">></my><br /><br /><div style="text-align: left;">Note that that Lispdown-to-Lisp process is automatable, but the reverse is a non-deterministic process designed for human use.&nbsp;I guess I could come up with some rules(or conventions) for known forms, but that would take away the flexibility that comes from &nbsp;Lisp just being itself :). Even with my brief contact with the language I can see that the lack of syntax actually frees up the ability to visually/spatially arrange code in ways that makes local sense, eg "the conditional here should be aligned under the cond keyword, but in this other place it should actually be offset because of the huge conditional expression"</div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

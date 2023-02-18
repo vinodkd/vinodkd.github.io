@@ -6,50 +6,31 @@
         <title>Focus considered harmful</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Focus considered harmful</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Focus considered harmful - ( 26 Dec 2011 )</span>
         
             <span class="post-tag">osnext </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">Most of us are used to the concept of focus in modern desktop UIs - there's usually one app that has it. But what is it? Essentially the app that has the magical focus is the target of all <b>indirect</b> input.<br /><br />The way I see it, there are two classes of input devices in a common desktop system: direct and indirect. Direct input devices can readily and immediately target any app; while indirect ones cannot. Mice are direct input, keyboards are not.<br /><br />The key problem with input is that you need to decide who gets it. This was not a problem with the OSs of yore where there was just one running app at all times, nor is it a problem with the new tablets because they have only one "full screen" app running at all times. Desktops with their multitasking, non-full screen apps however, have the problem in spades. Now that I use the Mac, I'm ticked off that cmd-tab doesn't necessarily mean you'll get the app front-n-center. You see, if you'd minimized the app before, you have to add opt to the cmd-tab just before the app you want so that it will pull up the minimized window as well. Otherwise its just the menu on the top for you. Why? I'm sure there's a really super important Mac/Apple reason for this behavior but it pisses the heck out of me.<br /><br />Enter the newbie, exemplified by, in this case, my parents. My parents cannot figure focus&nbsp;out. They will painstakingly fire up an app, and start typing in the hope that Windows will magically figure out that where they're looking at (or were looking at before looking down at the keyboard) is where they want the keystrokes to go to. Of course, this is without having brought the cursor to the text field in the first place so all that input does is bupkis (Where <b><i>do</i></b> keystrokes go when typed without focus, I wonder). And if they'd actually remembered to "make sure the blinking line is at the user name field", McAfee decides to popup a message that silently steals that focus away.<br /><br />Focus is an implementation artifact and a leaky abstraction at that. The currently available approaches are:<br /><br /><ol style="text-align: left;"><li>Its a non-issue: This is what tablets do - you dont need to worry about who gets the input if its completely clear that there's always only one such target.</li><li>No more indirect input: Again, this is what touch devices do; you don't need to pick a target when the act of providing input actually selects the target.</li><li>Provide a switcher: This is the Alt/Cmd-tab solution. Provide a way to switch the target of the indirect input. However, as we've seen above, this has problems.</li></ol><div>Would it help to be even more explicit about who gets the keystrokes than just highlighting the app's title bar? Would it help to avoid modal (and non-modal, but focus-stealing) dialogs?</div><div><br /></div><div>Is there a better way that tells the user that any indirect input will be sent to a particular app? Or, alternatively, is there a seamless way of "figuring out" the intended target? I can think of two promising avenues:</div><div><ol style="text-align: left;"><li>Computer vision is slowly getting better to the point where head tracking using web cams is actually possible. Can this reach the resolution required to figure out the app the user is actually looking at? Lots of false positives in the future down this path, but definitely its a head-on approach at the problem.</li><li>&nbsp;No more leaks in the abstraction: This is a cheaper solution to computer vision and essentially involves ensuring that:</li><ul><li>There're separate "user controlled space" and "system use" space and never the twain shall overlap.</li><li>User controlled space will always have one app that has focus. It will lose focus only when the user wills it to. The action to switch from one app to another is atomic and results in the other app getting focus. This will be true even on tiling window managers.</li><ul><li>Dialogs and other such UI elements that halt the app before user interaction will work as before.</li></ul><li>In addition to serially switch the target of input using Cmd/Alt-tab there will be a key sequence to switch between apps - maybe like the Ctrl-Shift-F1-7 sequence that Linuxes have for the default ttys.</li><li>System use space will be read only, except for some suitable way to scroll through messages.</li></ul></ol><div>Todo: figure out how to deal with system messages that require immediate attention.</div></div></div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

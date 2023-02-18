@@ -6,50 +6,31 @@
         <title>Idea extension: The dead letter box framework</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Idea extension: The dead letter box framework</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Idea extension: The dead letter box framework - ( 27 Feb 2011 )</span>
         
             <span class="post-tag">ideas </span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">This is an extension of the idea for the delicious replacement. The idea is to treat accesses to a website as messages dropped off - dead letter box style.<br /><br /><a href="http://en.wikipedia.org/wiki/Dead_drop">Dead letter boxes</a> allow communication to happen without meeting using a pre-agreed signal or format. The idea is to use a web server's log file as a dead letter box for various types of messages. Like so:<br /><br />404 GET /dlb/tweet/my_tweet_as_an_underscored_resource_name<br />404 GET /dlb/todo?task=do%20something&amp;priority=high&amp;context=@home<br />404 GET /dlb/post-blog-entry?title=A%20Blog%20Title&amp;body=A%20uuencoded_string_as_long_as_log_will_take_goes_here<br /><br />Again, the way it would work is that a job wakes up regularly, greps the web server logs for these error messages, and does what's actually expected from each of these.<br /><br />Subversion of http's actual intentions? Maybe. But it sure produces a very decoupled way of working - no high capacity web server with custom code to handle all these operations need exist, and new operations can be added in a very decoupled way.<br /><br />The best advantage of all? As long as you're able to hit a web server - you can tweet, log a todo, post to your blog, etc, and much more. No more need to be connected to each of these different sources.<br /><br />Next: do the same with email, so that the same functions are available when you send an email. Although you could implement that as an actual email processsor.<br /><br />Not entirely addressed yet: security. Maybe making it https would suffice?</div>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>

@@ -6,48 +6,29 @@
         <title>Fantom: a new language to learn</title>
         <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
 
-        <link rel="stylesheet" media="all" type="text/css" href="/css/stacklayout.css" />
-        <!--[if lte IE 7]>
-        <link rel="stylesheet" media="all" type="text/css" href="css/stacklayout_lte_ie7.css" />
-        <![endif]-->
-
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
-
         <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/vinodkd.org.css">    
+        <link rel="stylesheet" href="/css/main.css">    
     </head>
-    <body>
-
-        <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/"></a></h1>
-            </div>
-     
-                <div id="post" class="post">
-    <div class="post-header">
+    <body class="container">
+      <header class="is-left stck-horizontal">
+        <h1><a href="/"><img src="/favicon.png"></a>  Fantom: a new language to learn</h1>
+      </header>
+      <article>
+        <div id="post" class="post">
+    <header class="post-header">
         <span class="post-title">Fantom: a new language to learn - ( 15 Nov 2010 )</span>
         
-    </div>
-    <div class='post-content'>
+    </header>
+    <article class='post-content'>
         <p>Today I discovered <a href="http://fantom.org/">Fantom </a>- a surprisingly interesting language that seems to get so many things right. My first thought was to re-implement Joey in it. We’ll see.<br /><br />The language is definitely interesting - especially considering 2 brothers built it in the (mostly) spare time.<br /><br />Things to learn from/use:<br /><br /><ul><li>Fan(tom) is self hosting, ie the compiler is written in fan itself. So building it from source involves using an older release of fan. This is pretty standard in compiler land, I guess, but still novel to me; and probably novel in that the although the final executable is a native binary, it goes through intermediate non-binary output levels</li><li>It compiles to its own intermediate code called fcode, primarily because the original intent was to be able to generate code that worked the same on Java and dotnet.</li><li>Javascript compile - sweet.</li><li>The FWT toolkit - havent started using it yet, but any library that allows declarative UI is good in my book. Especially since the same fan source can be used to generate  web ui a la extJS.</li><li>It also seems to have a fluent api to building html - another nice thing</li><li>Units (a la Frink) and a datetime api with durations built in.</li></ul><br /><br />PS: When I saw the link in LtU I half expected it to be inspired by the Phantom, but apparently not. I have decided, however, that if I do develop in fantom, the projects will be Phantom themed :)</p>
 
-    </div>
+    </article>
 </div>
 
-
-            <div id="footer" class="stackContent">
-              <div class="stackAuto item"><span class="stackContent">&copy; 2022 Vinod KD </span></div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://github.com/vinodkd">github/vinodkd</a>
-              </div>
-              <div class="stackAuto item">
-                <a class="stackContent" href="http://twitter.com/vinod_dinakaran">@vinod_dinakaran</a>
-              </div>
-            </div>
-            </div>
-        </div> <!-- /container -->
-
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
     </body>
 </html>
