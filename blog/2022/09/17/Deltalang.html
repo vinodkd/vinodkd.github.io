@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Delta Language</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">    
+    </head>
+    <body class="container">
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Delta Language</h2>
+            <div class=""stack-horizontal>
+                <span>17 Sep 2022 </span>
+                
+                <span class="tag">ideas </span>
+                
+            </div>
+        </div>
+      </header>
+      <article>
+        <p>A language where change is the primary thing modeled. It embraces change. Logic and data change all the time in the course of the lifetime of an application, but we still work with snapshots. Delta instead reifies the concept of change into the language.</p>
+
+<h1 id="exploration-of-what-change-means">Exploration of what change means</h1>
+
+<p>Some of these sections may contradict each other as the exploration of ideas happens. You have been warned.</p>
+
+<h2 id="is-change-at-the-level-of-source-lines-of-code">Is change at the level of source lines of code?</h2>
+
+<p>To add 2 numbers in a C-like programming language, we’d write:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum(int x, int y){
+    return x+y;
+}
+</code></pre></div></div>
+
+<p>If we want to now add 3 numbers, we need to a) add a parameter, say <code class="highlighter-rouge">z</code>, and b) update the return expression to <code class="highlighter-rouge">x+y+z</code>. This could be done in multiple ways:</p>
+<ol>
+  <li>As a text change in the source (which is what happens today in the IDE or editor)</li>
+  <li>As a structural change to the source AST in a structural editor (happens today too, but structural editors are not heavily adopted)</li>
+</ol>
+
+<p>To do the second option as part of the language tooling, it would have to do these steps:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add a param z to the function declaration
+modify the "x+y" expression to add a "+z" subexpression
+</code></pre></div></div>
+
+<p>i.e., generate code similar to below:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>add_param(sum,z, int);
+cursor=update_expr(expr345);
+rn = cursor.getRootNode(); // assuming + is the root node
+
+nn = cursor.newNode({type:OPERATOR, value: "+"});
+nr = cursor.newNode({type:VARIABLE, value: "z"});
+
+nn.setLeftChild(rn);
+nn.setRightChild(nr);
+
+cursor.setRootNode(nn);
+</code></pre></div></div>
+
+<p>…which is painful and pointless.</p>
+
+<p>So there must be a level of granularity at which change needs to be declared and the tool “just does it” and a level below where its easier for humans to do it.</p>
+
+<p>instead, what if we required every change to be described briefly <em>as part of the change</em>? Something like:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>changed foo, added z, reason "foo should now add 3 numbers not two"
+</code></pre></div></div>
+
+<p>How can this be enforced?</p>
+<ol>
+  <li>By checking timestamps of source and built files? easy to game, but might be the simplest. But unless each function is stored in a separate file, its not easy to map a change directly.</li>
+  <li>By checking against a version controlled source: This prevents “local” changes from ever being captured, but maybe thats ok. But also: compiler is now tied to version control. That might not be a bad thing for a language that is focused on change control!</li>
+  <li>All change should start with the reason, and that should be reified into the edit session (or the commit event)</li>
+</ol>
+
+<p>Maybe <strong>the unit of change is the function, not the logic within. That is handled via a change statement that’s required for every function</strong>. Also, maybe <strong>each function gets its own file</strong>.</p>
+
+<h2 id="starting-change-with-a-reason-for-change">Starting change with a reason for change</h2>
+
+<p>Expanding on the bullet above, what if any change were started with the reason to begin with? This could be used to setup the “task” in an editing session or the commit reason when code is checked in. The reason could be text, or a link to a ticket for a feature or bug fix.</p>
+
+<h2 id="what-if-analysis-support">What if analysis support</h2>
+
+<p>More interesting are use cases like evolution of the program’s interface. What if a parameter needs to be changed in type or be made required? Could the language tooling provide impact analysis?</p>
+
+<h2 id="all-parameters-are-non-primitive-structsclasses">All parameters are non-primitive structs/classes</h2>
+<p>One issue with changing interfaces is that changes in method parameter lists are especially difficult for clients to adopt. Instead, what if <strong>the language allowed only non-primitive values as parameters? that way all request and responses are boxed, and the interfaces are not as much a cause for change management</strong>.</p>
+
+<h2 id="all-logic-is-execution-environment-agnostic-but-not-necessarily-stateless">All logic is execution environment agnostic (but not necessarily stateless)</h2>
+
+<p>In order to be able to use any piece of logic portably, it should make the least assumptions about its environment. So what if the things in the environment that a function depends on are explicitly stated up-front? that is, <strong>each function declares its dependencies explicitly, which could be libraries, values (in and out), env vars, etc</strong>. This also strengthens the case for each function to be the unit of source storage, i.e., file.</p>
+
+<h2 id="extracting-logic-from-one-function-to-another-merging-functions-etc">Extracting logic from one function to another, merging functions, etc</h2>
+
+<p>Another kind of change is when logic needs to be extracted into another function, or when two (or more) functions need to be merged into one. This is where knowledge of the syntax will matter. IDEs already support this, but imagine a compiler command that says “Extract lines 15-25 to a new function” and the compiler does that. That is, <strong>the compiler replaces the call site with the new name, annotates the new function with dependencies and local variables, any values that are used across the boundary become out parameters</strong>. This requires full program transformation capability.</p>
+
+<h2 id="upgrading-to-a-new-language-version-is-automated-mostly">Upgrading to a new language version is automated (mostly)</h2>
+<p>This was started by Facebook’s Hack language where migration to a new version of the language is handled as automatically as possible. The idea is that there’s a source-to-source translation possible so that old code is automatically upgraded to the new version.</p>
+
+<h2 id="there-are-no-unimportant-changes">There are no unimportant changes</h2>
+<p>The above ideas imply that sometimes the actual changed aspects might be too small to have perfect information of. We could also feel like may “editing versions” of code need not be considered from the compiler’s perspective. I posit that maybe it should. If there’s a delta between this version and the previous, it should see some explanation in terms of requirements, design, code or testing. So maybe all changes matter and we should not take “small” changes lightly.</p>
+
+<h1 id="consequences-of-requirements-on-implementation">Consequences of requirements on implementation</h1>
+
+<p>If the compiler and language toolbench have to support these features, they must:</p>
+<ol>
+  <li>…be able to do full source comprehension and diff across versions</li>
+  <li>…still support “opaque” changes that are just described, not actually diffed/analyzed</li>
+  <li>…have the function as unit of code storage, change and dependency declaration.</li>
+  <li>…be able to do source to source transformations</li>
+</ol>
+
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
+    </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Editing as you may think</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">    
+    </head>
+    <body class="container">
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Editing as you may think</h2>
+            <div class=""stack-horizontal>
+                <span>24 Sep 2022 </span>
+                
+                <span class="tag">ideas </span>
+                
+            </div>
+        </div>
+      </header>
+      <article>
+        <blockquote>
+  <p><em>Note:User actions are expressed below in generic terms like “select” and “chooose” without specifying exactly how the user would select or choose. This is intentional for 2 reasons:</em></p>
+  <ol>
+    <li><em>I have not yet figured out how it would work specifically</em></li>
+    <li><em>That would detract from the essential idea of describing how this editor would work.</em></li>
+  </ol>
+
+  <p><em>If it helps think of a keyboard combination or mouse press doing the selecting/choosing on a menu that’s displayed. But really, I’m hoping it will end up being a non-modal, as-direct-as-possible interface.</em></p>
+</blockquote>
+
+<p>You open up an AYMATH (As You MAy THink) editor and are presented with a workspace (background) titled “workspace”, that has a blank document (foreground). The document fills most of the workspace. You start typing in the document, and text appears. By default, the name of the document, which appears as a tab/window title, is the first line of text, and the content is autosaved to that name. You can always select the title and change it.</p>
+
+<blockquote>
+  <p><em>Principle: Documents are created via direct manipulation of their contents. Documents are named/renamed, created via direct manipulation of their names</em></p>
+</blockquote>
+
+<p>As you type, you add a comment about the content. This could be a comment on code or a parenthetic comment in prose. The editor does nothing special. You select the comment and “fling” it to the right. This opens up another document to the right and the text is moved there. You could have flung to the left, up, down or diagonally for the same effect. A line appears between the two documents denoting the link. You can also “fling with copy”, i.e., keep the original and copy to new document, or “fling and transclude”, i.e., move the text but include it “by reference” in the original document. Transclusion is a feature of hypermedia where a piece of content is included from another document, and is always in sync with the source document, i.e, if the source content changes, so does the transclusion.</p>
+
+<blockquote>
+  <p><em>Principle: Content is moved between documents via direct manipulation, not copy-paste. Content is linked to each other via moved or transcluded content</em></p>
+</blockquote>
+
+<p>Flinging always adds content in the target document at the end, unless the source and target documents are in sync (see below). You can also insert content at a specific cursor location, and the same options of move, copy, transclude are available.</p>
+
+<p>You select both documents and choose the option to keep them in sync for scrolling. Now the lines align up while you scroll either document, and a band appears between the two documents instead of just a link. Flinging content puts them in the same line as source. If there is text already in that line, it’s appended to it.</p>
+
+<blockquote>
+  <p><em>Principle: keeping documents’ views in sync is a feature of the editor, not of the document type</em></p>
+</blockquote>
+
+<p>You position the cursor at the start of a line and choose “split”. This opens up a second view  with a horizaontal split of the same documentthat can be scrolled independently. You position the cursor at some other column position and choose “split”. This switches the split to a vertical one. Any number of such splits can be created.</p>
+
+<blockquote>
+  <p><em>Principle: Split views of the same document are natural.</em></p>
+</blockquote>
+
+<p>You can “close” the current document. This reduces it to its name alone being visible in the workspace. Links and bands are still visible.</p>
+
+<blockquote>
+  <p><em>Principle: The workspace is the root of the hierarchy and of the graph. All documents and links start there. Documents can be expanded into view or collapsed from view</em></p>
+</blockquote>
+
+<p>You “escape to one level higher” or select the title of the document, and fling it to the left. This opens a new document on the left that contains just the name of the document. You repeat this for the second document. Now the document on the left is a document list. The document on the left still is named for the first piece of content in it, i.e., the name of the document in the middle, so you rename it to something more meaningful.</p>
+
+<blockquote>
+  <p><em>Principle: Document containers, i.e., folders are created by flinging document names into the workspace.</em></p>
+</blockquote>
+
+<p>You then select the title of the document on the left and fling it again in a direction. This creates another document with this document’s name. Rename it to form a parent “folder”. Repeat this process multiple times to create a hierarchy of folders.</p>
+
+<blockquote>
+  <p><em>Principle: Hierarchies are also created via direct manipulation, but of document and document folders only, not of document content.</em></p>
+</blockquote>
+
+<p>Now select the series of documents that represenxt the hierarchy and choose “Collapse”. The editor reduces them to a single document that shows the tree. This works only for a set of documents that only contain references to other documents.</p>
+
+<p>Now choose “Expand”. The separate directory documents show up again. Now enter one of those documents and edit an existing document’s name. The name changes in the title as well. Add a new line in the document and type a name. This becomes a folder.</p>
+
+<p>Close the application and reopen it. AYMATH remembers the workspace configuration and reverts to the last setup of documents and folder views when loaded back.</p>
+
+<blockquote>
+  <p><em>Principle: The view configuration is remembered,and reapplied on return, like tmux or macos</em></p>
+</blockquote>
+
+<p>Select a document list and fling it in any direction. This creates another workspace. All the activities you could do with one workspace, you can do with the other.</p>
+
+<p>Select a workspace and fling it in any direction. This opens up another window and puts the workspace in it. If you have multiple monitors, the window+workspace is placed in the monitor that matches the direction of fling the closest.</p>
+
+<h3 id="todo-expand-on-the-following">Todo: Expand on the following</h3>
+<p>terminal windows</p>
+
+<p>in-document structure</p>
+
+<p>actions based on typing special characters/rich editors</p>
+
+<p>embedding document structure sigils within comments in the source language</p>
+
+<p>exporting to file system: it <strong>maps</strong> to a set of files and folders. workspace is just a special file, as are the viewes.</p>
+
+<h2 id="implementation-notes">Implementation notes</h2>
+
+<ul>
+  <li>All documents are text documents</li>
+  <li>Documents contain lines, terminated or separated by new lines</li>
+  <li>
+    <p>a span of a document is a part of the document selected interactively or identified by sigils in comment. E.g, a span in a java source file would be thus:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  public class AClass{
+
+      /*
+      AYMATH_START MULTI C "hw_in_java" 
+      */
+      public static void main(String[] args...){
+          System.out.println("Hello World");
+      }
+      /*
+      AYMATH_END
+      */
+        
+  } 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>…where <code class="highlighter-rouge">MULTI</code> denotes that a the aymath block is contained inside a multiline comment, and <code class="highlighter-rouge">C</code> denotes that the comment is a C-style one.</p>
+
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
+    </body>
+</html>
