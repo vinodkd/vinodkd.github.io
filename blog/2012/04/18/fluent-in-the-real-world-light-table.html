@@ -13,24 +13,22 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Fluent in the real world: Light Table</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Fluent in the real world: Light Table</h2>
+            <div class=""stack-horizontal>
+                <span>18 Apr 2012 </span>
+                
+                <span class="tag">fluent </span>
+                
+                <span class="tag">jack </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Fluent in the real world: Light Table - ( 18 Apr 2012 )</span>
-        
-            <span class="post-tag">fluent </span>
-        
-            <span class="post-tag">jack </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">Today's <a href="http://news.ycombinator.com/item?id=3836978">HN story on Light Table</a> only tells me that I won't have to build Fluent myself - someone else will, soon enough!<br /><br />In the discussion that ensued, there was however, <a href="http://news.ycombinator.com/item?id=3837222">this interesting comment</a>:<br /><blockquote class="tr_bq"><span style="background-color: #f6f6ef; font-family: Verdana; font-size: 12px; text-align: -webkit-auto;">Yes, but&nbsp;</span><i style="background-color: #f6f6ef; font-family: Verdana; font-size: 12px; text-align: -webkit-auto;">our</i><span style="background-color: #f6f6ef; font-family: Verdana; font-size: 12px; text-align: -webkit-auto;">&nbsp;code was entirely in these utterly unusable changeset files that couldn't work nicely with the version control that everyone else in the entire world was using; his version still uses files under the hood. There's a team that's trying to back Monticello with Git, I believe by saving each method into its own file in part of a Git source tree; that looks promising as a compromise.</span></blockquote>That's a good lesson to learn from, methinks. Just as "text as code and not just its serialization format" has stood the test of time, so has version control using textual diffs. Anything else will face the migration gap.<br /><br />I can't be bothered to find the link, but a while ago there was a post by somebody big in the blogosphere (Spolsky or Cringely) that spoke about a bill pay start-up that solved the migration problem by allowing users to forward their paper bills directly to them to have the bills digitized and paid. The idea was that once the bills were digitized they could be paid electronically thence, but it was the first time setup that was the hump that users didn't want to go over. Take that pain away, and you got yourself converts by the droves.<br /><br />Tripit does something similar with Trip Management by parsing booking confirmation emails from travel websites.<br /><br />I'm not so sure such an approach will apply to developers and their tools for a couple of reasons:<br /><br /><ul style="text-align: left;"><li>Text is actually not a format that you want to get away from (unless you're in the structured camp)</li><li>Providing the gateway solution involves fixing all the tools to work with the non-text format you come up with. And you must fix ALL of them - the IDE, the debugger, the built tool, you name it.</li><li>Alternatively, you could change the environment to something where text input is actually less efficient. Like the Tablet. Then you have a chance.</li></ul><div>Its a long, tough road ahead :)</div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

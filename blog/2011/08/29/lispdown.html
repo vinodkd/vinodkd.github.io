@@ -13,26 +13,24 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Lispdown</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Lispdown</h2>
+            <div class=""stack-horizontal>
+                <span>29 Aug 2011 </span>
+                
+                <span class="tag">ideas-wip </span>
+                
+                <span class="tag">lispdown </span>
+                
+                <span class="tag">sicp </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Lispdown - ( 29 Aug 2011 )</span>
-        
-            <span class="post-tag">ideas-wip </span>
-        
-            <span class="post-tag">lispdown </span>
-        
-            <span class="post-tag">sicp </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">As I read SICP, an idea arose in my mind to create a ()-less lisp. Its been done before, of course, but I was not really trying to redesign the language as I was attempting to remove visual clutter. To that end, I present:<br /><br />&nbsp;Lispdown. Its lisp, and its like markdown, get it?<br /><br />This is still WIP, so if by some bizzare chance this gets into HN or reddit, bear with me. Its not done yet. In fact, its vaporware at this point. Just a concept. And a strawman at that :)<br /><br />Alright, here we go:<br /><br /><br /><ul style="text-align: left;"><li>Lispdown is to lisp as markdown is to html.&nbsp;Therefore, valid lisp is always valid lispdown. If you cannot use lispdown syntax, just use lisp's.</li><li>&nbsp;Known forms are like begin-parens; add an end to finish them (Thanks ruby!)</li><li>A list is formed by&nbsp;any set of lines that has some sort of list begin marker(each line is an element), or&nbsp;a line separated by commas,&nbsp;or a part of a line in () or [] or {} separated by spaces or commas</li><li>A pair is formed using a colon to separate the two bits. this is only for readability as a space will do just fine.</li><li>I've yet to figure out how complex trees of function bodies can be reliably converted to lispdown without introducing python-style whitespace interpretation.</li></ul><div><b>Update: There is now <a href="https://github.com/vinodkd/lispdown">a Lispdown implementation</a></b></div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

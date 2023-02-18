@@ -13,16 +13,17 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  A personal exploration on Java's Enum declaration</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>A personal exploration on Java's Enum declaration</h2>
+            <div class=""stack-horizontal>
+                <span>08 Sep 2011 </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">A personal exploration on Java's Enum declaration - ( 08 Sep 2011 )</span>
-        
-    </header>
-    <article class='post-content'>
         <h2>What:</h2>
 <p>A personal exploration on why <code>Enum</code> is declared as <code>Enum<E extends Enum<E>></code></p>
 <h2>Why</h2>
@@ -55,9 +56,6 @@
 <p>So I've still not figured out what the final <code><E></code> in:</p>
 <pre><code>    public class Enum1<E extends Enum1<E>><br /></code></pre>
 <p>... is for, considering the code above works without it.</p>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

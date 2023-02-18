@@ -13,22 +13,20 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Idea extension: The dead letter box framework</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Idea extension: The dead letter box framework</h2>
+            <div class=""stack-horizontal>
+                <span>27 Feb 2011 </span>
+                
+                <span class="tag">ideas </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Idea extension: The dead letter box framework - ( 27 Feb 2011 )</span>
-        
-            <span class="post-tag">ideas </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">This is an extension of the idea for the delicious replacement. The idea is to treat accesses to a website as messages dropped off - dead letter box style.<br /><br /><a href="http://en.wikipedia.org/wiki/Dead_drop">Dead letter boxes</a> allow communication to happen without meeting using a pre-agreed signal or format. The idea is to use a web server's log file as a dead letter box for various types of messages. Like so:<br /><br />404 GET /dlb/tweet/my_tweet_as_an_underscored_resource_name<br />404 GET /dlb/todo?task=do%20something&amp;priority=high&amp;context=@home<br />404 GET /dlb/post-blog-entry?title=A%20Blog%20Title&amp;body=A%20uuencoded_string_as_long_as_log_will_take_goes_here<br /><br />Again, the way it would work is that a job wakes up regularly, greps the web server logs for these error messages, and does what's actually expected from each of these.<br /><br />Subversion of http's actual intentions? Maybe. But it sure produces a very decoupled way of working - no high capacity web server with custom code to handle all these operations need exist, and new operations can be added in a very decoupled way.<br /><br />The best advantage of all? As long as you're able to hit a web server - you can tweet, log a todo, post to your blog, etc, and much more. No more need to be connected to each of these different sources.<br /><br />Next: do the same with email, so that the same functions are available when you send an email. Although you could implement that as an actual email processsor.<br /><br />Not entirely addressed yet: security. Maybe making it https would suffice?</div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

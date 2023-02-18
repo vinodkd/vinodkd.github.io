@@ -13,20 +13,18 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Webster: the web-based structural editor</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Webster: the web-based structural editor</h2>
+            <div class=""stack-horizontal>
+                <span>10 Jul 2009 </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Webster: the web-based structural editor - ( 10 Jul 2009 )</span>
-        
-    </header>
-    <article class='post-content'>
         <p>This is an update on my previous post of a web-based MPS editor.<br /><br />I’ve actually found some time to work on this, and I have a basic version working - well in 2 pieces.<br /><ol><li>A renderer that takes a language spec and an instance of the language, and spews out an editable html version of it - with keywords non editable etc.</li><li>An editor that takes this rendered version, and adds behavior to it a la MPS - allows navigation, ctrl-space like popups etc.</li></ol>I still need to combine these together to realize the real goal, ie that of a web based AST editor, which will effectively be <a href="http://www.martinfowler.com/articles/languageWorkbench.html">Language Workbench</a> meets <a href="https://bespin.mozilla.com/">bespin</a> with an <a href="http://www.jetbrains.com/mps/index.html">MPS</a> flavor.<br /><br />But wait, there’s more!<br /><br />My real intent is to go much farther than that:<br /><ul><li>Generalize the standard editor commands so that they are the true graph edit operations that are required to transform one version of code to the next. Eg, to add a new import statement, today we insert a line, type “import java.blah.foo;”. This should be transformed into: “insert a new import node, which produces an editor node that allows us to choose java from the ctrl-space drop down, then blah, then foo. And so on and so forth.</li><li>Generalize it further such that editing the structure of an application is no different from editing the structure of a class/program - these are graphs too, inherently. So I’m thinking of a zoom in/out feature. Zoom far enough in, and you see the standard AST editor. Zoom far enough out, you see something similar, but it now shows your packages, applications, deployment graph, what have you. Consider using SVG for this.<br /></li><li>Webster meets Subtext: Create capabilities similar to the ones demonstrated by Jon Edwards’ Subtext. This might however be part of a language that uses Webster more than<br />Webster itself.</li><li>Implement Jack in Webster</li><li>Implement Robot framework in Webster</li></ul></p>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

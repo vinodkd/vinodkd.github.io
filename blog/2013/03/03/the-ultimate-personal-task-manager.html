@@ -13,22 +13,20 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  The Ultimate Personal Task Manager</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>The Ultimate Personal Task Manager</h2>
+            <div class=""stack-horizontal>
+                <span>03 Mar 2013 </span>
+                
+                <span class="tag">idea </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">The Ultimate Personal Task Manager - ( 03 Mar 2013 )</span>
-        
-            <span class="post-tag">idea </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">I've been prototyping a GDoc-based 43 folders for a few weeks now. The biggest two problems I have to date are:</div><br /><ul style="text-align: left;"><li style="text-align: justify;">the ease with which I miss my daily review of things to do</li><li style="text-align: justify;">"Too much trees, too less forest". I need a dashboard that's higher than the daily, ground level view</li></ul><div style="text-align: justify;">In a fit of frustration about the second point (cos there's no point fretting about the first:) ), I set about designing the ideal personal task management system - once again. Here's the result:</div><div style="text-align: justify;"><br /></div><div><div style="text-align: justify;">The <b>Ultimate Personal Task Manager</b> needs:</div><div style="text-align: justify;"><ol><li>The open task list: which contains all tasks that are to be started or WIP. Routine/repetitive tasks are represented as new open tasks for the next instance when the current one is completed.</li><li>The review/decide process: which reviews current status and decides what to do next.</li><li>The todo list: which contains tasks that have been decided upon, and will be acted on in a particular time period - day/week/month/whatever. <==> 43 folders. no sequencing, just "these tasks mush happen within this period or before this milestone"</li><li>The plan: sequenced list of tasks. <==> day planner. contains time slots when things will be done</li><li>The dashboard: "dont break the chain" style display of only top level projects. ideally this should be the top 5 things you care about in life shown as a red/yellow/green style view</li><li>The nagger: Most important piece for procrastinators. the physical reminder to actually use this system. could be a phone reminder system or a spouse/friend. should know what your frequency to run the decision process is and nag you to do it.</li></ol></div><div style="text-align: justify;">Key point about this system: It could be all in your head or on paper/pencil or software</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Yes, this is pretty close to GTD. The additions are the dashboard and the nagger.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">If implemented as software it also needs to:</div><div style="text-align: justify;"><ol><li>Work offline</li><li>Works across OSs and systems</li><li>Allow versioning</li></ol></div><div style="text-align: justify;"><b><u>Software implementation notes</u></b>:</div><div style="text-align: justify;">- Something that works offline and universally is required. simplest i've seen to date is gina trapani's todo.txt. Using it, the functional requirements:</div><div style="text-align: justify;"><span class="Apple-tab-span" style="white-space: pre;"> </span>- #1 &amp; 3 are built in. &nbsp;Use 'repeat' addon for sub point under 1</div><div style="text-align: justify;"><span class="Apple-tab-span" style="white-space: pre;"> </span>- #2 and 6 are human tasks anyway.</div><div style="text-align: justify;"><span class="Apple-tab-span" style="white-space: pre;"> </span>- #4 and #5 will need additional dev. In particular #5 will require (at least for me) enhancing the project field to a tree of projects. Some simple testing with bash showed that a format like "proj1/sub1/sub11" will work, as will "proj1:sub1:sub11"</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; The non functionals have direct answers:</div><div style="text-align: justify;">&nbsp; <span class="Apple-tab-span" style="white-space: pre;"> </span>- it works offline and across OSs - being text and a shell script</div><div style="text-align: justify;">&nbsp; <span class="Apple-tab-span" style="white-space: pre;"> </span>- putting it in a git repo will handle versioning</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">- Idea: Create an Outlook plugin to auto convert mail into tasks</div><div style="text-align: left;"><span class="Apple-tab-span" style="white-space: pre;"> </span>- how to run cygwin bash from windows? ans: <a href="thttp://stackoverflow.com/questions/673278/cygwin-run-script-silenty-from-run-command">Cygwin's run command</a></div><div style="text-align: left;"><span class="Apple-tab-span" style="white-space: pre;"> </span>- how to create an outlook plugin? TBD</div></div><div style="text-align: left;"><br /></div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

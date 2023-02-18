@@ -13,20 +13,18 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  JShell contd...</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>JShell contd...</h2>
+            <div class=""stack-horizontal>
+                <span>06 Sep 2006 </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">JShell contd... - ( 06 Sep 2006 )</span>
-        
-    </header>
-    <article class='post-content'>
         <p>I’m still working on JShell, which has grown in leaps and bounds, but is still far from complete. Myriad reasons for this:<br /><ul>   <li>I need to come to terms with a lot of technology:<br />  </li>   <ul>     <li>JavaCC : whose static parsers i’ve cut loose from<br />    </li>     <li>Swing : which I always held at a distance, and whose nuances i came to appreciate a few invokeLater()s later :(<br />    </li>     <li> logging: which I played catch up with from a philosphical perspective - is JUL better or log4j? - my current bet is the latter</li>     <li>threading and IPC: how do you handle redirecting the child process’ i/o streams from the parent when it is itself broken into framework and configurable pieces</li>     <li>unit testing: do i really want to go for broke and write unit tests for my gui code as well?<br />    </li>   </ul>   <li>I need to decide how far I want to really take this “All Java, and all portable” ideal, bcos:</li>   <ul>     <li>For the most part, I’m using Textpad for editing - i might as well use eclipse, but its waaay huge!<br />    </li>     <li>The commandline is a poor man’s ant for now - especially considering jshell dogfood release was broken</li>     <li>There is no “All java, all portable” version control software. Hmm…there’s another project that I did research for a while<br />    </li>   </ul>   <li>I got the architecture bug for a while and subjected the jshell code to analysis via <a href="http://www.alphaworks.ibm.com/tech/sa4j">sa4j</a> and <a href="http://www.lattix.com">lattix</a>. The former I’ve used before, and while I sorta “get”their global butterflies and breakables and hubs, there doesnt seem to be a clear direction from the tool where to go from there. IMO, the Summary and the skeleton view are the most useful as they (respectively) let you see how stable your architecture is from a numbers and visualization perspective. As for lattix, I can intuitively see the value of the DSM tool, and looking at the jshell code in lattix helped me “see” the structure better, tho I’ve not got the hange of the theory behind it.  I tried building the DSM manually using the rules mentioned in an article on lattix, but somehow ended up getting a uses/used by count much higher than the tool itself - so not able to validate the results. Things I liked about the tool:</li>   <ul>     <li>The concepts of constraints and rules to verify architecture after the initial run is imo pretty good in concept.  Code visualization tools definitely need to get more qualitative.<br />    </li>     <li>The ability to regroup code into new logical packages is vital to “extracting the true architecture”. This is one feature I’ve seen in Headway Review that made a lot of sense to me - especially when visualizing large codebases that you’ve just been introduced to , and are expected to provide expert opinion on.</li>     <li>The fact that it really can scale - its essentially an n x n spreadsheet - and requires  a row for a class  unlike pictorial tools.</li>   </ul> </ul> Anyway, life goes on, and in between, I steal time for jshell. Its gettin there :)<br />And then Account Management.<br />Long way..</p>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

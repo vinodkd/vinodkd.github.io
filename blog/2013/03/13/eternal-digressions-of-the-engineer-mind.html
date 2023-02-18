@@ -13,20 +13,18 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Eternal digressions of the engineer mind</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Eternal digressions of the engineer mind</h2>
+            <div class=""stack-horizontal>
+                <span>13 Mar 2013 </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Eternal digressions of the engineer mind - ( 13 Mar 2013 )</span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">I had an idea for a stream-of-consciousness editor. So I started creating a prototype using node-webkit, codemirror and my non-existent ui skills.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Since I did all this on the PC and wanted to sync up with the mac, I started to setup node-webkit on it, only to realize that there are no binaries for osx 10.6.x.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">So I downloaded node-webkit (using up 35gigs of bandwidth by the 10th of the month - kids and wife will not see their videos) and got it running.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Then I realized that the code for the editor itself could do with some modularization - modularization of the kind that my betterscript language promises. That project, which was last worked on last year on one day - a hacknight - now got revived.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Of course, betterscript uses ometa-js, which I'd copied directly onto the betterscript project (along with its dependency - rhino) and duct-taped together a script that worked only for that version of betterscript.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Today's me, however, was not happy with this state of affairs. First off, ometa-js should be an external dependency. Also, even if it were an external dep, the original author had not really organized the code much. He'd just done the important bits - ie the really interesting peg parser in JS that parsed both text and objects alike - and left the rest of the "productionization" to us vogons. This wouldnt do, of course. I'd like some organization in that code, for cryin' out loud.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">This required looking up the original github project and its 400 some-odd forks to see which one met my needs. There were a few that did re-org the code, but not in the "just right" way: they'd either stop short of what I wanted, or go way beyond the call and rewrite the code.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">So of course, I forked the original, reorg-ed the code my way and tried to use it as a dependency on betterscript. Which, of course, meant that now I had to rewrite the original ometa-rhino.js with whatever changes I'd made in the file with the same name within betterscript. This lead to the realization after one sleepless night (doh) that outputing an object to stdout will reduce it to a string that cannot be read back as an object. Off to Crockford's for a bit of json2.js.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">As of today:</div><br /><ul style="text-align: left;"><li style="text-align: justify;">my fork of ometa-js works when run using my lanucher with rhino. Other modes not working yet.</li><li style="text-align: justify;">betterscript works using my fork of ometa-js on simple samples. Still a long way to go before I send that post out to jashkenas :)</li><li style="text-align: justify;">soced is encouraging concept-wise, still to reach its usability nirvana!</li></ul><br /><div style="text-align: justify;">Final note: I thought it might a good idea to represent all these dependencies as a Graphviz graph. That turned into a journey down the "how do I get graphviz to show the nodes in the order I want " rabbit hole.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Sigh.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">The phrase "Eternal Digressions" is somewhat inspired by the phrase "Infinite Digressions", which is copyrighted by Praveen. Alluded to here with no permission whatsoever :)&nbsp;</div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

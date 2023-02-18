@@ -13,22 +13,20 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Account Management Software</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Account Management Software</h2>
+            <div class=""stack-horizontal>
+                <span>02 Aug 2006 </span>
+                
+                <span class="tag">ideas </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Account Management Software - ( 02 Aug 2006 )</span>
-        
-            <span class="post-tag">ideas </span>
-        
-    </header>
-    <article class='post-content'>
         <p>As a middle level manager in one of the top outsoucing companies, the pains of executing a app dev/maintenance service keep hitting me on a daily basis. Having worked on both sides of the onsite-offshore model - the business development and delivery sides, that is - I’m surprised that the tool of choice still remains the extremely, yet infuriatingly versatile excel sheet. Every manager worth his salt has his own collection of xl sheets that contain the dark secrets with which he plies his middle-mgmt trade. And while most organizations provide a plethora of internal tools and portals, the middle manager still sticks to his xl sheets. Why this is so is a rant, so I’ll concentrate on what could be done about it.<br /><br />An onsite manager’s primary goal is Business Development. Top line and bottom line mostly. An offshore manager’s primary role is Delivery - plans and people. And yet both need to store and user the same underlying data - people, projects, start and end dates and so forth. The former needs a system to be able to predict how much business he is seeing down the pipe, and the latter needs a system to be able to predict how many resources he is seeing down the same pipe. The former however has a greater need for portability - he is most proably a seasoned road warrior - used to connecting from the reticent hotel wifi connection just to see that last mail he missed out on during the flight. The latter has some need for portability as well - he might take calls from home late in the night and (unless his company has provided him with one) might not have a laptop handy to check all his xl sheets with.<br /><br />Enough whys and wherefores. Such thoughts led me to think of an account management software that can be used by an onsite or offshore manager to handle the various pieces of data in an easily accessible form - the anywhere app.<br /><br />The idea itself is not new at all - Have an app that runs from a pen drive. <a href="http://portableapps.com">Portable Apps</a> has tons of such software. But bein a Java geek wannabe, I had to go for gold and come up with a tech spec like below:<br /><ul><li>Completely Java based - still believing the WORA concept</li><li>Should fit into a pretty small pen drive code+data - targetting the 128 M one that I have</li><li>Should work from a standard browser.</li><li>Should provide all the functionality that a normal app would - ie RIA<br /></li></ul>And for some functional requirements:<br /><ul><li>Should allow for temporal data storage. Ie, it should be able to handle facts such as “I added Resource X to my team effective Jun 2006 till Sep 2006, but I entered the fact into the database on July 2nd”.</li><li>Should allow for temopral queries, obviously. Something along the lines of:</li><ul><li>Who were in my team as on Jun 3?</li><li>What has been the history of Resource Y in my team?</li></ul><li>For the offshore manager it should allow the management of:</li><ul><li>People</li><li>Teams</li><li>Resource Forecasting<br /></li><li>Projects</li></ul><li>For the onsite manager it should allow the management of:</li><ul><li>Projects</li><li>Prospective Projects</li><li>Pipeline &amp; Forecasting<br /></li><li>Client Management</li></ul></ul>Next post: The tiny java deploy environment</p>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

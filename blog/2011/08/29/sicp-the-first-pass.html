@@ -13,20 +13,21 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  SICP: The first pass</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>SICP: The first pass</h2>
+            <div class=""stack-horizontal>
+                <span>29 Aug 2011 </span>
+                
+                <span class="tag">Books </span>
+                
+                <span class="tag">sicp </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">SICP: The first pass - ( 29 Aug 2011 )</span>
-        
-            <span class="post-tag">Books </span>
-        
-            <span class="post-tag">sicp </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on">I just finished my first pass through SICP. Well, "finished" might be a bit presumptuous because I skimmed through the latter chapters, but that was intentional: I couldn't wait to figure out what the book was "all about" - &nbsp;especially the metacircular evaluator bits - that I HAD to skip ahead to find out if "the butler did it".<br /><br />And boy did he do it! I havent read the book in detail at all, but already I see some core concepts that I had about programming being presented inside-out. For somebody who didn't grok polymorphism (for example) unless it was mentally transformed into vtable lookups, this feels like looking at a sculpture from the inside - while its being made. If that makes sense at all.<br /><br />Let me try to explain. And before I go further, let me add: its not that its all functional programming (although the functional bits that blew my mind I've already blogged about) nor the lispy geekiness of it. Its more fundamental than that.<br /><br />The method of imparting knowledge on programming that I've encountered to date has been additive: you're introduced to some basic concepts like assignment, looping etc; then taught how to string them together in expressions and statements; then string these into functions and procedures; and so forth. SICP seems subtractive in comparison: it states the problem and set out to decompose its solution into smaller bits till the basic statements are arrived upon, at which point some primitive "forms" (such as cond() are introduced for use).&nbsp;This would merely be bottom-up vs top-down if not for SICP showing along the way that programs and data are equivalent by creating a data store mechanism in pure functions, demonstrating data-driven programming (command pattern implemented using config file+ interface + n implementations for you java guys) using table lookups, shown how symbolic programming could be done with examples in calculus and circuitry, and finally demonstrating simulating a real programming system with stack frames, VM et al.<br /><br />No doubt the internal reason is that functional programming works that way, but this is a powerful way of presenting programming for two reasons:<br /><ol style="text-align: left;"><li>It IS the right way to solve problems - especially large ones</li>
  <li>If you present it as the only way to do things - as the book does - new programmers wont know any worse :)</li>
  </ol><div>There is also a marked "peeling the onion" feel to the book - each chapter builds on the previous one. Here's the "storyline" that I've figured out to date:</div><div><ul style="text-align: left;"><li>Write programs by breaking them down into their constituent functions</li>
@@ -43,9 +44,6 @@
  <li>Understand the language evaluator chapter. Try to use it on a toy language if that's possible</li>
  <li>List how the concepts in this book are applicable in daily programming.</li>
  </ul></div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

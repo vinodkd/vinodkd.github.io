@@ -13,22 +13,20 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Slashchrome: an idea whose time is long overdue</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Slashchrome: an idea whose time is long overdue</h2>
+            <div class=""stack-horizontal>
+                <span>29 Nov 2010 </span>
+                
+                <span class="tag">ideas </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Slashchrome: an idea whose time is long overdue - ( 29 Nov 2010 )</span>
-        
-            <span class="post-tag">ideas </span>
-        
-    </header>
-    <article class='post-content'>
         <p>Its been a while since I considered taking this project up, and decided against it because it seemed like too simple a project. The idea is to enable Google Chrome to be able to search using the forward slash key. Nothing new, spectacular, or revolutionary.<br /><br />I had, in fact, gone through the bug trackers of both the Chrome and Chromium(<a href="http://code.google.com/p/chromium/issues/detail?id=150">issue 150</a>) projects a while ago, but a recent re-reading got me back to the old fervor: Here was a dead simple feature that the core developers refuse to implement, and the only reason that I can see is that some webapps (read GMail) capture the slash for its own purposes and the browser doesnt want to get in the way.<br /><br />The developers insistence in ignoring users who have been begging for the feature since its inception is reminiscent of the Pidgin vs Carrier saga. Its time to fork Chromium and include slash search, methinks.<br /><br />Since so many people are asking for it, I thought somebody would have already forked it, but a google search did not turn up any such projects.<br /><br />I also looked briefly at <a href="http://code.google.com/p/chrome-type-ahead/">an extension</a> that was written to overcome this limitation, but comments on the thread seem to indicate that a core implementation is still desired. Hence this idea. However, there are some really nice features in the extension that I’d borrow when implementing this.<br /><br />Roadmap:<br /><br /><ul><li>V0.1: fork Chromium and change the keyboard mapping of search from ctrl-f to /</li><li>V0.2: Make the switch configurable via options so that people can still switch back to ctrl-f behavior if needed</li><li>V0.3: Blacklist support for sites that use slash for their own purposes (this from the typ-ahead extension)</li></ul><br />Thoughts:<br /><br /><ul><li>I looked at the source briefly assuming that finding the keyboard map should be simple. I’ve not yet been able to.</li><li>The build setup also seems pretty time consuming. I should probably setup on windows (being the first implementation and all, and probably the most users), but that entails setting up on VS Express - which seems like <a href="http://cotsog.wordpress.com/2009/11/08/how-to-compile-google-chrome-with-visual-c-2008-express-edition/">an excursion down the proverbial rabbit hole in itself</a>.</li></ul></p>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

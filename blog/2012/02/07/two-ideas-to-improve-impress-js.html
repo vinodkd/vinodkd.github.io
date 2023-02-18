@@ -13,24 +13,22 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Two ideas to improve impress.js</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Two ideas to improve impress.js</h2>
+            <div class=""stack-horizontal>
+                <span>07 Feb 2012 </span>
+                
+                <span class="tag">ideas </span>
+                
+                <span class="tag">impress.js </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Two ideas to improve impress.js - ( 07 Feb 2012 )</span>
-        
-            <span class="post-tag">ideas </span>
-        
-            <span class="post-tag">impress.js </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><br /><ol style="text-align: left;"><li>Add a "debug mode" that shows the center and bounds of the currently selected step. This is useful in aligning 3d elements</li><li>Add incremental positioning attributes. That is, step n's position is based on step n-1's. This is really useful considering the normal flow is to move from step n-1 to n. The new attributes would be "data-dx", "data-dy", "data-dz", "data-rotate-dx" and so forth.</li></ol><div>Implementation note:</div><div>impress.js's main logic where the position of each element is determined will have to be enhanced to use the previous element's position when these incremental attributes are used. Once they're calculated, however, the rest of the logic should work as expected.</div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

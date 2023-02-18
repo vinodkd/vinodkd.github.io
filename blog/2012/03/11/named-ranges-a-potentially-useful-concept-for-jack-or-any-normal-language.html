@@ -13,22 +13,20 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  Named ranges - a potentially useful concept for Jack (or any normal language)?</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Named ranges - a potentially useful concept for Jack (or any normal language)?</h2>
+            <div class=""stack-horizontal>
+                <span>11 Mar 2012 </span>
+                
+                <span class="tag">jack </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">Named ranges - a potentially useful concept for Jack (or any normal language)? - ( 11 Mar 2012 )</span>
-        
-            <span class="post-tag">jack </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">Consider the following code that calculates the maximum product of 3 integers possible from a given array (Java used for exposition; could be any language):<br /><br /><script src="https://gist.github.com/2017661.js">  </script> The code in the loop could probably be extracted into 2 subroutines but that would involve major interaction between the variables in this one and those subroutines. What if we were able to define the code between the recalc...end recalc comments as a named range that <b>did not introduce a scope</b>? Something like so:<br /><br /></div><script src="https://gist.github.com/2017685.js">  </script></div>IDEs could fold easily on this and this would only help comprehension.<br /><br />Finally: Why a language construct and not a comment? Because it explicitly aids comprehsnsion.&nbsp;</div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

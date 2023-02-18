@@ -13,18 +13,19 @@
         <link rel="stylesheet" href="/css/main.css">    
     </head>
     <body class="container">
-      <header class="is-left stck-horizontal">
-        <h1><a href="/"><img src="/favicon.png"></a>  On Software Testing and the case for the Common Test Scenario Database</h1>
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>On Software Testing and the case for the Common Test Scenario Database</h2>
+            <div class=""stack-horizontal>
+                <span>22 Aug 2011 </span>
+                
+                <span class="tag">soapbox </span>
+                
+            </div>
+        </div>
       </header>
       <article>
-        <div id="post" class="post">
-    <header class="post-header">
-        <span class="post-title">On Software Testing and the case for the Common Test Scenario Database - ( 22 Aug 2011 )</span>
-        
-            <span class="post-tag">soapbox </span>
-        
-    </header>
-    <article class='post-content'>
         <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;"><br /></div><h2 style="text-align: justify;"><a href="http://www.blogger.com/post-edit.g?blogID=31811208&amp;postID=4820305792483560724&amp;from=pencil" name="OnSoftwareTestingandthecasefortheCommonT"><span style="font-family: Arial, sans-serif;">TL;DR<o:p></o:p></span></a></h2><div style="text-align: justify;"><br /></div><div style="text-align: justify;">As a participant (and sometimes contributor of ideas) to Test Automation efforts (Strategy, tool selection and implementation), it has been my long-standing opinion that the true gains from automation can be achieved only when Test Scenarios (enshrined as exemplar test data) are a heavily reused resource across the organization. This page is an attempt to "arrive" at that opinion by progressively optimizing the software testing process.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">I take the example of testing the hotel search feature and progressively optimize it through 4 stages to illustrate the value of each such optimization; and the value of shared test scenarios in particular.</div><div style="text-align: justify;"><span style="font-family: 'Times New Roman', serif; font-size: 12pt;"><span style="font-family: 'Times New Roman', serif; font-size: 12pt;"><br /></span></span></div><h2 style="text-align: justify;"><span style="font-family: Arial, sans-serif;">What is Software testing?<o:p></o:p></span></h2><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Software Testing is the art and science of validating that a particular piece of software behaves as expected. Since most words in the previous sentence are loaded with meaning, I'll dissect it:</div><ul type="disc"><li class="MsoNormal" style="text-align: justify;"><b><span style="font-family: Arial, sans-serif;">Art and      science</span></b><span style="font-family: Arial, sans-serif;">:      Art because some of it is based on the skill of the tester and science      because most bits are tractable into well-defined, repeatable procedures      with predictable outcomes<o:p></o:p></span></li>
  <li class="MsoNormal" style="text-align: justify;"><b><span style="font-family: Arial, sans-serif;">Validating</span></b><span style="font-family: Arial, sans-serif;">:      This might involve the atomic step of input-process-output, or a sequence      of many such atomic steps (typically known as "following a      script"). Each such step (or steps) entails comparing an expected      value (or more generally outcome) with a known one<o:p></o:p></span></li>
  <li class="MsoNormal"><div style="text-align: justify;"><b><span style="font-family: Arial, sans-serif;">Expected</span></b><span style="font-family: Arial, sans-serif;">:      This implies that there are some requirements that the software is      supposed to meet which is an accumulation of <u>the most important (or all)</u> of the comparisons mentioned above.</span></div></li>
@@ -152,9 +153,6 @@
  <li class="MsoNormal" style="text-align: justify;"><span style="font-family: Arial, sans-serif;">Component owners should be responsible for their component and their front end interface; and expect their dependents to do the same. That way they have the responsibility towards their clients and expect the same from their dependent servers.</span></li>
  </ul><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><br /></div><h3 style="text-align: justify;"><span style="font-family: Arial, sans-serif;">Todo</span></h3><div><ul style="text-align: left;"><li style="text-align: justify;"><span class="Apple-style-span" style="font-family: Arial, sans-serif;">Create a Test Scenario database tie-in for the Robot Framework</span></li>
  </ul></div><div style="text-align: justify;"><br /></div><div></div></div>
-
-    </article>
-</div>
 
       </article>
       <small class="is-right">&copy; 2023 Vinod KD </small>

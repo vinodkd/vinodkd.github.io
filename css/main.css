@@ -62,6 +62,7 @@ h6 {
     font-weight: 500;
     margin: 0.35em 0 0.7em 0;
 }
+
 .container {
     max-width: var(--grid-maxWidth);
     margin: 0 auto;
@@ -75,10 +76,16 @@ h6 {
   }
 
 .stack-vertical {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     flex-direction: column;
 }
 
 .stack-horizontal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     flex-direction: row;
 }
 
@@ -115,3 +122,37 @@ h6 {
         -ms-flex-pack: start;
             justify-content: flex-start;
 }
+
+header {
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+article {
+    text-align: justify;
+}
+
+.tag {
+    display: inline-block;
+    border: 1px solid var(--color-lightGrey);
+    text-transform: uppercase;
+    color: var(--color-grey);
+    padding: 0.5rem;
+    line-height: 1;
+    letter-spacing: 0.5px;
+}
+.tag.is-small {
+    padding: 0.4rem;
+    font-size: 0.75em;
+}
+.tag.is-large {
+    padding: 0.7rem;
+    font-size: 1.125em;
+}
+.tag+.tag {
+    margin-left: 1rem;
+}
+
+#LOGO {
+    margin-right: 2rem;
+} 
