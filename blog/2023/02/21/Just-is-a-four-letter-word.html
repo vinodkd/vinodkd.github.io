@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Just Is A Four Letter Word</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">    
+    </head>
+    <body class="container">
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Just Is A Four Letter Word</h2>
+            <div class=""stack-horizontal>
+                <span>21 Feb 2023 </span>
+                
+                <span class="tag">engineering-manager-life, </span>
+                
+                <span class="tag">rant </span>
+                
+            </div>
+        </div>
+      </header>
+      <article>
+        <h2 id="just-do-it-why-dont-you">Just do it, why dont you?</h2>
+
+<p>Have you ever had a colleague who wants you to make a change in a system/service/component you own say:</p>
+
+<p>Can’t you <strong>just</strong> do X in < less than a day/ a few days >?</p>
+
+<p>This is typically some senior person in the other team, who’s competent in their domain and would themselves not entertain a similar request against their own system/service component. It doesnt come from a place of malice, but from a mistaken sense of how easy X must be in a domain that’s not theirs. There are also shades of <a href="https://xyproblem.info/">the XY problem</a> in such an ask.</p>
+
+<p>Front end teams typically face it because “UI is easy, just add a button” or “Client libraries are easy, my unit tests are essentially clients to the service”. Backend teams also face it in organizations where front end is king, because it “must be a few lines of validation on the service”. In general, the dominant area of work in a company tends to trivialize the effort that goes into the non-dominant areas.</p>
+
+<p>In my experience, <strong>Nothing is ever easy</strong>. For example, I used to run a system where the title of a page could be changed easily (as one would expect), but adding a comma required minor refactor of the page structure.</p>
+
+<p>Also, complexity abounds in the simplest of things, sometimes related to things being <a href="http://laputan.org/mud/">a big ball of mud</a>. It is easier, for example, to test a service, because operations could be unit tested. On a UI or client library, the useful tests are full use cases, a.k.a integration tests, which needs to factor in state, setting up a headless browser+selenium/cypress, and factoring human think time. Failures are also not cut-and-dry because humans are more forgiving, and succeeding at the 4th try is still “good enough”. This might be seen as a 75% failure if you thought of them as just tests.</p>
+
+<h2 id="how-to-get-better-at-this">How to get better at this</h2>
+
+<p>If you are the requester, be mindful of your own biases on what is easy vs hard. Try to avoid the “Can’t you just…?” question, and instead ask: “I need your system/service/component to do Y. What would it take to do that?”</p>
+
+<p>If you are the receipient of such a question, don’t agree or defend. Instead ask why they’re asking for X, which might unearth Y. Also, explain your internal architecture a bit so people understand why a change is hard. If you’re a central team with many such requests, invest in an intranet web page/wiki that explains this, and add that to new ticket templates.</p>
+
+<h2 id="post-script">Post script</h2>
+<p>I’ve written this down now, but this has been in my mind for many years now. As a manager for multiple front end teams across companies, I saw this pattern of request show up quite often.</p>
+
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
+    </body>
+</html>
