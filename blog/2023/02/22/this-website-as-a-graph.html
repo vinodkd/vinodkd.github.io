@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>This Website As A Graph</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">    
+    </head>
+    <body class="container">
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>This Website As A Graph</h2>
+            <div class=""stack-horizontal>
+                <span>22 Feb 2023 </span>
+                
+                <span class="tag">graph, </span>
+                
+                <span class="tag">conceptual, </span>
+                
+                <span class="tag">website, </span>
+                
+                <span class="tag">meta </span>
+                
+            </div>
+        </div>
+      </header>
+      <article>
+        <p>So I’ve always wanted to represent this website to be a visual representation of the “web” that it creates, i.e.:</p>
+<ul>
+  <li>each page on the website is a “node” in the graph that makes up the website and should be shown as such</li>
+  <li>the website’s relationship with the “rest of the web out there” should also be visible to the user</li>
+  <li>navigation from one node to another should be explicit via animation, but once the page is rendered it should behave like any other website.</li>
+</ul>
+
+<p>To do this:</p>
+
+<ul>
+  <li>The home page would start with a display of the website as a graph and the surrounding web cloud.</li>
+  <li>Selecting each node would zoom into the page and display it as a normal page</li>
+  <li>Hitting “esc” on any page would zoom out just enough to show:
+    <ul>
+      <li>connections from that page to other places</li>
+      <li>navigation elements such as lists, tag clouds, etc</li>
+    </ul>
+  </li>
+</ul>
+
+<p>So the first step was to convert the website source into a graph. A ruby script later, I had a Graphviz source file that depicted the site, its pages, and their links both within the site and to the rest of the internet. A simple Graphviz dot output looked like this:</p>
+
+<p><img src="/images/vinodkd.org.svg" alt="Simple Graphviz Dot graph of this website" width="95%" /></p>
+
+<p>Of course, this was pointless, so I tried out all the other rendering engines in Graphviz</p>
+
+<p>FDP:</p>
+
+<p><img src="/images/vinodkd.org.fdp.svg" alt="Graphviz FDP graph of this website" width="95%" height="500px" /></p>
+
+<p>SFDP:</p>
+
+<p><img src="/images/vinodkd.org.sfdp.svg" alt="Graphviz SFDP graph of this website" width="95%" height="500px" /></p>
+
+<p>Osage:</p>
+
+<p><img src="/images/vinodkd.org.osage.svg" alt="Graphviz Osage graph of this website" width="95%" height="500px" /></p>
+
+<p>I did not know that Graphviz could do Treemaps, but apparently it can:</p>
+
+<p><img src="/images/vinodkd.org.pw.svg" alt="Graphviz Treemap of this website" width="95%" height="500px" /></p>
+
+<p>2PI, which was somewhat usable: the home page linked to the blog, which was the inner circle, which then linked to various pages on the web, represented by the outer circle.</p>
+
+<p><img src="/images/vinodkd.org.2pi.svg" alt="Graphviz FDP graph of this website" width="95%" height="500px" /></p>
+
+<p>But by far the most comprehensible ones were those ouput from:</p>
+
+<p>GVMap:</p>
+
+<p><img src="/images/vinodkd.org.gvmap.svg" alt="Graphviz FDP graph of this website" width="95%" height="500px" /></p>
+
+<p><img src="/images/vinodkd.org.gvmap2.svg" alt="Graphviz FDP graph of this website" width="95%" height="500px" /></p>
+
+<p><img src="/images/vinodkd.org.gvmap3.svg" alt="Graphviz FDP graph of this website" width="95%" height="500px" /></p>
+
+<p>It looked like a country of sorts, with the home page and blog cities. I finally had my home page representation!</p>
+
+<p>Except…I was not sure I should have this as my home page. It did not make it easy to discover content, as the only way to find anythin was to mouse over the dots that represent the documents. Also, and this is stating the obvious, I realized that most people dont really care how they reached a given page, but that they got it. So now working on a semantic zoom widget.</p>
+
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
+    </body>
+</html>
