@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using_genai_to_build_a_real_world_app_(and_not_succeeding..yet)</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">    
+    </head>
+    <body class="container">
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>Using_genai_to_build_a_real_world_app_(and_not_succeeding..yet)</h2>
+            <div class=""stack-horizontal>
+                <span>04 Feb 2024 </span>
+                
+            </div>
+        </div>
+      </header>
+      <article>
+        <p>So I’ve been trying Gen AI out off-and-on, along with the rest of the world, I guess. This weekend, I thought I’d try creating a whole app from scratch and see how far I get. Spoiler: Chatpgt 3.5 did better than I expected, but still I didnt get very far. Read on for the gory details.</p>
+
+<p>So I’d built this “app” at work, which is essentially a shared spreadsheet. It tracks manual reporting that managers in my team have to do weekly. Even though I built it, I don’t like it because it has reached that dangerous point in the life of every spreadsheet based app where the formulas are sufficiently complex enough to break with simple edits, or even regular use of the spreadsheet. And there’s only so much you can do with hidden columns and greyed out cells. The real solution, of course, was that there shouldnt be a tracker at all, but that’s a whole different discussion.</p>
+
+<p>So anyway, I’d been thinking of rewriting the app by hand, and then thought: what if I use this GenAI stuff that everyone’s been demo-ing as being able to build whole applications from textual descriptions? So I fired up Chatgpt yesterday and spent 3 hours trying to do just that.</p>
+
+<p>First, I asked ChatGPT if it can describe a logical architecture given requirements as use cases.</p>
+
+<p><code class="highlighter-rouge">R1. As an employee I want to track any violations on resources I own, as visible from various websites, in a single central place, so that I can be compliant</code></p>
+
+<p>In summary, the response was a good list of components that would be needed in an app to support this requirement: UI, Auth, Data ingestion and storage, Notifications, violation tracking, security etc.</p>
+
+<p>Next I added another requirement:</p>
+
+<p><code class="highlighter-rouge">R2. As a manager I want to see an aggregated dashboard of all employees reporting to me, including roll up of managers reporting to me, so that I can check compliance at my level</code></p>
+
+<p>…and it added a component to manage the hierarchy. So far so good. So I asked it to suggest frameworks for each component in Javascript, to which it gave a pretty ok set of recommendations: React, Express, Mongo, etc.</p>
+
+<p>Next, I said I’d like to start buiding the UI in React, and asked for directions to set the project up. The response had a pretty detailed set of instructions to install react and the required libraries, and even bash code to create the right directory structure. At this point, I realized, however, that there was an issue with my local node setup (unrelated to this session). So I asked for instructions to setup the project using Docker.</p>
+
+<p>Chatgpt gave me a pretty usage <code class="highlighter-rouge">Dockerfile</code> and commands to build the container and run it, but forgot to provide the <code class="highlighter-rouge">package.json</code> referenced in the file. One reminder later, that file too was there, and I went ahead with building the container. Since it had suggested Alpine Linux 14, and I saw a ton of warnings about deprecated npm packages, I asked ChatGPT if there was a newer version of the OS. It said that to its best knowledge, as of Jan 2022, Alpine 16 was the latest and that I should use that. I did a Google search, found that Alpine 21 was the latest, and tried that, which failed for reasons I dont remember now, so I switched to the suggested version 16. However, I continued to have npm failures because the generated code referenced files that didnt exist - <code class="highlighter-rouge">index.js</code>, <code class="highlighter-rouge">index.html</code> and <code class="highlighter-rouge">index.css</code>, all of which CGPT had to be reminded, upon which it produced them promptly.</p>
+
+<p>The next hour or so was spent fixing issues related to docker, npm, and react. Log files couldnt be seen easily since <code class="highlighter-rouge">npm build</code> would fail, the generated code used sub-packages and APIs that had changed across versions, and CGPT would forget that all the action happens inside a container and instead give instructions that would work outside one.</p>
+
+<p>Finally, I got the build to work, and spent another 20 mins trying to get the container setup such that I didnt have to build every time I changed the source as suggested by the AI. I did this by myself, btw, since its advice on setting up volumes was plain wrong: it repeatedly told me that the <code class="highlighter-rouge">npm build</code> process would move files from <code class="highlighter-rouge">/src</code> to <code class="highlighter-rouge">/build</code> (TRUE), but that then I can continue to edit files in the host <code class="highlighter-rouge">src</code> folder and they’d be reflected magically in the container’s <code class="highlighter-rouge">/build</code> folder (FALSE).</p>
+
+<p>At long last, I had a basic home page working, and the rest of the generated code - it had built one route for employee and manager correctly - showed up as blank pages.</p>
+
+<p>I then directed it to display a list of violations in the employee page and to build the UI to update them. To its credit, it did produce a UI that had a form for submission of the violation, and a table below the form that showed the submitted violations. I even got it to transpose the display to show violations as the rows and weeks as the columns. But by this time I was exhausted.</p>
+
+<p>My final ask from GPT was to recommend a React Grid component, which it did, and added it to the UI as well, but getting that to work was beyond my patience with this particular session that had lasted well into the night.</p>
+
+<p>In summary: It is indeed amazing that an automaton can get to the point where I had a working UI at all. So there’s that. It’s also great that it built out the domain model to the extent that it did. It actually at one point told me to step back and build a backend API first and then to come back to the UI. However, as confirmed by many others before me, it’s still early days for the following reasons:</p>
+
+<ol>
+  <li>Building real world applications is inherently messy and iterative. While an LLM can keep up with the change in directions, its own misdirections get to be taxing. <strong>As a human, I shouldnt have to keep tabs on the AI and catch its misses</strong>.</li>
+  <li>Current information is important. And while Retrieval augmented Generation (RAG) could be applied, I wonder if it can hold specific knowledge in multiple domains such as React, Docker, UI development, API design/Express, etc.</li>
+  <li>I’m also a bit skeptical about agent-based solutions like Lang Chain working in this kind of problem space. The process is inherently messy and there are a lot of blind alleys all the time, including ones that you run into while already in another one! Unless the chain can be dynamically changed based on the last outcome, agent based solutions might be too rigid.</li>
+  <li>Finally, and I have no data to back this up, but I sense that the problem is at the core of how LLMs work. “If you’ve done N steps so far, what’s the next step in building the app?” is indeed the general formulation of the problem, and seems to fit the LLM’s credo, but the answer needs to be goal oriented, not based on yesterday’s successes.</li>
+</ol>
+
+<p>That all said, we’re certainly living in interesting times!</p>
+
+
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
+    </body>
+</html>
