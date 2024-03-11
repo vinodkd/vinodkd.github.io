@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>dev-a personal project tool</title>
+        <meta name="viewport" content="width=device-width, initial-scale=0.8"/>
+
+        <link rel="stylesheet" media="all" type="text/css" href="/css/normalize.css" />
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">    
+    </head>
+    <body class="container">
+      <header class="stack-horizontal">
+        <a href="/"><img id="LOGO" src="/favicon.png"></a>  
+        <div class="stack-vertical">
+            <h2>dev-a personal project tool</h2>
+            <div class=""stack-horizontal>
+                <span>10 Mar 2024 </span>
+                
+                <span class="tag">ideas, </span>
+                
+                <span class="tag">dev, </span>
+                
+                <span class="tag">tools </span>
+                
+            </div>
+        </div>
+      </header>
+      <article>
+        <h1 id="dev---the-personal-project-tool"><code class="highlighter-rouge">dev</code> - the personal project tool</h1>
+
+<p>I follow the same set of steps with every personal project:</p>
+
+<ul>
+  <li>create a folder</li>
+  <li>write a readme with the basic idea</li>
+  <li>install the required language runtime/compiler</li>
+  <li>install dependencies</li>
+  <li>write code</li>
+  <li>create a journal.md and start tracking my thoughts as I work on the project.</li>
+</ul>
+
+<p>I’ve also created a docker container for the project so I dont have to worry about installing system-wide runtimes (e.g., ruby) for just one project. so I’d like to make a tool that does this kind of thing for every project so its self-contained.</p>
+
+<h2 id="requirements">Requirements</h2>
+
+<ol>
+  <li>Create a new project, which sets up:
+    <ul>
+      <li>a folder with readme and journal.</li>
+      <li>a related docker image with a sane default docker file and shared volume</li>
+      <li>git init’d repo.</li>
+    </ul>
+  </li>
+  <li>Interactive use of the container during coding sessions without knowing details of docker commands to do so.</li>
+  <li>Ability to install software in the container and have it become part of the container image, either as a snapshot or (preferably) as declarative updates to the dockerfile.</li>
+  <li>Non functional: Use a container library that does not need root access, such as podman.</li>
+  <li>Push whole project to github/gitlab/etc</li>
+  <li>(Nice to have) Support for multi-component projects. Each component would be an independent project on its own, but work together to form a cohesive solution. For example, a set of microservices that form an ecommerce site would be multiple components in a single project.</li>
+</ol>
+
+<h2 id="mockup-of-ux">Mockup of UX</h2>
+<p>In what follows <code class="highlighter-rouge">dev</code> is a stand-in name for the tool proposed.</p>
+
+<ul>
+  <li>
+    <p>Creating a new project:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  dev new <prjname> <baseimg>
+</code></pre></div>    </div>
+
+    <p>… creates a folder <code class="highlighter-rouge"><prjname></code>, adds a <code class="highlighter-rouge">README.md</code>and <code class="highlighter-rouge">journal.md</code>. It then spins up a docker container using <code class="highlighter-rouge"><baseimg></code> as the base docker image, eg, alpine linux. It also sets up the shared volume used to manipulate the project’s files.</p>
+  </li>
+  <li>
+    <p>Work on the project:</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  dev do [<prjname>] --save-changes // prjname optional if already in folder
+</code></pre></div>    </div>
+
+    <p>…(re)starts the docker container and keeps it ready for interactive use. <code class="highlighter-rouge">--save-changes</code> saves any updates to the image for future sessions</p>
+  </li>
+  <li>Change code: use standard IDE features, edits are done in shared host folder, which is mirrored in guest via the shared volume.</li>
+  <li>Change environment of project: Use standard executables in guest OS.</li>
+  <li>Source version control: use standard git commands</li>
+  <li>Publish project to Github/et al: Use standard git commands.</li>
+</ul>
+
+<h2 id="implementation-thoughts">Implementation thoughts</h2>
+<p>As described, this looks like a thin shell script veneer over docker/podman, and that’s probably not a bad thing (TM). The only interesting/complicated bit might be the ability to reify cli commands run within the container as dockerfile commands. However, I wonder if that too might be too much. Exactly how reproducible should every step in this process be, especially if it starts with downloading a binary?</p>
+
+      </article>
+      <small class="is-right">&copy; 2023 Vinod KD </small>
+    </body>
+</html>
